@@ -33,6 +33,12 @@ page-tutorial {
     color: #fff;
     font-weight: 400;
   }
+  .btn{
+    padding: 10px 20px;
+    border-radius: 8px;
+    height: 40px;
+    min-width: 150px;
+  }
   .btn-primary {
     background-color: $white;
     -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
