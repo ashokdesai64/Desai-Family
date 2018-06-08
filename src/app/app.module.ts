@@ -14,6 +14,7 @@ import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { SendotpPage } from '../pages/sendotp/sendotp';
 import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
+import { ProfilePage } from '../pages/profile/profile';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -41,6 +42,7 @@ export function provideSettings(storage: Storage) {
     MyApp,
     SendotpPage,
     VerifyotpPage,
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ export function provideSettings(storage: Storage) {
     MyApp,
     SendotpPage,
     VerifyotpPage,
+    ProfilePage,
   ],
   providers: [
     Api,
