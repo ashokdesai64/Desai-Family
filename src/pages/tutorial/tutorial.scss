@@ -1,36 +1,50 @@
-page-tutorial {
-  .toolbar-background {
-    background: transparent;
-    border-color: transparent;
-  }
 
-  .slide-zoom {
+page-tutorial {
+   font-family: 'Raleway', sans-serif;
+  .scroll-content {
+    position: relative;
+    background: url('../assets/img/splash-bg.jpg') no-repeat transparent;
+    background-size: cover;
+    height: 100%;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+  }
+  .splash-contant{
+    @include flexbox();
+    @include flex-direction(column); 
+    @include align-items(center);
+    @include justify-content(space-around);
     height: 100%;
   }
-
-  .slide-title {
-    margin-top: 2.8rem;
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
   }
-
-  .slide-image {
-    max-height: 40%;
-    max-width: 60%;
-    margin: 36px 0;
+  .splash-logo {
+    margin: 0px auto;
+    background: url('../assets/img/logo.png') no-repeat transparent;
+    background-size: 100%;
+    width: 180px;
+    height: 180px;
   }
-
-  b {
-    font-weight: 500;
+  .splash-title {
+    margin-top: 0px;
+    color: #fff;
+    font-weight: 400;
   }
+  .btn-primary {
+    background-color: $white;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    color: $dark;
 
-  p {
-    padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #60646B;
+    &:hover{
+      background-color: #f5f5f5;
+    }
 
-    b {
-      color: #000000;
+    &.activated {
+      background-color: $light-gray;
     }
   }
-
 }

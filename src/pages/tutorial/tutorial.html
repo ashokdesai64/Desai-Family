@@ -1,13 +1,10 @@
 <ion-content no-bounce>
-  <h2 class="slide-title">{{ 'TUTORIAL_SLIDE1_TITLE' | translate }}</h2>
-  <ion-card>
-    <img src="assets/img/ica-slidebox-img-4.png" />
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
-    <button ion-button icon-end large clear (click)="startApp()">
-      {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
-    </button>
-  </ion-card>
-
+  <div class="splash-contant">
+    <h2 class="splash-title">{{ 'TUTORIAL_SLIDE1_TITLE' | translate }}</h2>
+      <div class="splash-logo"></div>
+      <button ion-button class="btn btn-primary" (click)="startApp()">
+        {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
+      </button>
+  </div>
 
 </ion-content>
