@@ -34,9 +34,10 @@ $colors: (
 
 $white: #ffffff;
 $dark: #333333;
-$light-gray: #f4f4f4;
-
-
+$light-gray: #f5f5f5;
+$black: #000000;
+$pink: #cc0066;
+$gray: #666666;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
@@ -81,7 +82,7 @@ $light-gray: #f4f4f4;
 
 @import "roboto";
 @import "noto-sans";
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800');
 
 
 
@@ -181,9 +182,3 @@ $light-gray: #f4f4f4;
           align-self: $align;
 }
 
-.btn{
-  padding: 8px 20px;
-  border-radius: 8px;
-  height: auto;
-  min-width: 120px;
-}
