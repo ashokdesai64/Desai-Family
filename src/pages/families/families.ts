@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController, ViewController } from 'ionic-angular';
+
 import { Item } from '../../models/item';
 import { Items } from '../../providers';
+import { FamilyMembersPage } from '../family-members/family-members';
 
 @IonicPage()
 @Component({
@@ -10,7 +12,18 @@ import { Items } from '../../providers';
 })
 export class FamiliesPage {
   currentItems: Item[];
-  constructor(public navCtrl: NavController, public items: Items, public navParams: NavParams, public modalCtrl: ModalController) {
+  selectOptions = {
+    title: 'Sort By',
+    // subTitle: 'Select your toppings',
+    mode: 'md'
+  };
+  constructor(
+    public navCtrl: NavController,
+    public items: Items,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController,
+  ) {
     this.currentItems = this.items.query();
   }
 
@@ -43,9 +56,45 @@ export class FamiliesPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
+    this.navCtrl.push(FamilyMembersPage, {
       item: item
     });
   }
+
+  sortby() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Sort By');
+    alert.addInput({ type: 'radio', label: 'Name ASC', value: 'name-asc', checked: false });
+    alert.addInput({ type: 'radio', label: 'Name DESC', value: 'name-desc', checked: true });
+    alert.addInput({ type: 'radio', label: 'DOB ASC', value: 'dob-asc', checked: false });
+    alert.addInput({ type: 'radio', label: 'DOB DESC', value: 'dob-desc', checked: false });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log(data);
+        // this.testRadioOpen = false;
+        // this.testRadioResult = data;
+      }
+    });
+    alert.present();
+  }
+
+  filterby() {
+  let alert = this.alertCtrl.create();
+  alert.setTitle('Filter By');
+  alert.addInput({ type: 'checkbox', label: 'Name ASC', value: 'name', checked: false });
+  alert.addInput({ type: 'checkbox', label: 'DOB ASC', value: 'dob', checked: false });
+
+  alert.addButton('Cancel');
+  alert.addButton({
+    text: 'OK',
+    handler: data => {
+      console.log(data);
+    }
+  });
+  alert.present();
+}
 
 }

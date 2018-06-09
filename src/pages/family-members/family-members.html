@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Family Members</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-card class="list-box">
+<ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <ion-avatar item-start>
+        <img src="assets/img/marty-avatar.png" class="profile-avatar">
+      </ion-avatar>
+    </ion-col>
+    <ion-col col-9>
+      <ion-row>
+        <ion-col col-3 class="label-pink">Name : </ion-col>
+        <ion-col col-9>Test User</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 class="label-pink">Gender : </ion-col>
+        <ion-col col-8>Male</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5 class="label-pink">Bool Group : </ion-col>
+        <ion-col col-7>AB+</ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-5 class="label-pink">Phone Nimber : </ion-col>
+    <ion-col col-7>9898989898</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4 class="label-pink">Address : </ion-col>
+    <ion-col col-8>9898989898</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-5 class="label-pink">Email : </ion-col>
+    <ion-col col-7>abc@gmail.com</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-5 class="label-pink">Education : </ion-col>
+    <ion-col col-7>B.Com</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-5 class="label-pink">Business : </ion-col>
+    <ion-col col-7>Wed Devloping</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-5 class="label-pink">Family Menber : </ion-col>
+    <ion-col col-7>5</ion-col>
+  </ion-row>
+</ion-grid>
+</ion-card>
+  
+<ion-card padding class="list-title">
+    <span>Family Members</span>
+</ion-card>
+
+<ion-list>
+  <ion-card *ngFor="let item of currentItems" class="list-box">
+    <ion-card-content>
+      <ion-item-sliding>
+        <button ion-item (click)="openItem(item)">
+          <ion-avatar item-start>
+            <img [src]="item.image" />
+          </ion-avatar>
+          <h2>{{item.name}}</h2>
+          <p>{{item.mobile}}</p>
+          <ion-note item-end *ngIf="item.bloodgroup">
+            <ion-icon name="water"></ion-icon> {{item.bloodgroup}}</ion-note>
+        </button>
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card-content>
+  </ion-card>
+
+</ion-list>
+</ion-content>

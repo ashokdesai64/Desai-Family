@@ -1,26 +1,51 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Desai Families</ion-title>
+  <ion-navbar text-center>
+    <!-- <ion-buttons left>
+      <button ion-button navPop icon-only >
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-title >Desai Families</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
-
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-      </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ion-card *ngFor="let item of currentItems" class="list-box">
+      <ion-card-content>
+          <ion-item-sliding>
+            <button ion-item (click)="openItem(item)">
+              <ion-avatar item-start>
+                <img [src]="item.image" />
+              </ion-avatar>
+              <h2>{{item.name}}</h2>
+              <p>{{item.mobile}}</p>
+              <ion-note item-end *ngIf="item.bloodgroup"><ion-icon name="water"></ion-icon> {{item.bloodgroup}}</ion-note>
+            </button>
+            <ion-item-options>
+              <button ion-button color="danger" (click)="deleteItem(item)">
+                {{ 'DELETE_BUTTON' | translate }}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+      </ion-card-content>
+    </ion-card>
+    
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col no-padding>
+      <button ion-button full icon-start color="danger" (click)="sortby()">
+        <ion-icon name="md-arrow-round-up"></ion-icon>
+        Sort By
+      </button>
+    </ion-col>
+    <ion-col no-padding>
+      <button ion-button full icon-start color="danger" (click)="filterby()">
+        <ion-icon name="md-funnel"></ion-icon>
+        Filter
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
