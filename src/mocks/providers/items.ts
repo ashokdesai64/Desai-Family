@@ -49,7 +49,27 @@ export class Items {
         "name": "Paul Puppy",
         "profilePic": "assets/img/speakers/puppy.jpg",
         "about": "Paul is a Puppy."
-      }
+      },
+      {
+        "name": "Paul Puppy",
+        "profilePic": "assets/img/speakers/puppy.jpg",
+        "about": "Paul is a Puppy."
+      },
+      {
+        "name": "Paul Puppy",
+        "profilePic": "assets/img/speakers/puppy.jpg",
+        "about": "Paul is a Puppy."
+      },
+      {
+        "name": "Paul Puppy",
+        "profilePic": "assets/img/speakers/puppy.jpg",
+        "about": "Paul is a Puppy."
+      },
+      {
+        "name": "Paul Puppy",
+        "profilePic": "assets/img/speakers/puppy.jpg",
+        "about": "Paul is a Puppy."
+      },
     ];
 
     for (let item of items) {

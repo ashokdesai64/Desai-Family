@@ -12,10 +12,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
+
 import { SendotpPage } from '../pages/sendotp/sendotp';
 import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
 import { ProfilePage } from '../pages/profile/profile';
 import { FamiliesPage } from '../pages/families/families';
+import { FamilyMembersPage } from '../pages/family-members/family-members';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -45,6 +47,7 @@ export function provideSettings(storage: Storage) {
     VerifyotpPage,
     ProfilePage,
     FamiliesPage,
+    FamilyMembersPage,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ export function provideSettings(storage: Storage) {
     VerifyotpPage,
     ProfilePage,
     FamiliesPage,
+    FamilyMembersPage,
   ],
   providers: [
     Api,

@@ -24,3 +24,19 @@
     </ion-item-sliding>
   </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col no-padding>
+      <button ion-button full icon-start color="danger" (click)="sortby()">
+        <ion-icon name="md-arrow-round-up"></ion-icon>
+        Sort By
+      </button>
+    </ion-col>
+    <ion-col no-padding>
+      <button ion-button full icon-start color="danger" (click)="filterby()">
+        <ion-icon name="md-funnel"></ion-icon>
+        Filter
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
