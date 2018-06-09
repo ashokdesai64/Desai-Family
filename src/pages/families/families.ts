@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items } from '../../providers';
 
@@ -10,7 +10,7 @@ import { Items } from '../../providers';
 })
 export class FamiliesPage {
   currentItems: Item[];
-  constructor(public navCtrl: NavController, public items: Items, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public items: Items, public navParams: NavParams, public modalCtrl: ModalController) {
     this.currentItems = this.items.query();
   }
 
