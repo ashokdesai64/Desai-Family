@@ -1,36 +1,153 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar >
     <ion-title>Profile</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <form #formCtrl="ngForm">
-    <div align="center" *ngIf="formCtrl.form.valid">
 
-      <h1> Profile</h1>
-      <img class="profile-image" src="assets/img/speakers/bear.jpg">
-      <h4>Test user, ABC Solutions</h4>
-      <h5>22 years old</h5>
-    </div>
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" name="name" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Company</ion-label>
-        <ion-select name="company" required>
-          <ion-option value="Maybank">Maybank</ion-option>
-          <ion-option value="Public Bank">Public Bank</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Birth Date</ion-label>
-        <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
-      </ion-item>
+    <ion-grid>
+      <ion-row align-items-center>
+        <ion-col col-4>
+          <div text-center class="profile-img" *ngIf="formCtrl.form.valid">
+            <img class="profile-image" src="assets/img/speakers/bear.jpg">
+          </div>
+        </ion-col>
 
-    </ion-list>
-    <button color="secondary" [disabled]="!formCtrl.form.valid" ion-button block (click)="save()">Save</button>
-    <button color="danger" ion-button block (click)="reset()">Reset</button>
+        <ion-col col-8>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked class="profile-label">Name</ion-label>
+              <ion-input type="text" name="name" required placeholder="Enter Your Name"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          
+          <ion-list radio-group>
+            <div class="radio-box">
+              <ion-item>
+                <ion-label>Male</ion-label>
+                <ion-radio value="Male"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Female</ion-label>
+                <ion-radio value="female"></ion-radio>
+              </ion-item>
+            </div>
+          </ion-list>
+          
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-list>
+            <ion-item>
+              <ion-label>Birth Date</ion-label>
+              <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked class="profile-label">Address</ion-label>
+              <ion-input type="text" name="name" required placeholder="Enter Your Address"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked class="profile-label">Email Id</ion-label>
+              <ion-input type="Email" name="name" required placeholder="Enter Your Email"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked class="profile-label">Business</ion-label>
+            <ion-input type="Email" name="name" required placeholder="Enter Your Business"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked class="profile-label">Eduction</ion-label>
+            <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label>Blood Group</ion-label>
+            <ion-select name="Blood Group" required>
+              <ion-option value="O Positive">O Positive</ion-option>
+              <ion-option value="O Negative">O Negative</ion-option>
+              <ion-option value="A Positive">A Positive</ion-option>
+              <ion-option value="A Negative">A Negative</ion-option>
+              <ion-option value="B Positive">B Positive</ion-option>
+              <ion-option value="B Negative">B Negative</ion-option>
+              <ion-option value="AB Positive">AB Positive</ion-option>
+              <ion-option value="AB Negative">AB Negative</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label>Village</ion-label>
+            <ion-select name="Blood Group" required>
+              <ion-option value="O Positive">O Positive</ion-option>
+              <ion-option value="O Negative">O Negative</ion-option>
+              <ion-option value="A Positive">A Positive</ion-option>
+              <ion-option value="A Negative">A Negative</ion-option>
+              <ion-option value="B Positive">B Positive</ion-option>
+              <ion-option value="B Negative">B Negative</ion-option>
+              <ion-option value="AB Positive">AB Positive</ion-option>
+              <ion-option value="AB Negative">AB Negative</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label>taluka</ion-label>
+            <ion-select name="Blood Group" required>
+              <ion-option value="O Positive">O Positive</ion-option>
+              <ion-option value="O Negative">O Negative</ion-option>
+              <ion-option value="A Positive">A Positive</ion-option>
+              <ion-option value="A Negative">A Negative</ion-option>
+              <ion-option value="B Positive">B Positive</ion-option>
+              <ion-option value="B Negative">B Negative</ion-option>
+              <ion-option value="AB Positive">AB Positive</ion-option>
+              <ion-option value="AB Negative">AB Negative</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-12>
+          <ion-item>
+            <ion-label>District</ion-label>
+            <ion-select name="Blood Group" required>
+              <ion-option value="O Positive">O Positive</ion-option>
+              <ion-option value="O Negative">O Negative</ion-option>
+              <ion-option value="A Positive">A Positive</ion-option>
+              <ion-option value="A Negative">A Negative</ion-option>
+              <ion-option value="B Positive">B Positive</ion-option>
+              <ion-option value="B Negative">B Negative</ion-option>
+              <ion-option value="AB Positive">AB Positive</ion-option>
+              <ion-option value="AB Negative">AB Negative</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col text-center col-12>
+          <button ion-button class="btn btn-primary" (click)="gotoprofile()">Save</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

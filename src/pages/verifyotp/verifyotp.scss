@@ -46,34 +46,20 @@ page-verifyotp {
         color: $white;
 
         &:hover{
-            background-color: $light-gray;
+            background-color: $hover-pink;
         }
 
         &.activated {
-            background-color: $light-gray;
+            background-color: $hover-pink;
         }
     }
     .item-ios{
         padding-left: 0px;
-        
-    }
-    .list-ios{
-        .item-block{
-         
-            &:last-child{
-                border-bottom: none !important;
-            }
-        }
+        width: 220px;
+        margin: auto;
     }
     .item-md{
         @extend .item-ios;
-        
-        .item-input{
-         
-            &:last-child{
-                border-bottom: none !important;
-            }
-        }
     }
   
 }
