@@ -8,8 +8,9 @@ export class Items {
 
   defaultItem: any = {
     "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "image": "assets/img/speakers/bear.jpg",
+    "mobile": "9898989898",
+    "bloodgroup": "A",
   };
 
 
@@ -17,58 +18,69 @@ export class Items {
     let items = [
       {
         "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Burt Bear",
+        "image": "assets/img/speakers/bear.jpg",
+        "mobile": "9898989898",
+        "bloodgroup": "A"
       },
     ];
 
