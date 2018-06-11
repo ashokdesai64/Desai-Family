@@ -8,6 +8,9 @@ import { FirstRunPage } from '../pages';
 import { Settings } from '../providers';
 import { FamiliesPage } from '../pages/families/families';
 import { ProfilePage } from '../pages/profile/profile';
+import { FamilyMembersPage } from '../pages/family-members/family-members';
+import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
+import { SendotpPage } from '../pages/sendotp/sendotp';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -35,18 +38,13 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Families', component: FamiliesPage },
-    { title: 'Profile', component: ProfilePage },
-    // { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
-    { title: 'Content', component: 'ContentPage' },
+    { title: 'Send otp', component: SendotpPage },
+    { title: 'Verify otp', component: VerifyotpPage },
     { title: 'Login', component: 'LoginPage' },
     { title: 'Signup', component: 'SignupPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' }
+    { title: 'Profile', component: ProfilePage },
+    { title: 'Families', component: FamiliesPage },
+    { title: 'Family Members', component: FamilyMembersPage },
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
