@@ -8,7 +8,6 @@ import { FirstRunPage } from '../pages';
 import { Settings } from '../providers';
 import { FamiliesPage } from '../pages/families/families';
 import { ProfilePage } from '../pages/profile/profile';
-import { FamilyMembersPage } from '../pages/family-members/family-members';
 import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
 import { SendotpPage } from '../pages/sendotp/sendotp';
 
