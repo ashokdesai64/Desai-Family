@@ -34,11 +34,11 @@ page-sendotp {
         color: $white;
 
         &:hover{
-            background-color: $light-gray;
+            background-color: $hover-pink;
         }
 
         &.activated {
-            background-color: $light-gray;
+            background-color: $hover-pink;
         }
     }
     .item-ios{
