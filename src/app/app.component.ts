@@ -44,7 +44,6 @@ export class MyApp {
     { title: 'Signup', component: 'SignupPage' },
     { title: 'Profile', component: ProfilePage },
     { title: 'Families', component: FamiliesPage },
-    { title: 'Family Members', component: FamilyMembersPage },
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
