@@ -45,7 +45,7 @@
         <ion-col col-12>
           <ion-list>
             <ion-item>
-              <ion-label>Birth Date</ion-label>
+              <ion-label color="pink">Birth Date</ion-label>
               <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
             </ion-item>
           </ion-list>
@@ -85,70 +85,55 @@
 
         <ion-col col-12>
           <ion-item>
-            <ion-label>Blood Group</ion-label>
+            <ion-label color="pink">Blood Group</ion-label>
             <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">O Positive</ion-option>
-              <ion-option value="O Negative">O Negative</ion-option>
-              <ion-option value="A Positive">A Positive</ion-option>
-              <ion-option value="A Negative">A Negative</ion-option>
-              <ion-option value="B Positive">B Positive</ion-option>
-              <ion-option value="B Negative">B Negative</ion-option>
-              <ion-option value="AB Positive">AB Positive</ion-option>
-              <ion-option value="AB Negative">AB Negative</ion-option>
+              <ion-option value="O Positive">O +</ion-option>
+              <ion-option value="O Negative">O -</ion-option>
+              <ion-option value="A Positive">A +</ion-option>
+              <ion-option value="A Negative">A -</ion-option>
+              <ion-option value="B Positive">B +</ion-option>
+              <ion-option value="B Negative">B -</ion-option>
+              <ion-option value="AB Positive">AB +</ion-option>
+              <ion-option value="AB Negative">AB -</ion-option>
             </ion-select>
           </ion-item>
         </ion-col>
 
         <ion-col col-12>
           <ion-item>
-            <ion-label>Village</ion-label>
+            <ion-label color="pink">Village</ion-label>
             <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">O Positive</ion-option>
-              <ion-option value="O Negative">O Negative</ion-option>
-              <ion-option value="A Positive">A Positive</ion-option>
-              <ion-option value="A Negative">A Negative</ion-option>
-              <ion-option value="B Positive">B Positive</ion-option>
-              <ion-option value="B Negative">B Negative</ion-option>
-              <ion-option value="AB Positive">AB Positive</ion-option>
-              <ion-option value="AB Negative">AB Negative</ion-option>
+              <ion-option value="O Positive">Jira</ion-option>
+              <ion-option value="O Negative">Saldi</ion-option>
+              <ion-option value="A Positive">Nana Liliya</ion-option>
             </ion-select>
           </ion-item>
         </ion-col>
 
         <ion-col col-12>
           <ion-item>
-            <ion-label>Taluka</ion-label>
+            <ion-label color="pink">Taluka</ion-label>
             <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">O Positive</ion-option>
-              <ion-option value="O Negative">O Negative</ion-option>
-              <ion-option value="A Positive">A Positive</ion-option>
-              <ion-option value="A Negative">A Negative</ion-option>
-              <ion-option value="B Positive">B Positive</ion-option>
-              <ion-option value="B Negative">B Negative</ion-option>
-              <ion-option value="AB Positive">AB Positive</ion-option>
-              <ion-option value="AB Negative">AB Negative</ion-option>
+              <ion-option value="O Positive">Lathi</ion-option>
+              <ion-option value="O Negative">Liliya</ion-option>
+              <ion-option value="A Positive">Savarkundla</ion-option>
             </ion-select>
           </ion-item>
         </ion-col>
 
         <ion-col col-12>
           <ion-item>
-            <ion-label>District</ion-label>
+            <ion-label color="pink">District</ion-label>
             <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">O Positive</ion-option>
-              <ion-option value="O Negative">O Negative</ion-option>
-              <ion-option value="A Positive">A Positive</ion-option>
-              <ion-option value="A Negative">A Negative</ion-option>
-              <ion-option value="B Positive">B Positive</ion-option>
-              <ion-option value="B Negative">B Negative</ion-option>
-              <ion-option value="AB Positive">AB Positive</ion-option>
-              <ion-option value="AB Negative">AB Negative</ion-option>
+              <ion-option value="O Positive">Bhavnagar</ion-option>
+              <ion-option value="O Negative">Amreli</ion-option>
+              <ion-option value="A Positive">Botad</ion-option>
             </ion-select>
           </ion-item>
         </ion-col>
 
         <ion-col text-center col-12>
-          <button ion-button class="btn btn-primary" [navPush]="homePage">Save</button>
+          <button ion-button class="btn btn-primary" color="pink" [navPush]="homePage">Save</button>
         </ion-col>
       </ion-row>
     </ion-grid>

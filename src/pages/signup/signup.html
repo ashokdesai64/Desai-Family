@@ -1,34 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <form (submit)="doSignup()">
-    <ion-list>
-      <ion-item>
-        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
-      <div padding>
-        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
-      </div>
-
-    </ion-list>
-  </form>
-</ion-content>
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -50,19 +20,19 @@
           <ion-label color="gray">
             <ion-icon name="contact"></ion-icon>
           </ion-label>
-          <ion-input type="email"  [(ngModel)]="account.name" name="name"></ion-input>
+          <ion-input type="email"  [(ngModel)]="account.name" name="name" placeholder="Your Name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="gray">
             <ion-icon name="mail"></ion-icon>
           </ion-label>
-          <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+          <ion-input type="email" [(ngModel)]="account.email" name="email" placeholder="Your Email Address"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="gray">
             <ion-icon name="lock"></ion-icon>
           </ion-label>
-          <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="Passsword"></ion-input>
         </ion-item>
         <div padding-left padding-right>
           <button ion-button color="pink" class="btn btn-primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
