@@ -14,42 +14,61 @@
     </ion-col>
     <ion-col col-9>
       <ion-row>
+<<<<<<< HEAD
         <ion-col col-3 class="label-pink">Name : </ion-col>
         <ion-col col-9>{{details.name}}</ion-col>
+=======
+        <ion-col class="label-pink">Name : </ion-col>
+        <ion-col>Kaushik Bhartbhai </ion-col>
+>>>>>>> 9b0383db56661bcb7d64181117e39e686423f50f
       </ion-row>
       <ion-row>
-        <ion-col col-4 class="label-pink">Gender : </ion-col>
-        <ion-col col-8>Male</ion-col>
+        <ion-col class="label-pink">Gender : </ion-col>
+        <ion-col>Male</ion-col>
       </ion-row>
       <ion-row>
+<<<<<<< HEAD
         <ion-col col-5 class="label-pink">Bool Group : </ion-col>
         <ion-col col-7>{{details.bloodgroup}}</ion-col>
+=======
+        <ion-col class="label-pink">Blood Group : </ion-col>
+        <ion-col>AB+</ion-col>
+>>>>>>> 9b0383db56661bcb7d64181117e39e686423f50f
       </ion-row>
     </ion-col>
   </ion-row>
   <ion-row>
+<<<<<<< HEAD
     <ion-col col-5 class="label-pink">Phone Nimber : </ion-col>
     <ion-col col-7>{{details.mobile}}</ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-4 class="label-pink">Address : </ion-col>
     <ion-col col-8>Surat Gujarat</ion-col>
+=======
+    <ion-col class="label-pink">Phone Nimber : </ion-col>
+    <ion-col>9898989898</ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-5 class="label-pink">Email : </ion-col>
-    <ion-col col-7>abc@gmail.com</ion-col>
+    <ion-col class="label-pink">Address : </ion-col>
+    <ion-col>9898989898</ion-col>
+>>>>>>> 9b0383db56661bcb7d64181117e39e686423f50f
   </ion-row>
   <ion-row>
-    <ion-col col-5 class="label-pink">Education : </ion-col>
-    <ion-col col-7>B.Com</ion-col>
+    <ion-col class="label-pink">Email : </ion-col>
+    <ion-col>abc@gmail.com</ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-5 class="label-pink">Business : </ion-col>
-    <ion-col col-7>Wed Devloping</ion-col>
+    <ion-col class="label-pink">Education : </ion-col>
+    <ion-col>B.Com</ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-5 class="label-pink">Family Menber : </ion-col>
-    <ion-col col-7>5</ion-col>
+    <ion-col class="label-pink">Business : </ion-col>
+    <ion-col>Wed Devloping</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="label-pink">Family Menber : </ion-col>
+    <ion-col>5</ion-col>
   </ion-row>
 </ion-grid>
 </ion-card>
@@ -61,6 +80,7 @@
 <ion-list>
   <ion-card *ngFor="let item of currentItems" class="list-box">
     <ion-item-sliding>
+<<<<<<< HEAD
       <button ion-item>
         <ion-avatar item-start>
           <img [src]="item.image" />
@@ -74,6 +94,23 @@
         <button ion-button color="danger">
           {{ 'DELETE_BUTTON' | translate }}
         </button>
+=======
+      <button ion-item (click)="openItem(item)">
+          <ion-avatar item-start>
+            <img [src]="item.image" />
+          </ion-avatar>
+          <h2 class="title">{{item.name}}</h2>
+          <span class="address">Gadhadi, Gadhada, Botad</span>
+          <div class="">
+            <span class="mobile-no">Mo. {{item.mobile}}</span>
+            <ion-note item-end class="blood-group" *ngIf="item.bloodgroup"><ion-icon name="water" color="pink"></ion-icon> {{item.bloodgroup}}</ion-note>
+          </div>
+        </button>
+      <ion-item-options>
+        <button ion-button color="pink" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+>>>>>>> 9b0383db56661bcb7d64181117e39e686423f50f
       </ion-item-options>
     </ion-item-sliding>
   </ion-card>

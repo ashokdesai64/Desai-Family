@@ -11,6 +11,7 @@
 <ion-content>
   <ion-list>
     <ion-card *ngFor="let item of currentItems" class="list-box">
+<<<<<<< HEAD
         <ion-item-sliding>
             <button ion-item (click)="openItem(item)">
               <ion-avatar item-start>
@@ -26,6 +27,26 @@
               </button>
             </ion-item-options>
         </ion-item-sliding>
+=======
+      <ion-item-sliding>
+        <button ion-item (click)="openItem(item)">
+          <ion-avatar item-start>
+            <img [src]="item.image" />
+          </ion-avatar>
+          <h2 class="title">{{item.name}}</h2>
+          <span class="address">Gadhadi, Gadhada, Botad</span>
+          <div class="">
+            <span class="mobile-no">Mo. {{item.mobile}}</span>
+            <ion-note item-end class="blood-group" *ngIf="item.bloodgroup"><ion-icon name="water" color="pink"></ion-icon> {{item.bloodgroup}}</ion-note>
+          </div>
+        </button>
+        <ion-item-options>
+          <button ion-button color="pink" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+>>>>>>> 9b0383db56661bcb7d64181117e39e686423f50f
     </ion-card>
     
   </ion-list>
@@ -34,13 +55,13 @@
 <ion-footer>
   <ion-row>
     <ion-col no-padding>
-      <button ion-button full icon-start color="danger" (click)="sortby()">
+      <button ion-button full icon-start color="pink" (click)="sortby()">
         <ion-icon name="md-arrow-round-up"></ion-icon>
         Sort By
       </button>
     </ion-col>
     <ion-col no-padding>
-      <button ion-button full icon-start color="danger" (click)="filterby()">
+      <button ion-button full icon-start color="pink" (click)="filterby()">
         <ion-icon name="md-funnel"></ion-icon>
         Filter
       </button>

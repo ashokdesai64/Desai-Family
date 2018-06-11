@@ -43,13 +43,20 @@ $hover-pink: #a80356;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-$toolbar-ios-background: #cc0066;
-
+$toolbar-ios-background: $pink;
+$toolbar-ios-title-font-size: 16px;
+$button-ios-font-size: 14px;
+$font-family-ios-base: 'Montserrat', sans-serif;
+$button-ios-strong-font-weight: 600;
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-$toolbar-md-background: #cc0066;
+$toolbar-md-background: $pink;
+$toolbar-md-title-font-size: 16px;
+$button-md-font-size: 14px;
+$font-family-md-base: 'Montserrat', sans-serif;
+$button-md-font-weight: 500;
 
 
 
@@ -85,6 +92,28 @@ $toolbar-md-background: #cc0066;
 @import "roboto";
 @import "noto-sans";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin rounded($radius) {
+  -webkit-border-radius: $radius; 
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
 
 
 @mixin flexbox() {

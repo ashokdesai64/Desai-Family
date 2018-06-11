@@ -39,20 +39,30 @@ page-profile {
     }
     .item-ios{
         padding-left: 0px;
+        font-size: 14px;
+        font-weight: 500;
     }
     .item-md{
         @extend .item-ios;
+        &.item-input.input-has-focus {
+            .item-inner{
+                border-bottom-color: $pink;
+                -webkit-box-shadow: inset 0 -1px 0 0 $pink;
+                box-shadow: inset 0 -1px 0 0 $pink;
+            }
+        } 
     }
     .scroll-content{
         padding: 0px 16px;
     }
     .text-input{
         font-size: 14px;
+        font-weight: 400;
     }
     .profile-label {
         margin-top: 0;
-        font-size: 16px !important;
-        
+        font-size: 14px !important;
+        color: $pink;
     }
     .item-input{
          .label-md{
@@ -120,22 +130,4 @@ page-profile {
             border-color: $pink;
         }
     }
-    .item-md{
-        &.item-input.item-input-has-focus {
-            .item-inner{
-                border-bottom-color: $pink;
-                -webkit-box-shadow: inset 0 -1px 0 0 $pink;
-                box-shadow: inset 0 -1px 0 0 $pink;
-            } 
-        }
-    }
-    .item-md{
-        &.item-input.input-has-focus {
-            .item-inner{
-                border-bottom-color: $pink;
-                -webkit-box-shadow: inset 0 -1px 0 0 $pink;
-                box-shadow: inset 0 -1px 0 0 $pink;
-            }
-        } 
-    }   
 }
