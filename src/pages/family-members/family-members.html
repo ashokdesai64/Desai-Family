@@ -9,13 +9,13 @@
   <ion-row>
     <ion-col col-3>
       <ion-avatar item-start>
-        <img src="assets/img/marty-avatar.png" class="profile-avatar">
+        <img src="{{details.image}}" class="profile-avatar">
       </ion-avatar>
     </ion-col>
     <ion-col col-9>
       <ion-row>
         <ion-col col-3 class="label-pink">Name : </ion-col>
-        <ion-col col-9>Test User</ion-col>
+        <ion-col col-9>{{details.name}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-4 class="label-pink">Gender : </ion-col>
@@ -23,17 +23,17 @@
       </ion-row>
       <ion-row>
         <ion-col col-5 class="label-pink">Bool Group : </ion-col>
-        <ion-col col-7>AB+</ion-col>
+        <ion-col col-7>{{details.bloodgroup}}</ion-col>
       </ion-row>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-5 class="label-pink">Phone Nimber : </ion-col>
-    <ion-col col-7>9898989898</ion-col>
+    <ion-col col-7>{{details.mobile}}</ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-4 class="label-pink">Address : </ion-col>
-    <ion-col col-8>9898989898</ion-col>
+    <ion-col col-8>Surat Gujarat</ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-5 class="label-pink">Email : </ion-col>
@@ -60,25 +60,22 @@
 
 <ion-list>
   <ion-card *ngFor="let item of currentItems" class="list-box">
-    <ion-card-content>
-      <ion-item-sliding>
-        <button ion-item (click)="openItem(item)">
-          <ion-avatar item-start>
-            <img [src]="item.image" />
-          </ion-avatar>
-          <h2>{{item.name}}</h2>
-          <p>{{item.mobile}}</p>
-          <ion-note item-end *ngIf="item.bloodgroup">
-            <ion-icon name="water"></ion-icon> {{item.bloodgroup}}</ion-note>
+    <ion-item-sliding>
+      <button ion-item>
+        <ion-avatar item-start>
+          <img [src]="item.image" />
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>{{item.mobile}}</p>
+        <ion-note item-end *ngIf="item.bloodgroup">
+          <ion-icon name="water"></ion-icon> {{item.bloodgroup}}</ion-note>
+      </button>
+      <ion-item-options>
+        <button ion-button color="danger">
+          {{ 'DELETE_BUTTON' | translate }}
         </button>
-        <ion-item-options>
-          <button ion-button color="danger" (click)="deleteItem(item)">
-            {{ 'DELETE_BUTTON' | translate }}
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-card-content>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-card>
-
 </ion-list>
 </ion-content>

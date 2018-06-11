@@ -52,11 +52,14 @@ export class FamilyMembersPage {
     "bloodgroup": "A"
   },
   ];
+  details :any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.details = navParams.get('item');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FamilyMembersPage');
+    console.log(this.details);
   }
 
 }
