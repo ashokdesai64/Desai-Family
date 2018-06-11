@@ -1,0 +1,14 @@
+page-home {
+    .round-box {
+        @include rounded(10px);
+    }
+    .home-menu-icon {
+        font-size: 4em;
+        color: $pink;
+    }
+    
+    .round-box-menu {
+        padding: 35px 0;
+        margin: 10px auto;
+    }
+}

@@ -18,6 +18,8 @@ import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
 import { ProfilePage } from '../pages/profile/profile';
 import { FamiliesPage } from '../pages/families/families';
 import { FamilyMembersPage } from '../pages/family-members/family-members';
+import { HomePage } from '../pages/home/home';
+import { AboutFamilyPage } from '../pages/about-family/about-family';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -48,6 +50,8 @@ export function provideSettings(storage: Storage) {
     ProfilePage,
     FamiliesPage,
     FamilyMembersPage,
+    HomePage,
+    AboutFamilyPage,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ export function provideSettings(storage: Storage) {
     ProfilePage,
     FamiliesPage,
     FamilyMembersPage,
+    HomePage,
+    AboutFamilyPage,
   ],
   providers: [
     Api,

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding>
+  <ion-card class="round-box">
+  <ion-slides pager="true" autoplay="1000" loop="true" speed="3000">
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+  </ion-slides>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card text-center class="round-box round-box-menu">
+          <ion-icon name="paper" class="home-menu-icon"></ion-icon>
+          <h2>News</h2>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center class="round-box round-box-menu" [navPush]="familiesPage">
+          <ion-icon name="people" class="home-menu-icon"></ion-icon>
+          <h2>Family List</h2>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card text-center class="round-box round-box-menu" [navPush]="aboutFamilyPage">
+          <ion-icon name="alert" class="home-menu-icon" ></ion-icon>
+          <h2>About Family</h2>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center class="round-box round-box-menu">
+          <ion-icon name="images" class="home-menu-icon"></ion-icon>
+          <h2>Gallery</h2>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
