@@ -1,9 +1,29 @@
 page-gallery {
-    .image-container {
-        min-height: 200px;
-        background-size: cover;
+    .gallery-fol{
+        position: relative;
+        @include rounded(10px);
+        @include box-shadow(0px ,0px , 6px , rgba( 103, 94, 130 ,0.50 ));
     }
- 
+    .image-container {
+        min-height: 170px;
+        background-size: cover;
+        @include rounded(10px);
+        background-size: cover;
+        background-position: center;
+    }
+    .gal-fol-name {
+        position: absolute;
+        bottom: 0;
+        background-color: $pink;
+        left: 0;
+        right: 0;
+        border-radius: 0px 0px 9px 9px;
+        padding: 10px 10px;
+        color: $white;
+        @include flexbox();
+        @include justify-content(space-between);
+        @include align-items(center);
+    }
     @media (min-width: 0px) {
         .images {
             column-count: 2;
