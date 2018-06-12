@@ -7,11 +7,15 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let image of ['badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png']">
-      <ion-thumbnail item-start>
+      <ion-thumbnail item-start >
         <img src="assets/img/{{image}}">
       </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
+      <h2 class="ne-title">My Neighbor Totoro</h2>
+      <p class="ne-desc">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <div class="news-timing">
+        <span class="n-time"><ion-icon name="time" ios="ios-time-outline"></ion-icon> 9:45 AM</span>
+        <span class="n-date">08 May 2018</span>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

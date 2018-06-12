@@ -5,12 +5,18 @@
 </ion-header>
 <ion-content>
   <ion-list>
+    <ion-list-header>
+      Today
+    </ion-list-header>
     <ion-item *ngFor="let image of ['badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png']">
-      <ion-thumbnail item-start>
+      <ion-avatar item-start>
         <img src="assets/img/{{image}}">
-      </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
+      </ion-avatar>
+      <h2 class="ne-title">My Neighbor Totoro</h2>
+      <p class="ne-desc">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <div class="news-timing">
+        <span class="n-time">9:45 AM</span>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>
