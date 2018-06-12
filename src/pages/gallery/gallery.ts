@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'gallery.html',
 })
 export class GalleryPage {
-
+  galleryType = 'regular';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

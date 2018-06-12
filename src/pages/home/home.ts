@@ -36,16 +36,14 @@ export class HomePage {
   }
 
   gotofamilies(){
-    this.navCtrl.setRoot('FamiliesPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.push('FamiliesPage');
   }
   
   gotoabout(){
-    this.navCtrl.setRoot('AboutFamilyPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.push('AboutFamilyPage');
+  }
+
+  gotogallery() {
+    this.navCtrl.push('GalleryPage');
   }
 }
