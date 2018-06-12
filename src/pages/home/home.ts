@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, Platform, MenuController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,7 +9,7 @@ import { IonicPage, NavController, Platform } from 'ionic-angular';
 })
 export class HomePage {
   slides: {};
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  constructor(public navCtrl: NavController, public platform: Platform, public menuCtrl: MenuController) {
 
     this.slides = [
       {
@@ -32,6 +32,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    // this.menuCtrl.enable(false);
     console.log('ionViewDidLoad HomePage');
   }
 
