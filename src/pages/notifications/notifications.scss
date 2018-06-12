@@ -1,3 +1,51 @@
 page-notifications {
-
+    .item-ios {
+        border-bottom: 0.55px solid #c8c7cc;
+        ion-avatar {
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+        }
+    }
+    .item-md {
+        border-bottom: 0.55px solid #c8c7cc;
+        ion-avatar {
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+        }
+    }
+    .list-ios {
+        ion-list-header{
+            background-color: #f6f2f4;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        .item-block {
+            .item-inner{
+                border-bottom: none;
+            } 
+        }
+    }
+    .list-md {
+        @extend .list-ios 
+    }
+    .ne-title{
+        margin: 0px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .news-timing{
+        font-size: 12px;
+        color: $gray;
+        margin-top: 5px;
+    }
+    .ne-desc{
+        font-size: 12px;
+        white-space: pre-wrap;
+    }
 }
