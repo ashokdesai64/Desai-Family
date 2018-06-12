@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Gallery } from '../../models/gallery';
 
 @IonicPage()
 @Component({
-  selector: 'page-gallery',
-  templateUrl: 'gallery.html',
+  selector: 'page-view-gallery',
+  templateUrl: 'view-gallery.html',
 })
-export class GalleryPage {
-  galleries = [
+export class ViewGalleryPage {
+  gallery_item = [
     {
       "name": "Burt Bear",
       "image": "assets/img/speakers/bear.jpg",
@@ -34,20 +33,14 @@ export class GalleryPage {
       "image": "assets/img/speakers/bear.jpg",
     },
   ];
-
+  item: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.item = navParams.get('gallery');
+    console.log(this.item);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleryPage');
+    console.log('ionViewDidLoad ViewGalleryPage');
   }
 
-  /**
-   * Navigate to the view page for this gallery.
-   */
-  openItem(gallery: Gallery) {
-    this.navCtrl.push('ViewGalleryPage', {
-      gallery: gallery
-    });
-  }
 }

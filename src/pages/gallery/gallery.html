@@ -6,8 +6,8 @@
 <ion-content>
     <ion-grid>
       <ion-row>
-        <ion-col col-6 col-md-4 col-xl-3 *ngFor="let image of [1,1,1,1,1,1,1,1,1,1,1]">
-          <div class="image-container" [style.background-image]="'url(assets/img/' + image + '.png)'"></div>
+        <ion-col col-6 col-md-4 col-xl-3 *ngFor="let item of galleries" (click)="openItem(item)">
+          <div class="image-container" [style.background-image]="'url(' + item.image + ')'"></div>
         </ion-col>
       </ion-row>
     </ion-grid>

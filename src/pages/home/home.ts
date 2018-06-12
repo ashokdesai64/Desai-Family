@@ -46,4 +46,8 @@ export class HomePage {
   gotogallery() {
     this.navCtrl.push('GalleryPage');
   }
+
+  gotonews() {
+    this.navCtrl.push('NewsPage');
+  }
 }
