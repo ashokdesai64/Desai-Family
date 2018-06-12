@@ -48,6 +48,7 @@ export class FamilyMembersPage {
   details :any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.details = navParams.get('item');
+    console.log(this.details);
   }
 
   ionViewDidLoad() {

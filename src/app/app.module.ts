@@ -13,15 +13,6 @@ import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 
-import { SendotpPage } from '../pages/sendotp/sendotp';
-import { VerifyotpPage } from '../pages/verifyotp/verifyotp';
-import { ProfilePage } from '../pages/profile/profile';
-import { FamiliesPage } from '../pages/families/families';
-import { FamilyMembersPage } from '../pages/family-members/family-members';
-import { HomePage } from '../pages/home/home';
-import { AboutFamilyPage } from '../pages/about-family/about-family';
-import { PagesProvider } from '../providers/pages/pages';
-
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -46,13 +37,6 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    SendotpPage,
-    VerifyotpPage,
-    ProfilePage,
-    FamiliesPage,
-    FamilyMembersPage,
-    HomePage,
-    AboutFamilyPage,
   ],
   imports: [
     BrowserModule,
@@ -70,13 +54,6 @@ export function provideSettings(storage: Storage) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SendotpPage,
-    VerifyotpPage,
-    ProfilePage,
-    FamiliesPage,
-    FamilyMembersPage,
-    HomePage,
-    AboutFamilyPage,
   ],
   providers: [
     Api,
@@ -88,7 +65,6 @@ export function provideSettings(storage: Storage) {
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    PagesProvider
   ]
 })
 export class AppModule { }

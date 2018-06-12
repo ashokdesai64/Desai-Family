@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ProfilePage } from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -17,6 +16,9 @@ export class VerifyotpPage {
   }
 
   gotoprofile(){
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.setRoot('ProfilePage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
   }
 }

@@ -50,6 +50,9 @@ export class LoginPage {
   }
 
   gotosignup() {
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.setRoot('SignupPage', {}, {
+      animate: true,
+      direction: 'forward'
+    }) 
   }
 }

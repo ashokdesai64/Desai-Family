@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController} 
 
 import { Item } from '../../models/item';
 import { Items } from '../../providers';
-import { FamilyMembersPage } from '../family-members/family-members';
 
 @IonicPage()
 @Component({
@@ -56,7 +55,7 @@ export class FamiliesPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
-    this.navCtrl.push(FamilyMembersPage, {
+    this.navCtrl.push('FamilyMembersPage', {
       item: item
     });
   }

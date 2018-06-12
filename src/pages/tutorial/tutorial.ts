@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
-import { SendotpPage } from '../sendotp/sendotp';
 
 @IonicPage()
 @Component({
@@ -19,6 +18,9 @@ export class TutorialPage {
   }
 
   startApp() {
-    this.navCtrl.push(SendotpPage);
+    this.navCtrl.setRoot('SendotpPage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
   }
 }

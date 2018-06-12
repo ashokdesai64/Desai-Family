@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
-import { FamiliesPage } from '../families/families'
-import { AboutFamilyPage } from '../about-family/about-family'
 
 
 @IonicPage()
@@ -11,8 +9,6 @@ import { AboutFamilyPage } from '../about-family/about-family'
 })
 export class HomePage {
   slides: {};
-  familiesPage = FamiliesPage;
-  aboutFamilyPage = AboutFamilyPage;
   constructor(public navCtrl: NavController, public platform: Platform) {
 
     this.slides = [
@@ -39,4 +35,17 @@ export class HomePage {
     console.log('ionViewDidLoad HomePage');
   }
 
+  gotofamilies(){
+    this.navCtrl.setRoot('FamiliesPage', {}, {
+      animate: true,
+      direction: 'forward'
+    }) 
+  }
+  
+  gotoabout(){
+    this.navCtrl.setRoot('AboutFamilyPage', {}, {
+      animate: true,
+      direction: 'forward'
+    }) 
+  }
 }

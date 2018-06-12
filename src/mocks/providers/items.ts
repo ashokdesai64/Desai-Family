@@ -9,8 +9,8 @@ export class Items {
   defaultItem: any = {
     "name": "Burt Bear",
     "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A",
+    "mobile": "1234567890",
+    "bloodgroup": "AB+"
   };
 
 
@@ -19,69 +19,45 @@ export class Items {
       {
         "name": "Burt Bear",
         "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "name": "Charlie Cheetah",
+        "image": "assets/img/speakers/cheetah.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "name": "Donald Duck",
+        "image": "assets/img/speakers/duck.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "name": "Eva Eagle",
+        "image": "assets/img/speakers/eagle.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "name": "Ellie Elephant",
+        "image": "assets/img/speakers/elephant.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
+        "name": "Molly Mouse",
+        "image": "assets/img/speakers/mouse.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
       },
       {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
-      },
-      {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
-      },
-      {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
-      },
-      {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
-      },
-      {
-        "name": "Burt Bear",
-        "image": "assets/img/speakers/bear.jpg",
-        "mobile": "9898989898",
-        "bloodgroup": "A"
-      },
+        "name": "Paul Puppy",
+        "image": "assets/img/speakers/puppy.jpg",
+        "mobile": "1234567890",
+        "bloodgroup": "AB+"
+      }
     ];
 
     for (let item of items) {

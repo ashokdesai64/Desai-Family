@@ -15,4 +15,11 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  gotohome() {
+    this.navCtrl.setRoot('HomePage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
+
 }

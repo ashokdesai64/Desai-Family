@@ -52,6 +52,9 @@ export class SignupPage {
   }
 
   gotologin(){
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.setRoot('LoginPage', {}, {
+      animate: true,
+      direction: 'forward'
+    }) 
   }
 }
