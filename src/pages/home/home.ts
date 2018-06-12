@@ -50,4 +50,8 @@ export class HomePage {
   gotonews() {
     this.navCtrl.push('NewsPage');
   }
+  
+  gotonotifications() {
+    this.navCtrl.push('NotificationsPage');
+  }
 }

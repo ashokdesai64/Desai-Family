@@ -7,7 +7,7 @@
     <ion-title>Home</ion-title>
      
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="gotonotifications()">
         <ion-icon name="notifications"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,8 +18,6 @@
   <ion-slides pager="true" autoplay="1000" loop="true" speed="3000">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image" />
-      <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
-      <!-- <p [innerHTML]="slide.description"></p> -->
     </ion-slide>
   </ion-slides>
   </ion-card>
