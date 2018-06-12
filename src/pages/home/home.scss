@@ -11,4 +11,11 @@ page-home {
         padding: 35px 0;
         margin: 10px auto;
     }
+    .swiper-pagination-bullet{
+        border: solid 1px #fff !important;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: $pink;
+        border-color: transparent !important;
+    }
 }
