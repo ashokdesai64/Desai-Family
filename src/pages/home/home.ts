@@ -11,12 +11,9 @@ import { AboutFamilyPage } from '../about-family/about-family'
 })
 export class HomePage {
   slides: {};
-  dir: string = 'ltr';
   familiesPage = FamiliesPage;
   aboutFamilyPage = AboutFamilyPage;
   constructor(public navCtrl: NavController, public platform: Platform) {
-
-    this.dir = platform.dir();
 
     this.slides = [
       {

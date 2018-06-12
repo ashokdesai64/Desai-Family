@@ -20,6 +20,7 @@ import { FamiliesPage } from '../pages/families/families';
 import { FamilyMembersPage } from '../pages/family-members/family-members';
 import { HomePage } from '../pages/home/home';
 import { AboutFamilyPage } from '../pages/about-family/about-family';
+import { PagesProvider } from '../providers/pages/pages';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -86,7 +87,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    PagesProvider
   ]
 })
 export class AppModule { }

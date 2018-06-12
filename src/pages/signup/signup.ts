@@ -4,7 +4,6 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
 import { MainPage } from '../';
-import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -12,7 +11,6 @@ import { LoginPage } from '../login/login';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  loginPage = LoginPage;
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
@@ -51,5 +49,9 @@ export class SignupPage {
       });
       toast.present();
     });
+  }
+
+  gotologin(){
+    this.navCtrl.push('LoginPage');
   }
 }
