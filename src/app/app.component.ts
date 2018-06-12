@@ -39,6 +39,7 @@ export class MyApp {
     { title: 'Login', component: 'LoginPage' },
     { title: 'Signup', component: 'SignupPage' },
     { title: 'Profile', component: 'ProfilePage' },
+    { title: 'Result', component: 'ResultPage' },
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
