@@ -15,17 +15,17 @@ export class HomePage {
       {
         title: 'TUTORIAL_SLIDE1_TITLE',
         description: 'TUTORIAL_SLIDE1_DESCRIPTION',
-        image: 'assets/img/advance-card-tmntr.jpg',
+        image: 'assets/img/slider/1.jpg',
       },
       {
         title: 'TUTORIAL_SLIDE2_TITLE',
         description: 'TUTORIAL_SLIDE2_DESCRIPTION',
-        image: 'assets/img/advance-card-tmntr.jpg',
+        image: 'assets/img/slider/2.jpg',
       },
       {
         title: 'TUTORIAL_SLIDE3_TITLE',
         description: 'TUTORIAL_SLIDE3_DESCRIPTION',
-        image: 'assets/img/advance-card-bttf.png',
+        image: 'assets/img/slider/3.jpg',
       }
     ];
 
