@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform, MenuController } from 'ionic-angular';
-
+import { StatusBar } from '@ionic-native/status-bar';
 
 @IonicPage()
 @Component({
@@ -9,7 +9,7 @@ import { IonicPage, NavController, Platform, MenuController } from 'ionic-angula
 })
 export class HomePage {
   slides: {};
-  constructor(public navCtrl: NavController, public platform: Platform, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public platform: Platform, public menuCtrl: MenuController, private statusBar: StatusBar) {
 
     this.slides = [
       {
@@ -28,7 +28,7 @@ export class HomePage {
         image: 'assets/img/slider/3.jpg',
       }
     ];
-
+    this.statusBar.styleLightContent();
   }
 
   ionViewDidLoad() {

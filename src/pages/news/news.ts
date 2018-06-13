@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the NewsPage page.
@@ -15,7 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
+    this.statusBar.styleLightContent();
   }
 
   ionViewDidLoad() {

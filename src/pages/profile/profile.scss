@@ -114,4 +114,10 @@ page-profile {
             border-color: $pink;
         }
     }
+    @media (max-width: 350px) {
+        .profile-image {
+            width: 70px;
+            height: 70px;
+        }
+    }
 }

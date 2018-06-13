@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+
 
 @IonicPage()
 @Component({
@@ -34,9 +36,11 @@ export class ViewGalleryPage {
     },
   ];
   item: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
     this.item = navParams.get('gallery');
     console.log(this.item);
+    this.statusBar.styleLightContent();
+
   }
 
   ionViewDidLoad() {

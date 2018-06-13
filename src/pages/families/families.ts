@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { Item } from '../../models/item';
 import { Items } from '../../providers';
@@ -22,8 +23,10 @@ export class FamiliesPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public alertCtrl: AlertController,
+    private statusBar: StatusBar
   ) {
     this.currentItems = this.items.query();
+    this.statusBar.styleLightContent();
   }
 
   ionViewDidLoad() {

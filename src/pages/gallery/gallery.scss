@@ -24,6 +24,12 @@ page-gallery {
         @include justify-content(space-between);
         @include align-items(center);
     }
+    .fold-name {
+        width: 75%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
     @media (min-width: 0px) {
         .images {
             column-count: 2;
