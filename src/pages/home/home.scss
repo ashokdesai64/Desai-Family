@@ -6,7 +6,6 @@ page-home {
         font-size: 4em;
         color: $pink;
     }
-    
     .round-box-menu {
         padding: 35px 0;
         margin: 10px auto;
@@ -17,5 +16,10 @@ page-home {
     .swiper-pagination-bullet-active{
         background-color: $pink;
         border-color: transparent !important;
+    }
+    .swiper-slide {
+        img{
+            @include rounded(10px);
+        }
     }
 }

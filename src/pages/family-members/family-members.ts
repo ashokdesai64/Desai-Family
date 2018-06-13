@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+
 
 @IonicPage()
 @Component({
@@ -46,7 +48,8 @@ export class FamilyMembersPage {
   },
   ];
   details :any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
+    this.statusBar.styleLightContent();
     this.details = navParams.get('item');
     console.log(this.details);
   }
