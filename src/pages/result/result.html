@@ -7,8 +7,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="upload-img">
-    <button ion-button class="upload-arrow" color="white" (click)="accessGallery()">
+  <div class="upload-img" (click)="accessGallery()">
+    <button ion-button class="upload-arrow" color="white" >
       <ion-icon name="arrow-up"></ion-icon> 
     </button>
     <span class="up-titile">Upload Your Result</span>
@@ -35,11 +35,11 @@
     </ion-item>
     <ion-item>
       <ion-label stacked class="profile-label">Total Marks</ion-label>
-      <ion-input type="Email" name="name" required placeholder="Enter Your Total Marks"></ion-input>
+      <ion-input type="number" name="name" required placeholder="Enter Your Total Marks"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked class="profile-label">Obtained Marks</ion-label>
-      <ion-input type="Email" name="name" required placeholder="Enter Your Obtained Marks"></ion-input>
+      <ion-input type="number" name="name" required placeholder="Enter Your Obtained Marks"></ion-input>
     </ion-item>
 
     <ion-item>
