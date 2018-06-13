@@ -12,27 +12,27 @@ export class ViewGalleryPage {
   gallery_item = [
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/2.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/3.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/4.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/5.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/speakers/bear.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
   ];
   item: any;
