@@ -11,18 +11,28 @@ import { Settings } from '../providers';
   template: `<ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+          <a class="menu-profile" color="pink">
+            <ion-avatar item-start>
+              <img src="assets/img/ian-avatar.png" />
+            </ion-avatar>
+            <h4 class="title">Jony Deo</h4>
+            <span class="address">jonydeo123@gmail.com</span>
+          </a>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
+          <ion-icon class="menu-icon" name="{{p.icon}}"></ion-icon> {{p.title}}
         </button>
       </ion-list>
     </ion-content>
 
+    <ion-footer text-center> 
+        <button ion-button full outline no-margin class="" color="pink">
+          Log Out &ensp; <ion-icon name="log-out"></ion-icon></button>
+    </ion-footer>
   </ion-menu>
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
@@ -32,14 +42,13 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage', icon:'mail' },
-    { title: 'Home', component: 'HomePage', icon: '' },
-    { title: 'Send otp', component: 'SendotpPage', icon: '' },
-    { title: 'Verify otp', component: 'VerifyotpPage', icon: '' },
-    { title: 'Login', component: 'LoginPage', icon: ''},
-    { title: 'Signup', component: 'SignupPage', icon: '' },
-    { title: 'Profile', component: 'ProfilePage', icon: ''},
-    { title: 'Result', component: 'ResultPage', icon: ''},
+    { title: 'Home', component: 'HomePage', icon: 'home' },
+    { title: 'About Family', component: 'About Family', icon: 'information-circle' },
+    { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
+    { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
+    { title: 'News', component: 'NewsPage', icon: 'paper'},
+    { title: 'Family List', component: 'FamilylistPage', icon: 'people'},
+    { title: 'Result', component: 'ResultPage', icon: 'document'},
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
