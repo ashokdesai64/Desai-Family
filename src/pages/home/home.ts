@@ -15,12 +15,12 @@ export class HomePage {
       {
         title: 'TUTORIAL_SLIDE1_TITLE',
         description: 'TUTORIAL_SLIDE1_DESCRIPTION',
-        image: 'assets/img/slider/1.jpg',
+        image: 'assets/img/slider/3.jpg',
       },
       {
         title: 'TUTORIAL_SLIDE2_TITLE',
         description: 'TUTORIAL_SLIDE2_DESCRIPTION',
-        image: 'assets/img/slider/2.jpg',
+        image: 'assets/img/slider/3.jpg',
       },
       {
         title: 'TUTORIAL_SLIDE3_TITLE',
