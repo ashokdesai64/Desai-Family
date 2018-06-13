@@ -17,19 +17,19 @@ export class GalleryPage {
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/gallery/2.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/gallery/3.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/gallery/4.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
     {
       "name": "Burt Bear",
-      "image": "assets/img/gallery/5.jpg",
+      "image": "assets/img/gallery/1.jpg",
     },
     {
       "name": "Burt Bear",
