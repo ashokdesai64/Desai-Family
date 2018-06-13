@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
 // import { MainPage } from '../';
@@ -23,7 +24,7 @@ export class LoginPage {
   // Our translated text strings
   private loginErrorString: string;
 
-  constructor(public navCtrl: NavController,
+  constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
@@ -31,6 +32,8 @@ export class LoginPage {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
+    this.statusBar.styleDefault();
+    // this.statusBar.styleLightContent();
   }
 
   // Attempt to login in through our User service

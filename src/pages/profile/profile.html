@@ -39,103 +39,75 @@
               </ion-item>
             </div>
           </ion-list>
-
         </ion-col>
-
-        <ion-col col-12>
+      </ion-row>
           <ion-list>
             <ion-item>
               <ion-label color="pink">Birth Date</ion-label>
               <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
             </ion-item>
-          </ion-list>
-        </ion-col>
 
-        <ion-col col-12>
-          <ion-list>
             <ion-item>
               <ion-label stacked class="profile-label">Address</ion-label>
               <ion-input type="text" name="name" required placeholder="Enter Your Address"></ion-input>
             </ion-item>
-          </ion-list>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-list>
+          
             <ion-item>
               <ion-label stacked class="profile-label">Email Id</ion-label>
               <ion-input type="Email" name="name" required placeholder="Enter Your Email"></ion-input>
             </ion-item>
+            <ion-item>
+              <ion-label stacked class="profile-label">Business</ion-label>
+              <ion-input type="Email" name="name" required placeholder="Enter Your Business"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked class="profile-label">Eduction</ion-label>
+              <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="pink">Blood Group</ion-label>
+              <ion-select name="Blood Group" required>
+                <ion-option value="O Positive">O +</ion-option>
+                <ion-option value="O Negative">O -</ion-option>
+                <ion-option value="A Positive">A +</ion-option>
+                <ion-option value="A Negative">A -</ion-option>
+                <ion-option value="B Positive">B +</ion-option>
+                <ion-option value="B Negative">B -</ion-option>
+                <ion-option value="AB Positive">AB +</ion-option>
+                <ion-option value="AB Negative">AB -</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="pink">Village</ion-label>
+              <ion-select name="Blood Group" required>
+                <ion-option value="O Positive">Jira</ion-option>
+                <ion-option value="O Negative">Saldi</ion-option>
+                <ion-option value="A Positive">Nana Liliya</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="pink">Taluka</ion-label>
+              <ion-select name="Blood Group" required>
+                <ion-option value="O Positive">Lathi</ion-option>
+                <ion-option value="O Negative">Liliya</ion-option>
+                <ion-option value="A Positive">Savarkundla</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="pink">District</ion-label>
+              <ion-select name="Blood Group" required>
+                <ion-option value="O Positive">Bhavnagar</ion-option>
+                <ion-option value="O Negative">Amreli</ion-option>
+                <ion-option value="A Positive">Botad</ion-option>
+              </ion-select>
+            </ion-item>
           </ion-list>
-        </ion-col>
 
-        <ion-col col-12>
-          <ion-item>
-            <ion-label stacked class="profile-label">Business</ion-label>
-            <ion-input type="Email" name="name" required placeholder="Enter Your Business"></ion-input>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-item>
-            <ion-label stacked class="profile-label">Eduction</ion-label>
-            <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-item>
-            <ion-label color="pink">Blood Group</ion-label>
-            <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">O +</ion-option>
-              <ion-option value="O Negative">O -</ion-option>
-              <ion-option value="A Positive">A +</ion-option>
-              <ion-option value="A Negative">A -</ion-option>
-              <ion-option value="B Positive">B +</ion-option>
-              <ion-option value="B Negative">B -</ion-option>
-              <ion-option value="AB Positive">AB +</ion-option>
-              <ion-option value="AB Negative">AB -</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-item>
-            <ion-label color="pink">Village</ion-label>
-            <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">Jira</ion-option>
-              <ion-option value="O Negative">Saldi</ion-option>
-              <ion-option value="A Positive">Nana Liliya</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-item>
-            <ion-label color="pink">Taluka</ion-label>
-            <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">Lathi</ion-option>
-              <ion-option value="O Negative">Liliya</ion-option>
-              <ion-option value="A Positive">Savarkundla</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-12>
-          <ion-item>
-            <ion-label color="pink">District</ion-label>
-            <ion-select name="Blood Group" required>
-              <ion-option value="O Positive">Bhavnagar</ion-option>
-              <ion-option value="O Negative">Amreli</ion-option>
-              <ion-option value="A Positive">Botad</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-
-        <ion-col text-center col-12>
+        <div text-center>
           <button ion-button class="btn btn-primary" color="pink" (click)="gotohome()">Save</button>
-        </ion-col>
-      </ion-row>
+        </div>
     </ion-grid>
   </form>
 </ion-content>
