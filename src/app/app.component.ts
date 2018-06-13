@@ -43,11 +43,11 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Home', component: 'HomePage', icon: 'home' },
-    { title: 'About Family', component: 'About Family', icon: 'information-circle' },
+    { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
     { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
-    { title: 'Family List', component: 'FamilylistPage', icon: 'people'},
+    // { title: 'Family List', component: 'FamilylistPage', icon: 'people'},
     { title: 'Result', component: 'ResultPage', icon: 'document'},
   ]
 
