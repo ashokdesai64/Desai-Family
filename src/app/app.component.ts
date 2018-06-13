@@ -18,7 +18,7 @@ import { Settings } from '../providers';
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
+          <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
         </button>
       </ion-list>
     </ion-content>
@@ -32,14 +32,14 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Home', component: 'HomePage' },
-    { title: 'Send otp', component: 'SendotpPage' },
-    { title: 'Verify otp', component: 'VerifyotpPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
-    { title: 'Profile', component: 'ProfilePage' },
-    { title: 'Result', component: 'ResultPage' },
+    { title: 'Tutorial', component: 'TutorialPage', icon:'mail' },
+    { title: 'Home', component: 'HomePage', icon: '' },
+    { title: 'Send otp', component: 'SendotpPage', icon: '' },
+    { title: 'Verify otp', component: 'VerifyotpPage', icon: '' },
+    { title: 'Login', component: 'LoginPage', icon: ''},
+    { title: 'Signup', component: 'SignupPage', icon: '' },
+    { title: 'Profile', component: 'ProfilePage', icon: ''},
+    { title: 'Result', component: 'ResultPage', icon: ''},
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {

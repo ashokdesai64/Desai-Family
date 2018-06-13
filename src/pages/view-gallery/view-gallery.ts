@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'view-gallery.html',
 })
 export class ViewGalleryPage {
+  defaultImage = "assets/img/gallery/4.jpg";
   gallery_item = [
     {
       "name": "Burt Bear",
