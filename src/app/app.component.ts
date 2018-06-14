@@ -2,10 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Config, Nav, Platform, MenuController } from 'ionic-angular';
 
 import { FirstRunPage } from '../pages';
-import { Settings } from '../providers';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -30,29 +29,35 @@ import { Settings } from '../providers';
     </ion-content>
 
     <ion-footer text-center> 
-        <button ion-button full outline no-margin class="" color="pink">
+        <button ion-button full outline no-margin class="" color="pink" (click)="logout()">
           Log Out &ensp; <ion-icon name="log-out"></ion-icon></button>
     </ion-footer>
   </ion-menu>
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
-
+  rootPage:any = FirstRunPage;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
+    { title: 'Login', component: 'LoginPage', icon: 'people'},
     { title: 'Home', component: 'HomePage', icon: 'home' },
     { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
     { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
-    // { title: 'Family List', component: 'FamilylistPage', icon: 'people'},
     { title: 'Result', component: 'ResultPage', icon: 'document'},
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, 
+    platform: Platform, 
+    private config: Config, 
+    private statusBar: StatusBar, 
+    private menuCtrl: MenuController, 
+    private splashScreen: SplashScreen) {
+      
     platform.ready().then(() => {
+      
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -91,5 +96,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    localStorage.removeItem('is_loggedin');
+    this.nav.push('LoginPage');
+    this.menuCtrl.close();
   }
 }

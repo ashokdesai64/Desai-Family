@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -9,8 +10,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 })
 export class HomePage {
   slides: {};
-  constructor(public navCtrl: NavController, public platform: Platform, public menuCtrl: MenuController, private statusBar: StatusBar) {
+  constructor(
+    public navCtrl: NavController, 
+    public platform: Platform, 
+    private statusBar: StatusBar) {
+    console.log('User::' + GLOBAL.IS_LOGGEDIN);
 
+
+    // if (!GLOBAL.IS_LOGGEDIN.id) {
+    //   this.navCtrl.push('LoginPage');
+    // }
+    
     this.slides = [
       {
         title: 'TUTORIAL_SLIDE1_TITLE',
@@ -32,7 +42,6 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    // this.menuCtrl.enable(false);
     console.log('ionViewDidLoad HomePage');
   }
 
@@ -55,4 +64,6 @@ export class HomePage {
   gotonotifications() {
     this.navCtrl.push('NotificationsPage');
   }
+
+  
 }

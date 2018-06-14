@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
@@ -48,7 +48,11 @@ export class FamilyMembersPage {
   },
   ];
   details :any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController,
+    private statusBar: StatusBar) {
     this.statusBar.styleLightContent();
     this.details = navParams.get('item');
     console.log(this.details);
@@ -58,5 +62,10 @@ export class FamilyMembersPage {
     console.log('ionViewDidLoad FamilyMembersPage');
     console.log(this.details);
   }
+
+  openModal() {
+    let modal = this.modalCtrl.create('AddMemberPage');
+    modal.present();
+  } 
 
 }

@@ -1,7 +1,6 @@
 import 'rxjs/add/operator/toPromise';
-
-import { Injectable } from '@angular/core';
-
+import { Injectable } from '@angular/core'
+import { Storage } from '@ionic/storage';;
 import { Api } from '../api/api';
 
 /**
@@ -27,7 +26,7 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, private storage: Storage) { }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -35,11 +34,10 @@ export class User {
    */
   login(accountInfo: any) {
     let seq = this.api.post('login', accountInfo).share();
-
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
+      if (res.status == 200) {
+        this._loggedIn(res.data);
       } else {
       }
     }, err => {
@@ -58,8 +56,8 @@ export class User {
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
+      if (res.status == 200) {
+        this._loggedIn(res.data);
       }
     }, err => {
       console.error('ERROR', err);
@@ -72,13 +70,17 @@ export class User {
    * Log the user out, which forgets the session
    */
   logout() {
-    this._user = null;
+    localStorage.removeItem('is_loggedin');
+    // localStorage.setItem('is_loggedin', '');
+    // this.storage.set('loggedInUser', '').then(() => { });
   }
 
   /**
    * Process a login/signup response to store user data
    */
   _loggedIn(resp) {
-    this._user = resp.user;
+    localStorage.setItem('is_loggedin', JSON.stringify(resp));
+    // this.storage.set('loggedInUser', resp).then(() => {});
+    // this._user = resp;
   }
 }

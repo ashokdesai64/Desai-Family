@@ -4,8 +4,6 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
-// import { MainPage } from '../';
-import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -17,36 +15,31 @@ export class LoginPage {
   // If you're using the username field with or without email, make
   // sure to add it to the type
   account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
+    email: 'abc@gmail.com',
+    password: '123456'
   };
-
-  // Our translated text strings
-  private loginErrorString: string;
 
   constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
 
-    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-      this.loginErrorString = value;
-    })
     this.statusBar.styleDefault();
-    // this.statusBar.styleLightContent();
   }
 
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.setRoot('HomePage', {}, {
+        animate: true,
+        direction: 'forward'
+      });
     }, (err) => {
-      this.navCtrl.push(HomePage);
       // Unable to log in
       let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
+        message: 'loginErrorString',
         duration: 3000,
-        position: 'top'
+        position: 'bottom'
       });
       toast.present();
     });
