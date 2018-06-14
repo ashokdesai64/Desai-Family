@@ -1,6 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <b (click)="openModal()">openModal</b>
     <ion-title>Family Members</ion-title>
   </ion-navbar>
 </ion-header>
@@ -80,5 +79,8 @@
         </ion-item-options>
       </ion-item-sliding>
     </ion-card>
+  </ion-list>
+  <ion-list text-center>
+    <button ion-button class="btn" color="pink" (click)="openModal()">Add Member</button>
   </ion-list>
 </ion-content>

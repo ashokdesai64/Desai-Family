@@ -1,17 +1,105 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      GO OUT
+      Add Member
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <span ion-text color="white" showWhen="ios,android">Cancel</span>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p> This is a modal test!!!! </p>
+<ion-content padding="">
+  <div class="upload-img" (click)="accessGallery()">
+    <button ion-button class="upload-arrow" color="white">
+      <ion-icon name="arrow-up"></ion-icon> 
+    </button>
+    <span class="up-titile">Upload Member Photos</span>
+    <img [src]="base64Image" *ngIf="base64Image" />
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked class="profile-label">Name</ion-label>
+      <ion-input type="text" name="name" required placeholder="Enter Your Name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group>
+    <div class="radio-box">
+      <ion-item>
+        <ion-label>
+          <ion-icon name="man"></ion-icon>
+        </ion-label>
+        <ion-radio value="Male"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="woman"></ion-icon>
+        </ion-label>
+        <ion-radio value="female"></ion-radio>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="pink">Birth Date</ion-label>
+      <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label stacked class="profile-label">Mobile Number</ion-label>
+      <ion-input type="number" name="name" required placeholder="Enter Your Mobile Number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked class="profile-label">Address</ion-label>
+      <ion-input type="text" name="name" required placeholder="Enter Your Address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked class="profile-label">Email Id</ion-label>
+      <ion-input type="Email" name="name" required placeholder="Enter Your Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked class="profile-label">Business</ion-label>
+      <ion-input type="Email" name="name" required placeholder="Enter Your Business"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked class="profile-label">Eduction</ion-label>
+      <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="pink">Relation</ion-label>
+      <ion-select name="Blood Group" required>
+        <ion-option value="Son">Son</ion-option>
+        <ion-option value="Father">Father</ion-option>
+        <ion-option value="Mother">Mother</ion-option>
+        <ion-option value="Grand Father">Grand Father</ion-option>
+        <ion-option value="Grand Mother">Grand Mother</ion-option>
+        <ion-option value="Wife">Wife</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="pink">Blood Group</ion-label>
+      <ion-select name="Blood Group" required>
+        <ion-option value="O Positive">O +</ion-option>
+        <ion-option value="O Negative">O -</ion-option>
+        <ion-option value="A Positive">A +</ion-option>
+        <ion-option value="A Negative">A -</ion-option>
+        <ion-option value="B Positive">B +</ion-option>
+        <ion-option value="B Negative">B -</ion-option>
+        <ion-option value="AB Positive">AB +</ion-option>
+        <ion-option value="AB Negative">AB -</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>
