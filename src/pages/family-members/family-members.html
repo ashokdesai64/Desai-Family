@@ -59,7 +59,7 @@
   </ion-card>
 
   <ion-list>
-    <ion-card *ngFor="let item of currentItems" class="list-box">
+    <ion-card *ngFor="let item of currentItems" class="list-box" (click)="ViewMemberModal()">
       <ion-item-sliding>
         <button ion-item>
           <ion-avatar item-start>
@@ -81,6 +81,6 @@
     </ion-card>
   </ion-list>
   <ion-list text-center>
-    <button ion-button class="btn" color="pink" (click)="openModal()">Add Member</button>
+    <button ion-button class="btn" color="pink" (click)="AddMemberModal()">Add Member</button>
   </ion-list>
 </ion-content>

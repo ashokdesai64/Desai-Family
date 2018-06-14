@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
@@ -63,9 +63,13 @@ export class FamilyMembersPage {
     console.log(this.details);
   }
 
-  openModal() {
+  AddMemberModal() {
     let modal = this.modalCtrl.create('AddMemberPage');
     modal.present();
   } 
 
+  ViewMemberModal() {
+    let modal = this.modalCtrl.create('ViewMemberPage');
+    modal.present();
+  }
 }

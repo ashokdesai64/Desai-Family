@@ -2,14 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 
-
-/**
- * Generated class for the AddMemberPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-add-member',
@@ -24,9 +16,6 @@ export class AddMemberPage {
     console.log('ionViewDidLoad AddMemberPage');
   }
 
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
   accessGallery() {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
@@ -37,4 +26,8 @@ export class AddMemberPage {
       console.log(err);
     });
   } 
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }

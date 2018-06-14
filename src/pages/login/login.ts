@@ -29,15 +29,25 @@ export class LoginPage {
 
   // Attempt to login in through our User service
   doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.setRoot('HomePage', {}, {
-        animate: true,
-        direction: 'forward'
-      });
+    this.user.login(this.account).subscribe((resp: any) => {
+      if (resp.status == 200){
+        this.navCtrl.setRoot('HomePage', {}, {
+          animate: true,
+          direction: 'forward'
+        });
+      }
+      else{
+        let toast = this.toastCtrl.create({
+          message: resp.message,
+          duration: 3000,
+          position: 'bottom'
+        });
+        toast.present();  
+      }
     }, (err) => {
       // Unable to log in
       let toast = this.toastCtrl.create({
-        message: 'loginErrorString',
+        message: 'Something went wrong!',
         duration: 3000,
         position: 'bottom'
       });
