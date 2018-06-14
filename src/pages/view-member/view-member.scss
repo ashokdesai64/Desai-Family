@@ -1,3 +1,36 @@
 page-view-member {
-
+    .header-md {
+        &::after {
+            display: none;
+        }
+    }
+    .header-ios {
+        .toolbar-background-ios {
+            border-bottom: none; 
+        }
+    }
+    .bg-pink{
+        background-color: $pink;
+        height: 60px;
+    }
+    .card-top{
+        margin-top: -60px;
+    }
+    .card-ios{
+        @include rounded(10px);
+    }
+    .card-md{
+        @extend .card-ios;
+    }
+    .edit-avter{
+        padding-bottom: 15px;
+        position: relative;
+        display: inline-block; 
+        img{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.22 );
+        }
+    }
 }

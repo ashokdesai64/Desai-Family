@@ -68,8 +68,7 @@ export class FamilyMembersPage {
     modal.present();
   } 
 
-  ViewMemberModal() {
-    let modal = this.modalCtrl.create('ViewMemberPage');
-    modal.present();
+  gotoviewmember() {
+    this.navCtrl.push('ViewMemberPage');
   }
 }

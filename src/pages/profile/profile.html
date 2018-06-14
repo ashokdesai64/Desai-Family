@@ -26,20 +26,20 @@
           </ion-list>
         </ion-col>
       </ion-row>
-          <ion-list radio-group>
-            <div class="radio-box">
+          <ion-list>
+            <div class="radio-box" radio-group>
               <ion-item>
-                <ion-label><ion-icon name="man"></ion-icon> Male</ion-label>
+                <ion-label>
+                  <ion-icon name="man"></ion-icon> Male</ion-label>
                 <ion-radio value="Male"></ion-radio>
               </ion-item>
 
               <ion-item>
-                <ion-label><ion-icon name="woman"></ion-icon> Female</ion-label>
+                <ion-label>
+                  <ion-icon name="woman"></ion-icon> Female</ion-label>
                 <ion-radio value="female"></ion-radio>
               </ion-item>
             </div>
-          </ion-list>
-          <ion-list>
             <ion-item>
               <ion-label color="pink">Birth Date</ion-label>
               <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>

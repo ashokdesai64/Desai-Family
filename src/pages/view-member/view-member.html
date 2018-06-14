@@ -1,79 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      View Details
-    </ion-title>
+
+<ion-header no-shadow>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <span ion-text color="white" showWhen="ios,android">Cancel</span>
+      <button ion-button (click)="EditMemberModal()">
+        <span ion-text color="white" >Edit</span>
       </button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-navbar>
+
 </ion-header>
 
-<ion-content padding="">
-  <ion-list>
-    <ion-item>
-      <ion-label stacked class="profile-label">Name</ion-label>
-      <ion-input type="text" name="name" required placeholder="Enter Your Name"></ion-input>
-    </ion-item>
-  </ion-list>
+<ion-content>
+  <div class="bg-pink"></div>
+  <ion-card class="card-top">
+    <ion-card-content text-center>
+      <div class="edit-avter">
+        <img src="../assets/img/speakers/eagle.jpg" />
+      </div>
 
-  <ion-list>
-    <ion-item>
-      <ion-label color="pink">Birth Date</ion-label>
-      <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Mobile Number</ion-label>
-      <ion-input type="number" name="name" required placeholder="Enter Your Mobile Number"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Address</ion-label>
-      <ion-input type="text" name="name" required placeholder="Enter Your Address"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Email Id</ion-label>
-      <ion-input type="Email" name="name" required placeholder="Enter Your Email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Business</ion-label>
-      <ion-input type="Email" name="name" required placeholder="Enter Your Business"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Eduction</ion-label>
-      <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="pink">Relation</ion-label>
-      <ion-select name="Blood Group" required>
-        <ion-option value="Son">Son</ion-option>
-        <ion-option value="Father">Father</ion-option>
-        <ion-option value="Mother">Mother</ion-option>
-        <ion-option value="Grand Father">Grand Father</ion-option>
-        <ion-option value="Grand Mother">Grand Mother</ion-option>
-        <ion-option value="Wife">Wife</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="pink">Blood Group</ion-label>
-      <ion-select name="Blood Group" required>
-        <ion-option value="O Positive">O +</ion-option>
-        <ion-option value="O Negative">O -</ion-option>
-        <ion-option value="A Positive">A +</ion-option>
-        <ion-option value="A Negative">A -</ion-option>
-        <ion-option value="B Positive">B +</ion-option>
-        <ion-option value="B Negative">B -</ion-option>
-        <ion-option value="AB Positive">AB +</ion-option>
-        <ion-option value="AB Negative">AB -</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+      <h3 class="name">
+         Eva Eagle
+      </h3>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -51,4 +51,15 @@ page-family-members {
         font-weight: 500;
         margin-right: 10px;
     }
+    .list-md{
+        ion-item-options {
+            .button{
+                width: 50px;
+            }
+        }
+    }
+    .list-ios{
+        @extend .list-md;
+    } 
+        
 }

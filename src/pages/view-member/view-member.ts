@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -11,6 +11,7 @@ export class ViewMemberPage {
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController, 
+    public modalCtrl: ModalController,
     public navParams: NavParams) {
   }
 
@@ -21,5 +22,11 @@ export class ViewMemberPage {
   dismiss() {
     this.viewCtrl.dismiss();
   }
-
+  gotoviewmember() {
+    this.navCtrl.push('ViewMemberPage');
+  }
+  EditMemberModal() {
+    let modal = this.modalCtrl.create('EditMemberPage');
+    modal.present();
+  }
 }

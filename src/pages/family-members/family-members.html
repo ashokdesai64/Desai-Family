@@ -59,7 +59,7 @@
   </ion-card>
 
   <ion-list>
-    <ion-card *ngFor="let item of currentItems" class="list-box" (click)="ViewMemberModal()">
+    <ion-card *ngFor="let item of currentItems" class="list-box" (click)="gotoviewmember()">
       <ion-item-sliding>
         <button ion-item>
           <ion-avatar item-start>
@@ -73,8 +73,8 @@
           </div>
         </button>
         <ion-item-options>
-          <button ion-button color="pink">
-            DELETE
+          <button ion-button color="danger">
+            <ion-icon name="trash"></ion-icon>
           </button>
         </ion-item-options>
       </ion-item-sliding>
