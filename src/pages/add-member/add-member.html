@@ -31,14 +31,14 @@
     <div class="radio-box">
       <ion-item>
         <ion-label>
-          <ion-icon name="man"></ion-icon>
+          <ion-icon name="man"></ion-icon> Male
         </ion-label>
         <ion-radio value="Male"></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>
-          <ion-icon name="woman"></ion-icon>
+          <ion-icon name="woman"></ion-icon> Female
         </ion-label>
         <ion-radio value="female"></ion-radio>
       </ion-item>
@@ -79,12 +79,16 @@
     <ion-item>
       <ion-label color="pink">Relation</ion-label>
       <ion-select name="Blood Group" required>
-        <ion-option value="Son">Son</ion-option>
         <ion-option value="Father">Father</ion-option>
         <ion-option value="Mother">Mother</ion-option>
+        <ion-option value="Wife">Wife</ion-option>
+        <ion-option value="Son">Son</ion-option>
+        <ion-option value="Son">Daughter</ion-option>
+        <ion-option value="Son">Brother</ion-option>
+        <ion-option value="Son">Sister-in-law</ion-option>
+        <ion-option value="Son">Sister</ion-option>
         <ion-option value="Grand Father">Grand Father</ion-option>
         <ion-option value="Grand Mother">Grand Mother</ion-option>
-        <ion-option value="Wife">Wife</ion-option>
       </ion-select>
     </ion-item>
 
@@ -101,5 +105,9 @@
         <ion-option value="AB Negative">AB -</ion-option>
       </ion-select>
     </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <button ion-button full class="btn" color="pink" >Save</button>
   </ion-list>
 </ion-content>

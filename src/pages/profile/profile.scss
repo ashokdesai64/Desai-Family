@@ -39,6 +39,14 @@ page-profile {
     }  
     .radio-box{
         @include flexbox();
+        .label {
+            @include flexbox();
+            @include align-items(center);
+
+            ion-icon{
+                margin-right: 5px;
+            }
+        }
     }
     .item-ios{
         padding-left: 0px;
