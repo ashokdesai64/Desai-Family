@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let image of ['badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png']">
+    <ion-item (click)="gotoviewnews()" *ngFor="let image of ['badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png']">
       <ion-thumbnail item-start>
         <img src="assets/img/{{image}}">
       </ion-thumbnail>

@@ -23,4 +23,8 @@ export class NewsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
   }
+
+  gotoviewnews(){
+    this.navCtrl.push('ViewNewsPage');
+  }
 }
