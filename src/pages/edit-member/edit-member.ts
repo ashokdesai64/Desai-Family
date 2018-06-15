@@ -15,6 +15,7 @@ export class EditMemberPage {
     public viewCtrl: ViewController, 
     public camera: Camera,
     public navParams: NavParams) {
+    this.base64Image = '../assets/img/girl-avatar.png';
   }
 
   ionViewDidLoad() {

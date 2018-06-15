@@ -1,7 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Desai Families</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearchbar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons> -->
   </ion-navbar>
+  <ion-toolbar >
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="showCancelButton" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-list>

@@ -11,6 +11,8 @@ import { Items } from '../../providers';
   templateUrl: 'families.html',
 })
 export class FamiliesPage {
+  show_search = true;
+  showCancelButton = false;
   currentItems: Item[];
   selectOptions = {
     title: 'Sort By',
@@ -32,7 +34,17 @@ export class FamiliesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FamiliesPage');
   }
+  onInput(e){
+    console.log(e.target.value);
+  }
+  onCancel() {
+    // this.show_search = this.show_search ? false : true;
+  }
 
+  toggleSearchbar() {
+    // this.show_search = this.show_search ? false : true;
+  }
+  
   /**
    * Prompt the user to add a new item. This shows our ItemCreatePage in a
    * modal and then adds the new item to our data source if the user created one.
