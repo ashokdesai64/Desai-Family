@@ -71,4 +71,8 @@ export class FamilyMembersPage {
   gotoviewmember() {
     this.navCtrl.push('ViewMemberPage');
   }
+
+  gotProfileedit() {
+    this.navCtrl.push('ProfilePage');
+  }
 }

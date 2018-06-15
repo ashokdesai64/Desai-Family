@@ -1,6 +1,66 @@
 page-family-members {
     .scroll-content{
-        background: #f3f2f2;
+        background: $page-bg;
+    }
+    .header-md {
+        &::after {
+            display: none;
+        }
+    }
+    .header-ios {
+        .toolbar-background-ios {
+            border-bottom: none; 
+        }
+    }
+    .bg-pink{
+        background-color: $pink;
+        height: 90px;
+    }
+    .card-top{
+        margin-top: -90px;
+    }
+    .card-top{
+        margin-top: -90px;
+    }
+    .card-ios{
+        @include rounded(10px);
+    }
+    .card-md{
+        @extend .card-ios;
+    }
+    .edit-avter{
+        padding-bottom: 15px;
+        position: relative;
+        display: inline-block; 
+        img{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.22 );
+        }
+    }
+    .name {
+        font-size: 22px !important;
+        font-weight: 500 !important;
+    }
+    .mem-list{
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
+        border-bottom: solid 1px $light-gray;
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+    .dir-column{
+        @include flex-direction(column);
+        @include align-items(flex-start);
+        .profile-label {
+            margin-bottom: 5px;
+        }
+        .datetime-text{
+            margin-bottom: 13px;
+        }
     }
     .profile-avatar{
         border-radius: 50px;
@@ -19,9 +79,6 @@ page-family-members {
     }
     .list-box {
         @include rounded(10px);
-    }
-    .scroll-content{
-        background: #f3f2f2;
     }
     .button-full-ios{
         margin: 0px;

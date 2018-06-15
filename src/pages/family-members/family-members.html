@@ -1,10 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Family Members</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="gotProfileedit()">
+        <span ion-text color="white" >Edit</span>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card class="list-box">
+  <!--<ion-card class="list-box">
     <ion-grid>
       <ion-row>
         <ion-col col-3>
@@ -52,8 +57,67 @@
         <ion-col>5</ion-col>
       </ion-row>
     </ion-grid>
+  </ion-card>-->
+  <div class="bg-pink"></div>
+  <ion-card class="card-top">
+    <ion-card-content text-center>
+      <div class="edit-avter">
+        <img src="../assets/img/speakers/eagle.jpg" />
+      </div>
+
+      <h3 class="name">
+        Kaushik 
+      </h3>
+    </ion-card-content>
   </ion-card>
 
+  <ion-card>
+    <ion-card-content>
+      <div class="mem-list">
+        <ion-label class="label-pink">Birthdate:</ion-label>
+        <div class="datetime-text" text-right>15 Jun 2001</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Gender:</ion-label>
+        <div class="datetime-text" text-right>Male</div>
+      </div>
+      
+      <div class="mem-list">
+        <ion-label class="label-pink">Blood Group:</ion-label>
+        <div class="datetime-text" text-right>A+</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Mobile Number:</ion-label>
+        <div class="datetime-text" text-right>8469641717</div>
+      </div>
+      <div class="mem-list">
+        <ion-label class="label-pink">Business:</ion-label>
+        <div class="datetime-text" text-right>IT</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Education:</ion-label>
+        <div class="datetime-text" text-right>MSC (IT)</div>
+      </div>
+
+      <div class="mem-list dir-column">
+        <ion-label class="label-pink">Address:</ion-label>
+        <div class="datetime-text" text-right>80, Yogi Darshan soc, Yogichock surat</div>
+      </div>
+
+      <div class="mem-list dir-column">
+        <ion-label class="label-pink">Email Id:</ion-label>
+        <div class="datetime-text" text-right>kaushikwebdesigner@gmail.com</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Family Member:</ion-label>
+        <div class="datetime-text" text-right>5</div>
+      </div>
+    </ion-card-content>
+  </ion-card>
   <ion-card padding class="list-title">
     <span>Family Members</span>
   </ion-card>
