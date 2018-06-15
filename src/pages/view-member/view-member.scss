@@ -1,4 +1,7 @@
 page-view-member {
+    .scroll-content{
+        background: $page-bg;
+    }
     .header-md {
         &::after {
             display: none;
@@ -11,10 +14,10 @@ page-view-member {
     }
     .bg-pink{
         background-color: $pink;
-        height: 60px;
+        height: 90px;
     }
     .card-top{
-        margin-top: -60px;
+        margin-top: -90px;
     }
     .card-ios{
         @include rounded(10px);
@@ -32,5 +35,33 @@ page-view-member {
             border-radius: 50%;
             box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.22 );
         }
+    }
+    .name {
+        font-size: 22px !important;
+        font-weight: 500 !important;
+    }
+    .mem-list{
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
+        border-bottom: solid 1px $light-gray;
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+    .dir-column{
+        @include flex-direction(column);
+        @include align-items(flex-start);
+        .profile-label {
+            margin-bottom: 5px;
+        }
+        .datetime-text{
+            margin-bottom: 13px;
+        }
+    }
+    .profile-label {
+        color: $pink;
+        font-size: 14px;
+        font-weight: 600;
     }
 }
