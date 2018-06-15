@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
@@ -26,6 +26,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController,
     public translateService: TranslateService,
     private statusBar: StatusBar
     ) {
@@ -37,8 +38,13 @@ export class SignupPage {
   }
 
   doSignup() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+    });
+    loading.present();
     // Attempt to login in through our User service
     this.user.signup(this.account).subscribe((resp) => {
+      loading.dismiss();
       this.navCtrl.push('HomePage');
     }, (err) => {
 
@@ -55,6 +61,11 @@ export class SignupPage {
   }
 
   gotologin(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
     this.navCtrl.setRoot('LoginPage', {}, {
       animate: true,
       direction: 'forward'
