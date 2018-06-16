@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform} from 'ionic-angular';
+import { IonicPage, NavController, Platform, LoadingController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { GLOBAL } from '../../app/global';
+
+import { User } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -9,40 +11,31 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  slides: {};
+  slides = [];
   constructor(
     public navCtrl: NavController, 
     public platform: Platform, 
+    public loadingCtrl: LoadingController, 
+    public user: User, 
     private statusBar: StatusBar) {
     console.log('User::' + GLOBAL.IS_LOGGEDIN);
-
-
-    // if (!GLOBAL.IS_LOGGEDIN.id) {
-    //   this.navCtrl.push('LoginPage');
-    // }
-    
-    this.slides = [
-      {
-        title: 'TUTORIAL_SLIDE1_TITLE',
-        description: 'TUTORIAL_SLIDE1_DESCRIPTION',
-        image: 'assets/img/slider/3.jpg',
-      },
-      {
-        title: 'TUTORIAL_SLIDE2_TITLE',
-        description: 'TUTORIAL_SLIDE2_DESCRIPTION',
-        image: 'assets/img/slider/3.jpg',
-      },
-      {
-        title: 'TUTORIAL_SLIDE3_TITLE',
-        description: 'TUTORIAL_SLIDE3_DESCRIPTION',
-        image: 'assets/img/slider/3.jpg',
-      }
-    ];
     this.statusBar.styleLightContent();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.user.homeslider().subscribe((resp: any) => {
+      if (resp.status) {
+        this.slides = resp.data;
+        this.slides.forEach(element => {
+          element.image = resp.image_path + element.image;
+        });
+      }
+      loading.dismiss();
+    });
   }
 
   gotofamilies(){
@@ -64,6 +57,4 @@ export class HomePage {
   gotonotifications() {
     this.navCtrl.push('NotificationsPage');
   }
-
-  
 }

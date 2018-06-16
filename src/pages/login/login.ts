@@ -25,10 +25,6 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public translateService: TranslateService) {
     this.statusBar.styleDefault();
-
-    // this.user.members().subscribe((resp: any) => {
-    //   console.log(resp);
-    // });
   }
 
   // Attempt to login in through our User service

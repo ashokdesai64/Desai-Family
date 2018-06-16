@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
-/**
- * Generated class for the NewsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { User } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -15,16 +10,42 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'news.html',
 })
 export class NewsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
+  news: any;
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public user: User, 
+    public loadingCtrl: LoadingController,
+    private statusBar: StatusBar) {
     this.statusBar.styleLightContent();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsPage');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.user.news().subscribe((resp: any) => {
+      if (resp.status) {
+        this.news = resp.data;
+        this.news.forEach(element => {
+          element.image = resp.image_path+element.image;
+        });
+      }
+      loading.dismiss();
+    });
   }
 
-  gotoviewnews(){
-    this.navCtrl.push('ViewNewsPage');
+  gotoviewnews(single_news){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
+    this.navCtrl.push('ViewNewsPage', { single_news: single_news});
+  }
+
+  trim_str(value: string, limit): string {
+    let trail = limit > 50 ? '...' : '';
+    return value.length > limit ? value.substring(0, limit) + trail : value;
   }
 }

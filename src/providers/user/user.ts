@@ -1,7 +1,8 @@
-import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core'
 import { Api } from '../api/api';
 import { HttpClient} from '@angular/common/http';
+import { GLOBAL } from '../../app/global';
 
 @Injectable()
 export class User {
@@ -16,7 +17,7 @@ export class User {
     let body = new FormData();
     body.append('email', accountInfo.email);
     body.append('password', accountInfo.password);
-    body.append('header', 'a2309455-13c0-4b5a-b9c1-5e9e65dc0704');
+    body.append('header', GLOBAL.API_HEADER);
 
     let seq = this.api.post('login', body).share();
     seq.subscribe((res: any) => {
@@ -48,8 +49,43 @@ export class User {
     return seq;
   }
 
-  members() {
-    let seq = this.api.get('members', { header:'a2309455-13c0-4b5a-b9c1-5e9e65dc0704'}).share();
+  families(param) {
+    param.header = GLOBAL.API_HEADER;
+    let seq = this.api.get('families', param).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
+
+  news() {
+    let seq = this.api.get('news', { header: GLOBAL.API_HEADER}).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
+  
+  homeslider() {
+    let seq = this.api.get('homeslider', { header: GLOBAL.API_HEADER}).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
+  
+  deletefamilie(item) {
+    let body = new FormData();
+    body.append('id', item.id);
+    body.append('header', GLOBAL.API_HEADER);
+
+    let seq = this.api.post('members', body).share();
     seq.subscribe((res: any) => {
       return res;
     }, err => {
@@ -59,20 +95,9 @@ export class User {
   }
 
   /**
-   * Log the user out, which forgets the session
-   */
-  logout() {
-    localStorage.removeItem('is_loggedin');
-    // localStorage.setItem('is_loggedin', '');
-    // this.storage.set('loggedInUser', '').then(() => { });
-  }
-
-  /**
    * Process a login/signup response to store user data
    */
   _loggedIn(resp) {
     localStorage.setItem('is_loggedin', JSON.stringify(resp));
-    // this.storage.set('loggedInUser', resp).then(() => {});
-    // this._user = resp;
   }
 }

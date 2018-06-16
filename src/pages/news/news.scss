@@ -30,10 +30,12 @@ page-news {
     .list-md {
         @extend .list-ios 
     }
-    .ne-title{
+    .ne-title .toolbar-title{
         margin: 0px;
         font-weight: 500;
         font-size: 16px;
+        color:$black;
+        text-align: left;
     }
     .news-timing{
         font-size: 12px;

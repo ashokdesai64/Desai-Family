@@ -9,15 +9,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-item (click)="gotoviewnews()" *ngFor="let image of ['badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png','badu-live.png']">
+    <ion-item (click)="gotoviewnews(ns)" *ngFor="let ns of news">
       <ion-thumbnail item-start>
-        <img src="assets/img/{{image}}">
+        <img src="{{ns.image}}" onerror="this.src='assets/img/default-news.jpg'">
       </ion-thumbnail>
-      <h2 class="ne-title">My Neighbor Totoro</h2>
-      <p class="ne-desc">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <ion-title class="ne-title">{{ns.title}}</ion-title>
+      <p class="ne-desc">{{trim_str(ns.description,70)}}</p>
       <div class="news-timing">
         <span class="n-time"><ion-icon name="time" ios="ios-time-outline"></ion-icon> 9:45 AM</span>
-        <span class="n-date">08 May 2018</span>
+        <span class="n-date">{{ns.insert_date}}</span>
       </div>
     </ion-item>
   </ion-list>

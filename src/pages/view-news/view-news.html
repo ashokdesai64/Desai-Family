@@ -4,26 +4,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card >
+  <ion-card *ngIf="single_news">
     <span class="img-overlay">
-      <img src="assets/img/badu-live.png" />
+      <img src="{{single_news.image}}" onerror="this.src='assets/img/default_news.png'"/>
     </span>
     <ion-card-content>
       <div class="v-new-head">
         <div class="news-timing">
           <span class="n-time"><ion-icon name="time" ios="ios-time-outline"></ion-icon> 9:45 AM</span>
-          <span class="n-date">08 May 2018</span>
+          <span class="n-date">{{single_news.insert_date}}</span>
         </div>
         <ion-card-title>
-           My Neighbor Totoro
+           {{single_news.title}}
         </ion-card-title>
       </div>
       <p class="news-contant">
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+       {{single_news.description}}
       </p>
     </ion-card-content>
   </ion-card>

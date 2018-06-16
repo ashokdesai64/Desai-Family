@@ -20,6 +20,7 @@ page-home {
     .swiper-slide {
         img{
             @include rounded(10px);
+            height: 160px;
         }
     }
 }
