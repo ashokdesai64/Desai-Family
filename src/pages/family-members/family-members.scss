@@ -24,6 +24,7 @@ page-family-members {
     }
     .card-ios{
         @include rounded(10px);
+        background-position: right 15px bottom 20px;
     }
     .card-md{
         @extend .card-ios;
@@ -75,6 +76,18 @@ page-family-members {
         background: $pink;
         color: $white;
         @include rounded(0px);
+        @include box-shadow(0px ,0px, 18px, rgba( 103, 94, 130 ,0.30 )) ;   
+    }
+    .rela-label {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $pink;
+        padding: 3px 10px;
+        font-size: 12px;
+        color: $white;
+        font-weight: 500;
+        @include rounded(0px 0px 0px 10px);
         @include box-shadow(0px ,0px, 18px, rgba( 103, 94, 130 ,0.30 )) ;   
     }
     .list-box {
