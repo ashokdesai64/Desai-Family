@@ -82,6 +82,16 @@ export class User {
     return seq;
   }
   
+  gallery(id) {
+    let seq = this.api.get('gallery', { header: GLOBAL.API_HEADER, category_id :id }).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
+  
   deletefamilie(item) {
     let body = new FormData();
     body.append('id', item.id);

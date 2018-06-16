@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Gallery } from '../../models/gallery';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
@@ -12,32 +11,43 @@ import { StatusBar } from '@ionic-native/status-bar';
 export class GalleryPage {
   galleries = [
     {
-      "name": "Burt Bear",
+      "id": "1",
+      "name": "Event 2014",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
     {
-      "name": "Burt Bear",
+      "id": "2",
+      "name": "Event 2015",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
     {
-      "name": "Burt Bear",
+      "id": "3",
+      "name": "Event 2016",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
     {
-      "name": "Burt Bear",
+      "id": "4",
+      "name": "Event 2017",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
     {
-      "name": "Burt Bear",
+      "id": "5",
+      "name": "Event 2018",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
     {
-      "name": "Burt Bear",
+      "id": "6",
+      "name": "Event 2019",
       "image": "assets/img/gallery/1.jpg",
+      "count": "5",
     },
   ];
   
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
     this.statusBar.styleLightContent();
   }
@@ -46,10 +56,7 @@ export class GalleryPage {
     console.log('ionViewDidLoad GalleryPage');
   }
 
-  /**
-   * Navigate to the view page for this gallery.
-   */
-  openItem(gallery: Gallery) {
+  gotoviewgallery(gallery) {
     this.navCtrl.push('ViewGalleryPage', {
       gallery: gallery
     });
