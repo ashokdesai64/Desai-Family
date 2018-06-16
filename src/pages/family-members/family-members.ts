@@ -23,19 +23,19 @@ export class FamilyMembersPage {
   }
 
   ionViewDidLoad() {
-    
-    this.details = this.navParams.get('family');
-    
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    this.user.members({ id: this.details.id}).subscribe((resp: any) => {
+
+    this.details = this.navParams.get('family');
+    this.user.members(this.details.id).subscribe((resp: any) => {
       if (resp.status) {
         this.members = resp.data;
       }
       loading.dismiss();
-      console.log(this.members);
+    }, (err) => {
+      loading.dismiss();
     });
   }
 
@@ -44,8 +44,9 @@ export class FamilyMembersPage {
     modal.present();
   } 
 
-  gotoviewmember() {
-    this.navCtrl.push('ViewMemberPage');
+  gotoviewmember(details) {
+    this.showLoader();
+    this.navCtrl.push('ViewMemberPage', { details: details});
   }
 
   gotprofileedit() {

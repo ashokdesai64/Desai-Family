@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -7,16 +7,19 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController } 
   templateUrl: 'view-member.html',
 })
 export class ViewMemberPage {
+  details: any;
 
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController, 
+    public loadingCtrl: LoadingController, 
     public modalCtrl: ModalController,
     public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewMemberPage');
+    this.details = this.navParams.get('details');
+    console.log(this.details);
   }
 
   dismiss() {
@@ -28,5 +31,13 @@ export class ViewMemberPage {
   EditMemberModal() {
     let modal = this.modalCtrl.create('EditMemberPage');
     modal.present();
+  }
+
+  showLoader() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
   }
 }

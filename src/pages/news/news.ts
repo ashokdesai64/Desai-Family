@@ -29,6 +29,8 @@ export class NewsPage {
         this.news = resp.data;
       }
       loading.dismiss();
+    }, (err) => {
+      loading.dismiss();
     });
   }
 

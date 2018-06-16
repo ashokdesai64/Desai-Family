@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content no-padding>
-  <ion-card class="round-box">
-    <ion-slides pager="true"  *ngIf="slides && slides.length" autoplay="1000" loop="true" speed="3000">
+  <ion-card class="round-box" *ngIf="slides && slides.length">
+    <ion-slides pager="true" autoplay="1000" loop="true" speed="3000">
       <ion-slide *ngFor="let slide of slides">
         <img [src]="slide.image" class="slide-image" />
       </ion-slide>

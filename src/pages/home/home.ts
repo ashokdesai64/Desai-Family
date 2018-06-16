@@ -32,6 +32,8 @@ export class HomePage {
         this.slides = resp.data;
       }
       loading.dismiss();
+    }, (err) => {
+      loading.dismiss();
     });
   }
 

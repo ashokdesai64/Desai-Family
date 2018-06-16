@@ -73,22 +73,22 @@
     <span>Family Members</span>
   </ion-card>
 
-  <ion-list>
-    <ion-card *ngFor="let item of currentItems" class="list-box" (click)="gotoviewmember()">
+  <ion-list *ngIf="members">
+    <ion-card *ngFor="let member of members" class="list-box" (click)="gotoviewmember(member)">
       <ion-item-sliding>
         <button ion-item>
           <ion-avatar item-start>
-            <img [src]="item.image" />
+            <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-avatar>
-          <h2 class="title">{{item.name}}</h2>
-          <span class="address">Gadhadi, Gadhada, Botad</span>
+          <h2 class="title">{{member.name}}</h2>
+          <span class="address">{{member.address}}</span>
           <div class="">
-            <span class="mobile-no">Mo. {{item.mobile}}</span>
-            <ion-note item-end class="blood-group" *ngIf="item.bloodgroup"><ion-icon name="water" color="pink"></ion-icon> {{item.bloodgroup}}</ion-note>
+            <span class="mobile-no">Mo. {{member.mobile}}</span>
+            <ion-note item-end class="blood-group" *ngIf="member.blood_group"><ion-icon name="water" color="pink"></ion-icon> {{member.blood_group}}</ion-note>
           </div>
 
-          <div class="rela-label">
-              <span>Son</span>
+          <div class="rela-label" *ngIf="member.relation">
+              <span>{{member.relation}}</span>
           </div>
         </button>
         <ion-item-options>
