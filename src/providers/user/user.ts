@@ -8,10 +8,6 @@ import { GLOBAL } from '../../app/global';
 export class User {
   constructor(public api: Api, public http: HttpClient) { }
 
-  /**
-   * Send a POST request to our login endpoint with the data
-   * the user entered on the form.
-   */
   login(accountInfo: any) {
 
     let body = new FormData();
@@ -30,10 +26,6 @@ export class User {
     return seq;
   }
 
-  /**
-   * Send a POST request to our signup endpoint with the data
-   * the user entered on the form.
-   */
   signup(accountInfo: any) {
     let seq = this.api.post('signup', accountInfo).share();
 
@@ -79,6 +71,16 @@ export class User {
     });
     return seq;
   }
+
+  members(id) {
+    let seq = this.api.get('members', { header: GLOBAL.API_HEADER, parent_id:id }).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
   
   deletefamilie(item) {
     let body = new FormData();
@@ -94,9 +96,6 @@ export class User {
     return seq;
   }
 
-  /**
-   * Process a login/signup response to store user data
-   */
   _loggedIn(resp) {
     localStorage.setItem('is_loggedin', JSON.stringify(resp));
   }

@@ -27,9 +27,6 @@ export class NewsPage {
     this.user.news().subscribe((resp: any) => {
       if (resp.status) {
         this.news = resp.data;
-        this.news.forEach(element => {
-          element.image = resp.image_path+element.image;
-        });
       }
       loading.dismiss();
     });

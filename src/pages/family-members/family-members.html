@@ -1,120 +1,71 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Family Members</ion-title>
+    <ion-title>Family Details</ion-title>
     <ion-buttons end>
-      <button ion-button (click)="gotProfileedit()">
+      <button ion-button (click)="gotprofileedit()">
         <span ion-text color="white" >Edit</span>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <!--<ion-card class="list-box">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-          <ion-avatar item-start>
-            <img src="assets/img/marty-avatar.png" class="profile-avatar">
-          </ion-avatar>
-        </ion-col>
-        <ion-col col-9>
-          <ion-row>
-            <ion-col class="label-pink">Name : </ion-col>
-            <ion-col>Kaushik Bhartbhai </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="label-pink">Gender : </ion-col>
-            <ion-col>Male</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="label-pink">Blood Group : </ion-col>
-            <ion-col>AB+</ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Phone Number : </ion-col>
-        <ion-col>9898989898</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Address : </ion-col>
-        <ion-col>9898989898</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Email : </ion-col>
-        <ion-col>abc@gmail.com</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Education : </ion-col>
-        <ion-col>B.Com</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Business : </ion-col>
-        <ion-col>Wed Devloping</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="label-pink">Family Member : </ion-col>
-        <ion-col>5</ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>-->
   <div class="bg-pink"></div>
-  <ion-card class="card-top">
+  <ion-card class="card-top" *ngIf="details">
     <ion-card-content text-center>
       <div class="edit-avter">
-        <img src="../assets/img/speakers/eagle.jpg" />
+        <img src="{{details.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
       </div>
 
       <h3 class="name">
-        Kaushik 
+         {{details.name}}
       </h3>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="details">
     <ion-card-content>
       <div class="mem-list">
         <ion-label class="label-pink">Birthdate:</ion-label>
-        <div class="datetime-text" text-right>15 Jun 2001</div>
+        <div class="datetime-text" text-right>{{details.name}}</div>
       </div>
 
       <div class="mem-list">
         <ion-label class="label-pink">Gender:</ion-label>
-        <div class="datetime-text" text-right>Male</div>
+        <div class="datetime-text" text-right>{{details.gender | titlecase}}</div>
       </div>
       
       <div class="mem-list">
         <ion-label class="label-pink">Blood Group:</ion-label>
-        <div class="datetime-text" text-right>A+</div>
+        <div class="datetime-text" text-right>{{details.blood_group}}</div>
       </div>
 
       <div class="mem-list">
         <ion-label class="label-pink">Mobile Number:</ion-label>
-        <div class="datetime-text" text-right>8469641717</div>
+        <div class="datetime-text" text-right>{{details.mobile_no}}</div>
       </div>
       <div class="mem-list">
         <ion-label class="label-pink">Business:</ion-label>
-        <div class="datetime-text" text-right>IT</div>
+        <div class="datetime-text" text-right>{{details.business}}</div>
       </div>
 
       <div class="mem-list">
         <ion-label class="label-pink">Education:</ion-label>
-        <div class="datetime-text" text-right>MSC (IT)</div>
+        <div class="datetime-text" text-right>{{details.education}}</div>
       </div>
 
       <div class="mem-list dir-column">
         <ion-label class="label-pink">Address:</ion-label>
-        <div class="datetime-text" text-right>80, Yogi Darshan soc, Yogichock surat</div>
+        <div class="datetime-text" text-right>{{details.address}}</div>
       </div>
 
       <div class="mem-list dir-column">
         <ion-label class="label-pink">Email Id:</ion-label>
-        <div class="datetime-text" text-right>kaushikwebdesigner@gmail.com</div>
+        <div class="datetime-text" text-right>{{details.email}}</div>
       </div>
 
       <div class="mem-list">
         <ion-label class="label-pink">Family Member:</ion-label>
-        <div class="datetime-text" text-right>5</div>
+        <div class="datetime-text" text-right>{{details.family_member}}</div>
       </div>
     </ion-card-content>
   </ion-card>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { User } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -9,58 +10,33 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'family-members.html',
 })
 export class FamilyMembersPage {
-  currentItems = [
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  {
-    "name": "Burt Bear",
-    "image": "assets/img/speakers/bear.jpg",
-    "mobile": "9898989898",
-    "bloodgroup": "A"
-  },
-  ];
   details :any;
+  members :any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
+    public user: User,
+    public loadingCtrl: LoadingController, 
     public modalCtrl: ModalController,
     private statusBar: StatusBar) {
     this.statusBar.styleLightContent();
-    this.details = navParams.get('item');
-    console.log(this.details);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FamilyMembersPage');
-    console.log(this.details);
+    
+    this.details = this.navParams.get('family');
+    
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.user.members({ id: this.details.id}).subscribe((resp: any) => {
+      if (resp.status) {
+        this.members = resp.data;
+      }
+      loading.dismiss();
+      console.log(this.members);
+    });
   }
 
   AddMemberModal() {
@@ -72,7 +48,16 @@ export class FamilyMembersPage {
     this.navCtrl.push('ViewMemberPage');
   }
 
-  gotProfileedit() {
+  gotprofileedit() {
+    this.showLoader();
     this.navCtrl.push('ProfilePage');
+  }
+
+  showLoader() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
   }
 }

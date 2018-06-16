@@ -30,9 +30,6 @@ export class HomePage {
     this.user.homeslider().subscribe((resp: any) => {
       if (resp.status) {
         this.slides = resp.data;
-        this.slides.forEach(element => {
-          element.image = resp.image_path + element.image;
-        });
       }
       loading.dismiss();
     });
@@ -43,6 +40,7 @@ export class HomePage {
   }
   
   gotoabout(){
+    this.showLoader();
     this.navCtrl.push('AboutFamilyPage');
   }
 
@@ -56,5 +54,13 @@ export class HomePage {
   
   gotonotifications() {
     this.navCtrl.push('NotificationsPage');
+  }
+
+  showLoader() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
   }
 }

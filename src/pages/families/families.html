@@ -10,9 +10,9 @@
 <ion-content>
   <ion-list>
     <ion-card *ngFor="let item of families" class="list-box">
-        <button ion-item (click)="openItem(item)">
+        <button ion-item (click)="gotofamilymembers(item)">
           <ion-avatar item-start>
-            <img src="{{image_path}}{{item.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
+            <img src="{{item.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-avatar>
           <h2 class="title">{{item.name}}</h2>
           <span class="address">Gadhadi, Gadhada, Botad</span>

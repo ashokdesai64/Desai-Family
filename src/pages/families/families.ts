@@ -38,7 +38,6 @@ export class FamiliesPage {
     this.user.families(param).subscribe((resp: any) => {
       if (resp.status){
         this.families = resp.data;
-        this.image_path = resp.image_path;
       }
       loading.dismiss();
     });
@@ -47,16 +46,10 @@ export class FamiliesPage {
   onInput(e){
     console.log(e.target.value);
   }
-  toggleSearchbar() {
-    // this.show_search = this.show_search ? false : true;
-  }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
+  gotofamilymembers(family) {
     this.navCtrl.push('FamilyMembersPage', {
-      item: item
+      family: family
     });
   }
 
@@ -98,5 +91,4 @@ export class FamiliesPage {
   });
   alert.present();
 }
-
 }
