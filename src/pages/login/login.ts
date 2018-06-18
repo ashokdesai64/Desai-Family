@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
@@ -12,9 +12,7 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
+  
   account: { email: string, password: string } = {
     email: 'jaydip@gmail.com',
     password: '12345678'
@@ -22,10 +20,13 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,
+    public menuCtrl: MenuController, 
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public translateService: TranslateService) {
     this.statusBar.styleDefault();
+
+    this.menuCtrl.swipeEnable(false);
   }
 
   ionViewCanEnter(){

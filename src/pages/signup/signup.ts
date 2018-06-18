@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
@@ -27,6 +27,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
+    public menuCtrl: MenuController,
     public loadingCtrl: LoadingController,
     public translateService: TranslateService,
     private statusBar: StatusBar
@@ -35,6 +36,8 @@ export class SignupPage {
       this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
       this.statusBar.styleDefault();
+
+      this.menuCtrl.swipeEnable(false);
     })
   }
 
