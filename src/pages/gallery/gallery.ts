@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 
 @IonicPage()
@@ -18,6 +19,12 @@ export class GalleryPage {
     public user: User,
     private statusBar: StatusBar) {
     this.statusBar.styleLightContent();
+  }
+
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
   }
 
   ionViewDidLoad() {

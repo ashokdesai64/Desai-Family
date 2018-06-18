@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, LoadingController
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -22,21 +23,28 @@ export class FamilyMembersPage {
     this.statusBar.styleLightContent();
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-
     this.details = this.navParams.get('family');
-    this.user.members(this.details.id).subscribe((resp: any) => {
-      if (resp.status) {
-        this.members = resp.data;
-      }
-      loading.dismiss();
-    }, (err) => {
-      loading.dismiss();
-    });
+    if (this.details){
+      this.user.members(this.details.id).subscribe((resp: any) => {
+        if (resp.status) {
+          this.members = resp.data;
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+    }
   }
 
   AddMemberModal() {

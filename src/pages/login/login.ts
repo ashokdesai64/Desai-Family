@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController, LoadingController } from 'io
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -27,6 +28,12 @@ export class LoginPage {
     this.statusBar.styleDefault();
   }
 
+  ionViewCanEnter(){
+    if (GLOBAL.IS_LOGGEDIN){
+      this.navCtrl.setRoot('HomePage');
+    }
+  }
+
   // Attempt to login in through our User service
   doLogin() {
     let loading = this.loadingCtrl.create({
@@ -37,10 +44,8 @@ export class LoginPage {
       loading.dismiss();
       
       setTimeout(() => {
-        this.navCtrl.setRoot('HomePage', {}, {
-          animate: true,
-          direction: 'forward'
-        });
+        GLOBAL.IS_LOGGEDIN = true;
+        this.navCtrl.setRoot('HomePage');
       }, 1000);
     
       let toast = this.toastCtrl.create({
@@ -68,9 +73,6 @@ export class LoginPage {
       dismissOnPageChange:true
     });
     loading.present();
-    this.navCtrl.setRoot('SignupPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.setRoot('SignupPage')
   }
 }

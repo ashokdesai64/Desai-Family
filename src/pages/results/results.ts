@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ResultsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -18,6 +12,12 @@ export class ResultsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultsPage');
   }

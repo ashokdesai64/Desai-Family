@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, LoadingController } from 'ionic-angular';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -17,9 +18,14 @@ export class ViewMemberPage {
     public navParams: NavParams) {
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     this.details = this.navParams.get('details');
-    console.log(this.details);
   }
 
   dismiss() {

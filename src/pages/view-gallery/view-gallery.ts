@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 
 @IonicPage()
@@ -21,6 +22,12 @@ export class ViewGalleryPage {
     this.statusBar.styleLightContent();
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+
   ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
@@ -28,14 +35,16 @@ export class ViewGalleryPage {
     loading.present();
     
     this.gallery = this.navParams.get('gallery');
-    this.user.gallery(this.gallery.id).subscribe((resp: any) => {
-      if (resp.status) {
-        this.gallery_item = resp.data;
-      }
-      loading.dismiss();
-    }, (err) => {
-      loading.dismiss();
-    });
+    if (this.gallery){
+      this.user.gallery(this.gallery.id).subscribe((resp: any) => {
+        if (resp.status) {
+          this.gallery_item = resp.data;
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+    }
   }
   
 }

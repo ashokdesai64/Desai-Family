@@ -18,8 +18,13 @@ export class HomePage {
     public loadingCtrl: LoadingController, 
     public user: User, 
     private statusBar: StatusBar) {
-    console.log('User::' + GLOBAL.IS_LOGGEDIN);
     this.statusBar.styleLightContent();
+  }
+
+  ionViewCanEnter() {
+      if (GLOBAL.IS_LOGGEDIN === false) {
+        this.navCtrl.setRoot('LoginPage');
+      }
   }
 
   ionViewDidLoad() {

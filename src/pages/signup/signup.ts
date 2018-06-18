@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController, LoadingController } from 'io
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -37,6 +38,12 @@ export class SignupPage {
     })
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN) {
+      this.navCtrl.setRoot('HomePage');
+    }
+  }
+  
   doSignup() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...',
@@ -66,9 +73,7 @@ export class SignupPage {
       dismissOnPageChange: true
     });
     loading.present();
-    this.navCtrl.setRoot('LoginPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.setRoot('LoginPage'
+  ) 
   }
 }
