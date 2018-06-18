@@ -22,8 +22,8 @@ export class MyApp {
     { title: 'News', component: 'NewsPage', icon: 'paper'},
     { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
   ]
-  user: any;
-
+  _user: any;
+  
   constructor(private translate: TranslateService, 
     platform: Platform, 
     private config: Config, 
@@ -35,8 +35,8 @@ export class MyApp {
       this.rootPage = HomePage;  
     }
 
-    this.user = GLOBAL.USER;  
-    
+    this._user =  GLOBAL.USER;
+
     platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

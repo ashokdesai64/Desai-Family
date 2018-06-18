@@ -117,6 +117,8 @@ export class User {
   }
 
   _loggedIn(resp) {
+    GLOBAL.IS_LOGGEDIN = true;
+    GLOBAL.USER = resp.data;
     localStorage.setItem('is_loggedin', JSON.stringify(resp));
   }
 }

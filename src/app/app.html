@@ -1,12 +1,12 @@
 <ion-menu [content]="content">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar *ngIf="_user">
           <a class="menu-profile" color="pink">
             <ion-avatar item-start>
-              <img src="{{user.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
+              <img src="{{_user.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
             </ion-avatar>
-            <h4 class="title">{{user.name}}</h4>
-            <span class="address">{{user.email}}</span>
+            <h4 class="title">{{_user.name}}</h4>
+            <span class="address">{{_user.email}}</span>
           </a>
       </ion-toolbar>
     </ion-header>

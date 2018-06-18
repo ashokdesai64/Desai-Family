@@ -17,6 +17,7 @@ export class LoginPage {
     email: 'jaydip@gmail.com',
     password: '12345678'
   };
+  _user: any;
 
   constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,
@@ -44,12 +45,10 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp: any) => {
       loading.dismiss();
       if (resp.status){
-        GLOBAL.IS_LOGGEDIN = true;
-        GLOBAL.USER = resp.data;
         setTimeout(() => {
           this.navCtrl.setRoot('HomePage');
         }, 1000);
-        
+
         let toast = this.toastCtrl.create({
           message: resp.message,
           duration: 1000,
@@ -57,11 +56,6 @@ export class LoginPage {
         });
         toast.present();  
       }
-      else{
-
-      }
-      
-
     }, (err) => {
       // Unable to log in
       loading.dismiss();
