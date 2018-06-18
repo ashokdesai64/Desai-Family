@@ -23,23 +23,31 @@
               <ion-label stacked class="profile-label">Name</ion-label>
               <ion-input type="text" name="name" required placeholder="Enter Your Name"></ion-input>
             </ion-item>
+            
+            <ion-item>
+              <ion-label color="pink">Blood Group</ion-label>
+              <ion-select name="Blood Group" required>
+                <ion-option value="O Positive">O +</ion-option>
+                <ion-option value="O Negative">O -</ion-option>
+                <ion-option value="A Positive">A +</ion-option>
+                <ion-option value="A Negative">A -</ion-option>
+                <ion-option value="B Positive">B +</ion-option>
+                <ion-option value="B Negative">B -</ion-option>
+                <ion-option value="AB Positive">AB +</ion-option>
+                <ion-option value="AB Negative">AB -</ion-option>
+              </ion-select>
+            </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
           <ion-list>
-            <div class="radio-box" radio-group>
-              <ion-item>
-                <ion-label>
-                  <ion-icon name="man"></ion-icon> Male</ion-label>
-                <ion-radio value="Male"></ion-radio>
-              </ion-item>
-
-              <ion-item>
-                <ion-label>
-                  <ion-icon name="woman"></ion-icon> Female</ion-label>
-                <ion-radio value="female"></ion-radio>
-              </ion-item>
-            </div>
+            <ion-item>
+              <ion-label color="pink">Gender</ion-label>
+              <ion-select name="Gender" required>
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
+              </ion-select>
+            </ion-item>
             <ion-item>
               <ion-label color="pink">Birth Date</ion-label>
               <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
@@ -64,19 +72,6 @@
               <ion-input type="Email" name="name" required placeholder="Enter Your Eduction"></ion-input>
             </ion-item>
 
-            <ion-item>
-              <ion-label color="pink">Blood Group</ion-label>
-              <ion-select name="Blood Group" required>
-                <ion-option value="O Positive">O +</ion-option>
-                <ion-option value="O Negative">O -</ion-option>
-                <ion-option value="A Positive">A +</ion-option>
-                <ion-option value="A Negative">A -</ion-option>
-                <ion-option value="B Positive">B +</ion-option>
-                <ion-option value="B Negative">B -</ion-option>
-                <ion-option value="AB Positive">AB +</ion-option>
-                <ion-option value="AB Negative">AB -</ion-option>
-              </ion-select>
-            </ion-item>
             <ion-item>
               <ion-label color="pink">Village</ion-label>
               <ion-select name="Blood Group" required>

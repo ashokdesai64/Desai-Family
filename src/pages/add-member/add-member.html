@@ -27,23 +27,13 @@
     </ion-item>
   </ion-list>
 
-  <ion-list radio-group>
-    <div class="radio-box">
-      <ion-item>
-        <ion-label>
-          <ion-icon name="man"></ion-icon> Male
-        </ion-label>
-        <ion-radio value="Male"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="woman"></ion-icon> Female
-        </ion-label>
-        <ion-radio value="female"></ion-radio>
-      </ion-item>
-    </div>
-  </ion-list>
+  <ion-item>
+    <ion-label color="pink">Gender</ion-label>
+    <ion-select name="Gender" required>
+      <ion-option value="Male">Male</ion-option>
+      <ion-option value="Female">Female</ion-option>
+    </ion-select>
+  </ion-item>
 
   <ion-list>
     <ion-item>
