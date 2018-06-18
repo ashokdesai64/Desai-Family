@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { GLOBAL } from '../../app/global';
 
 
 @IonicPage()
@@ -18,6 +19,12 @@ export class EditMemberPage {
     this.base64Image = '../assets/img/girl-avatar.png';
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditMemberPage');
   }

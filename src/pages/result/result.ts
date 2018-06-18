@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,12 @@ export class ResultPage {
   ) {
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultPage');
   }

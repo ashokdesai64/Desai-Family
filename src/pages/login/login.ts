@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -11,9 +12,7 @@ import { User } from '../../providers';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
+  
   account: { email: string, password: string } = {
     email: 'jaydip@gmail.com',
     password: '12345678'
@@ -21,10 +20,19 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,
+    public menuCtrl: MenuController, 
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public translateService: TranslateService) {
     this.statusBar.styleDefault();
+
+    this.menuCtrl.swipeEnable(false);
+  }
+
+  ionViewCanEnter(){
+    if (GLOBAL.IS_LOGGEDIN){
+      this.navCtrl.setRoot('HomePage');
+    }
   }
 
   // Attempt to login in through our User service
@@ -37,10 +45,8 @@ export class LoginPage {
       loading.dismiss();
       
       setTimeout(() => {
-        this.navCtrl.setRoot('HomePage', {}, {
-          animate: true,
-          direction: 'forward'
-        });
+        GLOBAL.IS_LOGGEDIN = true;
+        this.navCtrl.setRoot('HomePage');
       }, 1000);
     
       let toast = this.toastCtrl.create({
@@ -68,9 +74,6 @@ export class LoginPage {
       dismissOnPageChange:true
     });
     loading.present();
-    this.navCtrl.setRoot('SignupPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.setRoot('SignupPage')
   }
 }

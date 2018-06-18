@@ -3,7 +3,7 @@
     <ion-title>Desai Families</ion-title>
   </ion-navbar>
   <ion-toolbar >
-    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="showCancelButton" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    <ion-searchbar [(ngModel)]="myInput" [autocomplete]="on" [debounce]="1000" [showCancelButton]="showCancelButton" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
@@ -22,8 +22,10 @@
           </div>
         </button>
     </ion-card>
-
   </ion-list>
+  <ion-infinite-scroll *ngIf="totalpage >= page" (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 <ion-footer>

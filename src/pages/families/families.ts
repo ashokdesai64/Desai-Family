@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController, 
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -13,9 +14,11 @@ export class FamiliesPage {
   show_search = true;
   families: any;
   
+  page:number = 1;
   sort:string = 'asc';
   order:string = 'id';
-  image_path: any;
+  totalpage: number = 0;
+  search: string = '';
   
   constructor(
     public navCtrl: NavController,
@@ -29,15 +32,24 @@ export class FamiliesPage {
     this.statusBar.styleLightContent();
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    let param = { sort: this.sort, order: this.order };
+    let param = { page: this.page, sort: this.sort, order: this.order, s: this.search};
     this.user.families(param).subscribe((resp: any) => {
       if (resp.status){
         this.families = resp.data;
+        this.totalpage = resp.totalpage;
+        this.page++;
+
       }
       loading.dismiss();
     },(err) => {
@@ -45,8 +57,42 @@ export class FamiliesPage {
     });
   }
 
-  onInput(e){
-    console.log(e.target.value);
+  doInfinite(): Promise<any> {
+    // console.log('totalpage::' + this.totalpage,'page::'+this.page)
+      return new Promise((resolve) => {
+        let param = { page: this.page, sort: this.sort, order: this.order, s: this.search };
+        this.user.families(param).subscribe((resp: any) => {
+          if (resp.status) {
+            for (var i = 0; i < resp.data.length; i++) {
+              this.families.push(resp.data[i]);
+            }
+              this.page++;
+            }
+            resolve();
+          }, (err) => {
+            resolve();
+          });
+      })
+  }
+
+  onInput(e) : Promise<any>{
+    this.search = e.target.value != undefined ? e.target.value:'';
+    return new Promise((resolve) => {
+      this.page       = 1;
+      this.totalpage  = 0;
+      let param = { page: this.page, sort: this.sort, order: this.order, s: this.search };
+      this.user.families(param).subscribe((resp: any) => {
+        if (resp.status) {
+          this.families   = resp.data;
+          this.totalpage  = resp.totalpage;
+          this.page++;
+        }
+        resolve();
+      }, (err) => {
+        this.families = [];
+        resolve();
+      });
+    })
   }
 
   gotofamilymembers(family) {
@@ -70,6 +116,9 @@ export class FamiliesPage {
       handler: data => {
         let sort = data.split('-');
         
+        this.page = 1;
+        this.totalpage  = 0;
+
         this.order = sort[0]
         this.sort = sort[1];
         this.ionViewDidLoad();
@@ -79,18 +128,18 @@ export class FamiliesPage {
   }
 
   filterby() {
-  let alert = this.alertCtrl.create();
-  alert.setTitle('Filter By');
-  alert.addInput({ type: 'checkbox', label: 'Name ASC', value: 'name', checked: false });
-  alert.addInput({ type: 'checkbox', label: 'DOB ASC', value: 'dob', checked: false });
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Filter By');
+    alert.addInput({ type: 'checkbox', label: 'Name ASC', value: 'name', checked: false });
+    alert.addInput({ type: 'checkbox', label: 'DOB ASC', value: 'dob', checked: false });
 
-  alert.addButton('Cancel');
-  alert.addButton({
-    text: 'OK',
-    handler: data => {
-      console.log(data);
-    }
-  });
-  alert.present();
-}
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log(data);
+      }
+    });
+    alert.present();
+  }
 }

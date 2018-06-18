@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -12,6 +13,12 @@ export class AddMemberPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public camera: Camera,) {
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN === false) {
+      this.navCtrl.setRoot('LoginPage');
+    }
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddMemberPage');
   }

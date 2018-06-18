@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, Platform, LoadingController, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { GLOBAL } from '../../app/global';
 
@@ -16,10 +16,18 @@ export class HomePage {
     public navCtrl: NavController, 
     public platform: Platform, 
     public loadingCtrl: LoadingController, 
+    public menuCtrl: MenuController, 
     public user: User, 
     private statusBar: StatusBar) {
-    console.log('User::' + GLOBAL.IS_LOGGEDIN);
     this.statusBar.styleLightContent();
+
+    this.menuCtrl.swipeEnable(true);
+  }
+
+  ionViewCanEnter() {
+      if (GLOBAL.IS_LOGGEDIN === false) {
+        this.navCtrl.setRoot('LoginPage');
+      }
   }
 
   ionViewDidLoad() {

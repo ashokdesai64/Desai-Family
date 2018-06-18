@@ -4,11 +4,11 @@ import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
-  selector: 'page-view-news',
-  templateUrl: 'view-news.html',
+  selector: 'page-results',
+  templateUrl: 'results.html',
 })
-export class ViewNewsPage {
-  single_news: any;
+export class ResultsPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -19,6 +19,7 @@ export class ViewNewsPage {
   }
   
   ionViewDidLoad() {
-    this.single_news = this.navParams.get('single_news');
+    console.log('ionViewDidLoad ResultsPage');
   }
+
 }

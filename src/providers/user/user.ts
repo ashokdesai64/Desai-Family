@@ -91,6 +91,16 @@ export class User {
     });
     return seq;
   }
+
+  galleries() {
+    let seq = this.api.get('galleries', { header: GLOBAL.API_HEADER }).share();
+    seq.subscribe((res: any) => {
+      return res;
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
   
   deletefamilie(item) {
     let body = new FormData();

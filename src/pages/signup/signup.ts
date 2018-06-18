@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
+import { GLOBAL } from '../../app/global';
 
 @IonicPage()
 @Component({
@@ -26,6 +27,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
+    public menuCtrl: MenuController,
     public loadingCtrl: LoadingController,
     public translateService: TranslateService,
     private statusBar: StatusBar
@@ -34,9 +36,17 @@ export class SignupPage {
       this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
       this.statusBar.styleDefault();
+
+      this.menuCtrl.swipeEnable(false);
     })
   }
 
+  ionViewCanEnter() {
+    if (GLOBAL.IS_LOGGEDIN) {
+      this.navCtrl.setRoot('HomePage');
+    }
+  }
+  
   doSignup() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...',
@@ -66,9 +76,7 @@ export class SignupPage {
       dismissOnPageChange: true
     });
     loading.present();
-    this.navCtrl.setRoot('LoginPage', {}, {
-      animate: true,
-      direction: 'forward'
-    }) 
+    this.navCtrl.setRoot('LoginPage'
+  ) 
   }
 }
