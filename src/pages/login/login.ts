@@ -43,18 +43,24 @@ export class LoginPage {
     loading.present();
     this.user.login(this.account).subscribe((resp: any) => {
       loading.dismiss();
-      
-      setTimeout(() => {
+      if (resp.status){
         GLOBAL.IS_LOGGEDIN = true;
-        this.navCtrl.setRoot('HomePage');
-      }, 1000);
-    
-      let toast = this.toastCtrl.create({
-        message: resp.message,
-        duration: 1000,
-        position: 'bottom'
-      });
-      toast.present();  
+        GLOBAL.USER = resp.data;
+        setTimeout(() => {
+          this.navCtrl.setRoot('HomePage');
+        }, 1000);
+        
+        let toast = this.toastCtrl.create({
+          message: resp.message,
+          duration: 1000,
+          position: 'bottom'
+        });
+        toast.present();  
+      }
+      else{
+
+      }
+      
 
     }, (err) => {
       // Unable to log in

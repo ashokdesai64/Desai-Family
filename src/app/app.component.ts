@@ -8,47 +8,21 @@ import { FirstRunPage, HomePage } from '../pages';
 import { GLOBAL } from '../app/global';
 
 @Component({
-  template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-          <a class="menu-profile" color="pink">
-            <ion-avatar item-start>
-              <img src="assets/img/ian-avatar.png" />
-            </ion-avatar>
-            <h4 class="title">Jony Deo</h4>
-            <span class="address">jonydeo123@gmail.com</span>
-          </a>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon class="menu-icon" name="{{p.icon}}"></ion-icon> {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-
-    <ion-footer text-center> 
-        <button ion-button full outline no-margin class="" color="pink" (click)="logout()">
-          Log Out &ensp; <ion-icon name="log-out"></ion-icon></button>
-    </ion-footer>
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = FirstRunPage;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Login', component: 'LoginPage', icon: 'people'},
     { title: 'Home', component: 'HomePage', icon: 'home' },
+    { title: 'Results', component: 'ResultsPage', icon: 'document'},
     { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
-    { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
-    { title: 'Result', component: 'ResultPage', icon: 'document'},
+    { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
   ]
+  user: any;
 
   constructor(private translate: TranslateService, 
     platform: Platform, 
@@ -61,6 +35,8 @@ export class MyApp {
       this.rootPage = HomePage;  
     }
 
+    this.user = GLOBAL.USER;  
+    
     platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -100,6 +76,7 @@ export class MyApp {
 
   logout() {
     GLOBAL.IS_LOGGEDIN = false;
+    GLOBAL.USER = {};
     localStorage.removeItem('is_loggedin');
     this.nav.setRoot('LoginPage');
     this.menuCtrl.close();
