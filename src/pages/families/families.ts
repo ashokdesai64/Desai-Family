@@ -13,9 +13,11 @@ export class FamiliesPage {
   show_search = true;
   families: any;
   
+  page:number = 1;
   sort:string = 'asc';
   order:string = 'id';
   image_path: any;
+  totalpage: number = 0;
   
   constructor(
     public navCtrl: NavController,
@@ -34,15 +36,36 @@ export class FamiliesPage {
       content: 'Please wait...'
     });
     loading.present();
-    let param = { sort: this.sort, order: this.order };
+    let param = { page:this.page,sort: this.sort, order: this.order};
     this.user.families(param).subscribe((resp: any) => {
       if (resp.status){
         this.families = resp.data;
+        this.totalpage = resp.totalpage;
+        this.page++;
+
       }
       loading.dismiss();
     },(err) => {
       loading.dismiss();
     });
+  }
+
+  doInfinite(): Promise<any> {
+    console.log('totalpage::' + this.totalpage,'page::'+this.page)
+      return new Promise((resolve) => {
+        let param = { page: this.page, sort: this.sort, order: this.order };
+        this.user.families(param).subscribe((resp: any) => {
+          if (resp.status) {
+            for (var i = 0; i < resp.data.length; i++) {
+              this.families.push(resp.data[i]);
+            }
+              this.page++;
+              resolve();
+            }
+          }, (err) => {
+            resolve();
+          });
+      })
   }
 
   onInput(e){
