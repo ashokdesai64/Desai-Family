@@ -46,21 +46,20 @@ page-family-members {
     }
     .mem-list{
         @include flexbox();
-        @include align-items(center);
+        @include align-items(flex-start);
         @include justify-content(space-between);
+        @include flex-direction(column);
         border-bottom: solid 1px $light-gray;
         &:last-child{
             border-bottom: none;
         }
-    }
-    .dir-column{
-        @include flex-direction(column);
-        @include align-items(flex-start);
         .profile-label {
             margin-bottom: 5px;
         }
         .datetime-text{
             margin-bottom: 13px;
+            margin-left: 10px;
+            white-space: pre-wrap;
         }
     }
     .profile-avatar{
@@ -70,6 +69,7 @@ page-family-members {
         color: $pink;
         font-weight: 500;
         white-space: nowrap;
+        margin-bottom: 5px;
     }
     .list-title{
         font-size:15px;

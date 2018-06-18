@@ -1,6 +1,6 @@
 page-signup {
     .login-form{
-        padding: 10px 30px 30px 30px;
+        padding: 10px 30px 10px 30px;
         background-color: $login-bg;
         position: relative;
     }
@@ -11,7 +11,7 @@ page-signup {
         @extend .item-md
     }
     .page-hdng {
-        margin: 30px 0 50px;
+        margin: 10px 0 30px;
         color: #666;
         font-weight: 400;
         font-size: 32px;
@@ -23,7 +23,7 @@ page-signup {
         border-top: none !important;
         ion-label{
             margin: 0px;
-            padding: 10px 0px 10px 15px;    
+            padding: 15px 0px 15px 15px;    
         }
     } 
     .item-md{
@@ -60,8 +60,11 @@ page-signup {
         }
     }
     .social-form{
-        padding: 50px 50px 20px 50px;
         background-color: $white;
+        padding: 30px 20px 20px;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
         .button-block-md{
             margin: 0px 0px 15px 0px;
             text-transform: capitalize;
@@ -79,5 +82,25 @@ page-signup {
             text-decoration: none;
             font-weight: 500;
         }
+    }
+    .qsek-manage {
+        padding: 20px 20px 10px;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        @include flex-direction(column);
+        
+        img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        span {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+    .btn{
+        min-width: 120px;
     }
 }
