@@ -17,7 +17,6 @@ export class LoginPage {
     email: 'jaydip@gmail.com',
     password: '12345678'
   };
-  _user: any;
 
   constructor(public navCtrl: NavController, private statusBar: StatusBar,
     public user: User,

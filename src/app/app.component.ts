@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform, MenuController } from 'ionic-angular';
+import { Config, Nav, Platform, MenuController, Events } from 'ionic-angular';
 import { FirstRunPage, HomePage } from '../pages';
 
 import { GLOBAL } from '../app/global';
@@ -27,6 +27,7 @@ export class MyApp {
   constructor(private translate: TranslateService, 
     platform: Platform, 
     private config: Config, 
+    private events: Events, 
     private statusBar: StatusBar, 
     private menuCtrl: MenuController, 
     private splashScreen: SplashScreen) {
@@ -34,14 +35,18 @@ export class MyApp {
     if (GLOBAL.IS_LOGGEDIN){
       this.rootPage = HomePage;  
     }
-
-    this._user =  GLOBAL.USER;
-
+    this._user = GLOBAL.USER;
+    this.events.subscribe('user:loggedIn', (user) => { 
+      GLOBAL.IS_LOGGEDIN = true;
+      GLOBAL.USER = user;
+      this._user = user; 
+    });
+    
     platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    this.initTranslate();
+    // this.initTranslate();
   }
 
   initTranslate() {
@@ -76,7 +81,7 @@ export class MyApp {
 
   logout() {
     GLOBAL.IS_LOGGEDIN = false;
-    GLOBAL.USER = {};
+    GLOBAL.USER = null;
     localStorage.removeItem('is_loggedin');
     this.nav.setRoot('LoginPage');
     this.menuCtrl.close();

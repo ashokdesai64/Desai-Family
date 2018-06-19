@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core'
 import { Api } from '../api/api';
 import { HttpClient} from '@angular/common/http';
 import { GLOBAL } from '../../app/global';
+import { Events } from 'ionic-angular';
 
 @Injectable()
 export class User {
-  constructor(public api: Api, public http: HttpClient) { }
+  _user: any;
+  constructor(public api: Api, public http: HttpClient, public events: Events) { }
 
   login(accountInfo: any) {
 
@@ -117,8 +119,7 @@ export class User {
   }
 
   _loggedIn(resp) {
-    GLOBAL.IS_LOGGEDIN = true;
-    GLOBAL.USER = resp.data;
+    this.events.publish('user:loggedIn', resp);
     localStorage.setItem('is_loggedin', JSON.stringify(resp));
   }
 }
