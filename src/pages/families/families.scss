@@ -1,6 +1,33 @@
 page-families {
+    .item-ios{
+        padding-left:0px;
+
+        ion-thumbnail{
+            &[item-start]{
+                margin: 0px;
+                margin-right: 10px;
+            }
+            img{
+                width: 74px;
+                height: 74px;
+            }
+        }
+    }
+    .item-md{
+        padding-left:0px;
+        ion-thumbnail{
+            &[item-start]{
+                margin: 0px;
+                margin-right: 15px;
+            }
+            img{
+                width: 80px;
+                height: 80px;
+            }
+        }   
+    }
     .list-box {
-        @include rounded(10px);
+        @include rounded(5px);
     }
     .scroll-content{
         background: $page-bg;

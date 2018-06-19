@@ -77,9 +77,9 @@
     <ion-card *ngFor="let member of members" class="list-box" (click)="gotoviewmember(member)">
       <ion-item-sliding>
         <button ion-item>
-          <ion-avatar item-start>
+          <ion-thumbnail item-start>
             <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
-          </ion-avatar>
+          </ion-thumbnail>
           <h2 class="title">{{member.name}}</h2>
           <span class="address">{{member.address}}</span>
           <div class="">
