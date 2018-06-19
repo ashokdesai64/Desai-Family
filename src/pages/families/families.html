@@ -31,14 +31,14 @@
   </ion-infinite-scroll>
 
   <ng-template #empty>
-    <ion-list *ngIf="families && !families.length">
-      <ion-card class="list-box" text-center>
-        <ion-thumbnail style="width:50px;height:50px;margin: 10px auto 5px auto;">
-          <img src="assets/img/norecord.gif"/>
-        </ion-thumbnail>
-        <h2 text-center style="margin: 10px 0;">No record found!</h2>
-      </ion-card>
-    </ion-list>
+      <div class="srch-not-found" text-center  *ngIf="families && !families.length">
+          <img class="not-fo-img" src="../assets/img/not-found.png"/>
+
+        <div class="srch-not-text">
+          <h3>Whoops!</h3>
+          <p text-center>Sorry But Nothing Matched your search. Plase try some different keywords.</p>
+        </div>
+      </div>
   </ng-template>
 </ion-content>
 
