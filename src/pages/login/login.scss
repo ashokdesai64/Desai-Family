@@ -1,6 +1,6 @@
 page-login {
     .login-form{
-        padding: 10px 30px 10px 30px;
+        padding: 10px 30px 30px;
         background-color: $login-bg;
         position: relative;
     }
@@ -60,7 +60,7 @@ page-login {
         }
     }
     .social-form{
-        padding: 30px 20px 20px;
+        padding: 40px 20px 20px;
         @include flexbox();
         @include align-items(center);
         @include justify-content(space-between);
@@ -102,5 +102,12 @@ page-login {
     }
     .btn{
         min-width: 120px;
+    }
+    @media (max-width:350px){
+        .item-input {
+            ion-label{
+                padding: 10px 0px 10px 15px;    
+            }
+        } 
     }
 }

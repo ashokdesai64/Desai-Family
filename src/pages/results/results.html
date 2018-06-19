@@ -6,5 +6,30 @@
     <ion-title>Results</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <ion-card class="list-box">
+      <ion-item-sliding>
+        <button ion-item>
+          <ion-thumbnail item-start>
+            <img src="../assets/imgs/logo.png" />
+          </ion-thumbnail>
+          <h2 class="title">Devid Smith</h2>
+          <span class="pass-year">Passing Year: 2018</span>
+          <div class="">
+            <span class="std">STD: 12th</span>
+            <ion-note item-end class="percentage" color="pink">Per: 90%</ion-note>
+          </div>
+        </button>
+        <ion-item-options>
+          <button ion-button color="danger">
+            <ion-label>Delete</ion-label>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>
+  <ion-list text-center>
+    <button ion-button class="btn" color="pink" (click)="gotaddresult()">Add Result</button>
+  </ion-list>
 </ion-content>

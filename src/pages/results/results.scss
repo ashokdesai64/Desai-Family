@@ -1,3 +1,35 @@
 page-results {
-
+    .list-box {
+        @include rounded(10px);
+    }
+    .scroll-content{
+        background: $page-bg;
+    }
+    .button-full-ios{
+        margin: 0px;
+    }
+    .button-full-md{
+        @extend .button-full-ios;
+    }
+    .title{
+        margin: 0px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .percentage {
+        margin: 0px;
+        padding-left: 10px;
+        margin-left: 10px;
+        border-left: solid 1px $pink;
+    }
+    .pass-year{
+        font-size: 12px;
+        color: $gray;
+        display: block;
+    }
+    .std{
+        font-size: 12px;
+        color: $gray;
+        font-weight: 500;
+    }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { GLOBAL } from '../../app/global';
 
 @IonicPage()
@@ -9,7 +9,7 @@ import { GLOBAL } from '../../app/global';
 })
 export class ResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,) {
   }
 
   ionViewCanEnter() {
@@ -20,6 +20,19 @@ export class ResultsPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultsPage');
+  }
+
+  gotaddresult() {
+    this.showLoader();
+    this.navCtrl.push('ResultPage');
+  }
+
+  showLoader() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
   }
 
 }
