@@ -41,10 +41,10 @@ export class MyApp {
       GLOBAL.USER = user;
       this._user = user; 
     });
-    
+    this.splashScreen.show();
     platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
     });
     // this.initTranslate();
   }
