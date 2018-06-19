@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { StatusBar } from '@ionic-native/status-bar';
+
 import { GLOBAL } from '../../app/global';
 
 @IonicPage()
@@ -11,6 +12,7 @@ import { GLOBAL } from '../../app/global';
 })
 export class ProfilePage {
   homePage = HomePage;
+  details: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar ) {
     // this.statusBar.styleDefault();
     this.statusBar.styleLightContent();
@@ -23,7 +25,8 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.details = GLOBAL.USER;
+    console.log(this.details);
   }
 
   gotohome() {
@@ -31,6 +34,10 @@ export class ProfilePage {
       animate: true,
       direction: 'forward'
     });
+  }
+
+  updateProfile(){
+    console.log(this.details);
   }
 
 }
