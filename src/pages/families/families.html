@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Desai Families</ion-title>
   </ion-navbar>
   <ion-toolbar >
@@ -8,7 +11,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="families && families.length else empty">
     <ion-card *ngFor="let item of families" class="list-box">
         <button ion-item (click)="gotofamilymembers(item)">
           <ion-thumbnail item-start>
@@ -26,6 +29,17 @@
   <ion-infinite-scroll *ngIf="totalpage >= page" (ionInfinite)="$event.waitFor(doInfinite())">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <ng-template #empty>
+    <ion-list *ngIf="families && !families.length">
+      <ion-card class="list-box" text-center>
+        <ion-thumbnail style="width:50px;height:50px;margin: 10px auto 5px auto;">
+          <img src="assets/img/norecord.gif"/>
+        </ion-thumbnail>
+        <h2 text-center style="margin: 10px 0;">No record found!</h2>
+      </ion-card>
+    </ion-list>
+  </ng-template>
 </ion-content>
 
 <ion-footer>

@@ -22,7 +22,7 @@ export class ResultsPage {
     console.log('ionViewDidLoad ResultsPage');
   }
 
-  gotaddresult() {
+  gotoresult() {
     this.showLoader();
     this.navCtrl.push('ResultPage');
   }
