@@ -20,7 +20,7 @@ export class MyApp {
     { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
-    { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
+    // { title: 'My Profile', component: 'ProfilePage', icon: 'contact'},
   ]
   _user: any;
   

@@ -25,7 +25,7 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    this.details = GLOBAL.USER;
+    this.details = this.navParams.get('details');
     console.log(this.details);
   }
 

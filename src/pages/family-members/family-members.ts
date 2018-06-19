@@ -57,9 +57,9 @@ export class FamilyMembersPage {
     this.navCtrl.push('ViewMemberPage', { details: details});
   }
 
-  gotprofileedit() {
+  gotprofileedit(details) {
     this.showLoader();
-    this.navCtrl.push('ProfilePage');
+    this.navCtrl.push('ProfilePage', { details:details});
   }
 
   showLoader() {

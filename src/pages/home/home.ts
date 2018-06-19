@@ -63,7 +63,8 @@ export class HomePage {
   }
   
   gotonotifications() {
-    this.navCtrl.push('NotificationsPage');
+    // this.navCtrl.push('NotificationsPage');
+    this.navCtrl.push('ProfilePage', { details : GLOBAL.USER});
   }
 
   showLoader() {

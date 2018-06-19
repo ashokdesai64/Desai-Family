@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Family Details</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="gotprofileedit()">
+    <ion-buttons end *ngIf="details">
+      <button ion-button (click)="gotprofileedit(details)">
         <span ion-text color="white" >Edit</span>
       </button>
     </ion-buttons>
