@@ -78,6 +78,11 @@ export class FamiliesPage {
   onInput(e) : Promise<any>{
     this.search = e.target.value != undefined ? e.target.value:'';
     return new Promise((resolve) => {
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loading.present();
+
       this.page       = 1;
       this.totalpage  = 0;
       let param = { page: this.page, sort: this.sort, order: this.order, s: this.search };
@@ -87,8 +92,10 @@ export class FamiliesPage {
           this.totalpage  = resp.totalpage;
           this.page++;
         }
+        loading.dismiss();
         resolve();
       }, (err) => {
+        loading.dismiss();
         this.families = [];
         resolve();
       });

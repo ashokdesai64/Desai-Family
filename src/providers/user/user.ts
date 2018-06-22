@@ -28,80 +28,146 @@ export class User {
     return seq;
   }
 
-  signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+  updateprofile(details: any) {
 
+    let body = new FormData();
+    body.append('id', details.id);
+    body.append('name', details.name);
+    body.append('email', details.email);
+    body.append('gender', details.gender);
+    body.append('relation', details.relation);
+    body.append('birthdate', details.birthdate);
+    body.append('address', details.address);
+    body.append('business', details.business);
+    body.append('blood_group', details.blood_group);
+    body.append('education', details.education);
+    body.append('family_member', details.family_member);
+    body.append('village', details.village);
+    body.append('taluka', details.taluka);
+    body.append('district', details.district);
+    body.append('header', GLOBAL.API_HEADER);
+
+    let seq = this.api.post('updateprofile', body).share();
     seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 200) {
+      if (res.status) {
+        if (GLOBAL.USER.id == details.id){
+          this._loggedIn(details);
+        } 
+      }
+     
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;
+  }
+  
+  sendotp(param: any) {
+
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('mobile_no', param.mobile_no);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('sendotp', body).share();
+  }
+  
+  verifyotp(param: any) {
+
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('otp', param.otp);
+    body.append('header', GLOBAL.API_HEADER);
+
+    let seq = this.api.post('verifyotp', body).share();
+    seq.subscribe((res: any) => {
+      if (res.status) {
         this._loggedIn(res.data);
       }
     }, err => {
       console.error('ERROR', err);
     });
-
     return seq;
+  }
+
+  signup(accountInfo: any) {
+    let body = new FormData();
+    body.append('name', accountInfo.name);
+    body.append('email', accountInfo.email);
+    body.append('password', accountInfo.password);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('signup', body).share();
   }
 
   families(param) {
     param.header = GLOBAL.API_HEADER;
-    let seq = this.api.get('families', param).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('families', param).share();
   }
 
   news() {
-    let seq = this.api.get('news', { header: GLOBAL.API_HEADER}).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('news', { header: GLOBAL.API_HEADER}).share();
   }
   
   homeslider() {
-    let seq = this.api.get('homeslider', { header: GLOBAL.API_HEADER}).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('homeslider', { header: GLOBAL.API_HEADER}).share();
   }
 
   members(id) {
-    let seq = this.api.get('members', { header: GLOBAL.API_HEADER, parent_id:id }).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('members', { header: GLOBAL.API_HEADER, parent_id:id }).share();
+  }
+  
+  addmember(param) {
+    let body = new FormData();
+    body.append('name', param.name);
+    body.append('gender', param.gender);
+    body.append('blood_group', param.blood_group);
+    body.append('image', param.image);
+    body.append('birthdate', param.birthdate);
+    body.append('mobile_no', param.mobile_no);
+    body.append('email', param.email);
+    body.append('address', param.address);
+    body.append('business', param.business);
+    body.append('education', param.education);
+    body.append('relation', param.relation);
+    body.append('parent_id', param.parent_id);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('addmember', body).share();
+  }
+ 
+  editmember(param) {
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('name', param.name);
+    body.append('gender', param.gender);
+    body.append('blood_group', param.blood_group);
+    body.append('image', param.image);
+    body.append('birthdate', param.birthdate);
+    body.append('mobile_no', param.mobile_no);
+    body.append('email', param.email);
+    body.append('address', param.address);
+    body.append('business', param.business);
+    body.append('education', param.education);
+    body.append('relation', param.relation);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('editmember', body).share();
+  }
+  
+  deletemember(param) {
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('deletemember', body).share();
   }
   
   gallery(id) {
-    let seq = this.api.get('gallery', { header: GLOBAL.API_HEADER, category_id :id }).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('gallery', { header: GLOBAL.API_HEADER, category_id :id }).share();
   }
 
   galleries() {
-    let seq = this.api.get('galleries', { header: GLOBAL.API_HEADER }).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.get('galleries', { header: GLOBAL.API_HEADER }).share();
   }
   
   deletefamilie(item) {
@@ -109,13 +175,7 @@ export class User {
     body.append('id', item.id);
     body.append('header', GLOBAL.API_HEADER);
 
-    let seq = this.api.post('members', body).share();
-    seq.subscribe((res: any) => {
-      return res;
-    }, err => {
-      console.error('ERROR', err);
-    });
-    return seq;
+    return this.api.post('members', body).share();
   }
 
   _loggedIn(resp) {

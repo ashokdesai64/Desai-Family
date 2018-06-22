@@ -11,8 +11,10 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'family-members.html',
 })
 export class FamilyMembersPage {
-  details :any;
-  members :any;
+  details: any = [];
+  members :any = [];
+  current_user: any = GLOBAL.USER.id;
+  is_admin: any = GLOBAL.USER.role;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -27,6 +29,11 @@ export class FamilyMembersPage {
     if (GLOBAL.IS_LOGGEDIN === false) {
       this.navCtrl.setRoot('LoginPage');
     }
+
+    this.details = this.navParams.get('family');
+    if (this.details == undefined) {
+      this.navCtrl.setRoot('FamiliesPage');
+    }
   }
   
   ionViewDidLoad() {
@@ -34,7 +41,6 @@ export class FamilyMembersPage {
       content: 'Please wait...'
     });
     loading.present();
-    this.details = this.navParams.get('family');
     if (this.details){
       this.user.members(this.details.id).subscribe((resp: any) => {
         if (resp.status) {
@@ -44,17 +50,42 @@ export class FamilyMembersPage {
       }, (err) => {
         loading.dismiss();
       });
-    }
+    } 
   }
 
   AddMemberModal() {
-    let modal = this.modalCtrl.create('AddMemberPage');
-    modal.present();
+    if (this.details) {
+      let modal = this.modalCtrl.create('AddMemberPage', { parent_id: this.details.id});
+      modal.present();
+      modal.onDidDismiss(data => { 
+        if (data != undefined){
+          this.members.push(data);
+        }
+      });
+    }
   } 
 
-  gotoviewmember(details) {
+  deletemember(item){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    if (this.details) {
+      this.user.deletemember({ id: item.id}).subscribe((resp: any) => {
+        console.log(resp);
+        if (resp.status) {
+          this.members.splice(this.members.indexOf(item), 1);
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+    } 
+  }
+
+  gotoviewmember(view_member) {
     this.showLoader();
-    this.navCtrl.push('ViewMemberPage', { details: details});
+    this.navCtrl.push('ViewMemberPage', { view_member: view_member});
   }
 
   gotprofileedit(details) {

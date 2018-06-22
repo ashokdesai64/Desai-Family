@@ -8,7 +8,7 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'view-member.html',
 })
 export class ViewMemberPage {
-  details: any;
+  view_member: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -22,21 +22,29 @@ export class ViewMemberPage {
     if (GLOBAL.IS_LOGGEDIN === false) {
       this.navCtrl.setRoot('LoginPage');
     }
+    this.view_member = this.navParams.get('view_member');
   }
   
   ionViewDidLoad() {
-    this.details = this.navParams.get('details');
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
   gotoviewmember() {
     this.navCtrl.push('ViewMemberPage');
   }
-  EditMemberModal() {
-    let modal = this.modalCtrl.create('EditMemberPage');
-    modal.present();
+
+  editmembermodal(edit_member) {
+    let edit_member_modal = this.modalCtrl.create('EditMemberPage', { edit_member: edit_member});
+    edit_member_modal.present();
+    edit_member_modal.onDidDismiss(data => {
+      if (data != undefined) {
+        console.log('Data =>',data);
+        // this.view_member = data;
+      }
+    });
   }
 
   showLoader() {

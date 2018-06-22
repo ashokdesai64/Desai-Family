@@ -7,15 +7,14 @@
     <ion-buttons end>
       <button ion-button icon-only (click)="gotonotifications()">
         <ion-icon name="contact"></ion-icon>
-        <!-- <ion-icon name="notifications"></ion-icon> -->
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content no-padding>
-  <ion-card class="round-box" *ngIf="slides && slides.length">
-    <ion-slides pager="true" autoplay="1000" loop="true" speed="3000">
+  <ion-card class="round-box">
+    <ion-slides pager="true" autoplay="1000" loop="true" speed="3000" *ngIf="slides && slides.length">
       <ion-slide *ngFor="let slide of slides">
         <img [src]="slide.image" class="slide-image" />
       </ion-slide>

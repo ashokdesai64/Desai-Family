@@ -1,17 +1,19 @@
 <ion-content padding>
   <div class="sendotp-contant">
-    <ion-list>
-      <h2 class="page-title">Verify your phone number</h2>
-      <p class="page-note">App will send an SMS message to verfy your phone number in the. enter your phone number</p>
-      <ion-item>
-        <ion-label class="form-label" floating>Phone Number</ion-label>
-        <ion-input type="tel" placeholder=""></ion-input>
-      </ion-item>
-    </ion-list>
-    <ion-row>
-      <ion-col>
-        <button ion-button class="btn btn-primary" color="pink" (click)="gotoverifyotp()">Next</button>
-      </ion-col>
-    </ion-row>
+    <form (submit)="sendotp()" #formCtrl="ngForm">
+      <ion-list>
+        <h2 class="page-title">Verify your phone number</h2>
+        <p class="page-note">App will send an SMS message to verfy your phone number in the. enter your phone number</p>
+        <ion-item>
+          <ion-label class="form-label" floating>Phone Number</ion-label>
+          <ion-input type="tel" name="mobile_no" required [(ngModel)]="authentication.mobile_no"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button class="btn btn-primary" color="pink" [disabled]="formCtrl.invalid">Next</button>
+        </ion-col>
+      </ion-row>
+    </form>
   </div>
 </ion-content>

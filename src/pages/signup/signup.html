@@ -4,28 +4,28 @@
       <h1 class="page-hdng">Sign Up</h1>
     </div>
 
-    <form (submit)="doSignup()">
+    <form (submit)="doSignup()" #formCtrl="ngForm">
       <ion-list>
         <ion-item>
           <ion-label color="gray">
             <ion-icon name="contact"></ion-icon>
           </ion-label>
-          <ion-input type="email" [(ngModel)]="account.name" name="name" placeholder="Your Name"></ion-input>
+          <ion-input type="email" [(ngModel)]="account.name" required name="name" placeholder="Your Name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="gray">
             <ion-icon name="mail"></ion-icon>
           </ion-label>
-          <ion-input type="email" [(ngModel)]="account.email" name="email" placeholder="Your Email Address"></ion-input>
+          <ion-input type="email" [(ngModel)]="account.email" required name="email" placeholder="Your Email Address"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="gray">
             <ion-icon name="lock"></ion-icon>
           </ion-label>
-          <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="Passsword"></ion-input>
+          <ion-input type="password" [(ngModel)]="account.password" required name="password" placeholder="Passsword"></ion-input>
         </ion-item>
         <div padding-left padding-right>
-          <button ion-button color="pink" class="btn btn-primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+          <button ion-button color="pink" class="btn btn-primary" block [disabled]="formCtrl.invalid">SIGNUP</button>
         </div>
       </ion-list>
     </form>

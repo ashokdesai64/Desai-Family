@@ -12,17 +12,12 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
-  account: { name: string, email: string, password: string } = {
-    name: 'Test Human',
-    email: 'test@example.com',
-    password: 'test'
-  };
 
-  // Our translated text strings
-  private signupErrorString: string;
+  account: { name: string, email: string, password: string } = {
+    name: '',
+    email: '',
+    password: ''
+  };
 
   constructor(public navCtrl: NavController,
     public user: User,
@@ -33,12 +28,8 @@ export class SignupPage {
     private statusBar: StatusBar
     ) {
 
-      this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
-      this.signupErrorString = value;
       this.statusBar.styleDefault();
-
       this.menuCtrl.swipeEnable(false);
-    })
   }
 
   ionViewCanEnter() {
@@ -48,23 +39,22 @@ export class SignupPage {
   }
   
   doSignup() {
+
     let loading = this.loadingCtrl.create({
       content: 'Please wait...',
     });
     loading.present();
-    // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
+    this.user.signup(this.account).subscribe((resp: any) => {
+      if (resp.status){
+        this.navCtrl.push('SendotpPage', { id: resp.user_id});
+      }
       loading.dismiss();
-      this.navCtrl.push('HomePage');
     }, (err) => {
-
-      this.navCtrl.push('HomePage');
-
-      // Unable to sign up
+      loading.dismiss();
       let toast = this.toastCtrl.create({
-        message: this.signupErrorString,
+        message: err.error.message,
         duration: 3000,
-        position: 'top'
+        position: 'bottom'
       });
       toast.present();
     });

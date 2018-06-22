@@ -2,3 +2,4 @@
 // export const FirstRunPage = 'TutorialPage';
 export const FirstRunPage = 'LoginPage';
 export const HomePage = 'HomePage';
+export const TabsPage = 'TabsPage';

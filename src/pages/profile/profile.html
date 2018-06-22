@@ -25,7 +25,7 @@
             
             <ion-item>
               <ion-label color="pink">Blood Group</ion-label>
-              <ion-select name="blood_group" required [(ngModel)]="details.blood_group">
+              <ion-select name="blood_group" [(ngModel)]="details.blood_group">
                 <ion-option value="O">O +</ion-option>
                 <ion-option value="O-">O -</ion-option>
                 <ion-option value="A">A +</ion-option>
@@ -43,8 +43,8 @@
             <ion-item>
               <ion-label color="pink">Gender</ion-label>
               <ion-select name="gender" required [(ngModel)]="details.gender">
-                <ion-option value="male">Male</ion-option>
-                <ion-option value="female">Female</ion-option>
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
@@ -54,7 +54,7 @@
 
             <ion-item>
               <ion-label stacked class="profile-label">Address</ion-label>
-              <ion-input type="text" name="address" required placeholder="Enter Your Address" [(ngModel)]="details.address"></ion-input>
+              <ion-input type="text" name="address" placeholder="Enter Your Address" [(ngModel)]="details.address"></ion-input>
             </ion-item>
           
             <ion-item>
@@ -63,17 +63,17 @@
             </ion-item>
             <ion-item>
               <ion-label stacked class="profile-label">Business</ion-label>
-              <ion-input type="text" name="business" required placeholder="Enter Your Business" [(ngModel)]="details.business"></ion-input>
+              <ion-input type="text" name="business" placeholder="Enter Your Business" [(ngModel)]="details.business"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label stacked class="profile-label">Education</ion-label>
-              <ion-input type="text" name="education" required placeholder="Enter Your Education" [(ngModel)]="details.education"></ion-input>
+              <ion-input type="text" name="education" placeholder="Enter Your Education" [(ngModel)]="details.education"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label color="pink">Village</ion-label>
-              <ion-select name="village" required [(ngModel)]="details.village">
+              <ion-select name="village" [(ngModel)]="details.village">
                 <ion-option value="Jira">Jira</ion-option>
                 <ion-option value="Saldi">Saldi</ion-option>
                 <ion-option value="Nana Liliya">Nana Liliya</ion-option>
@@ -81,7 +81,7 @@
             </ion-item>
             <ion-item>
               <ion-label color="pink">Taluka</ion-label>
-              <ion-select name="taluka" required [(ngModel)]="details.taluka">
+              <ion-select name="taluka" [(ngModel)]="details.taluka">
                 <ion-option value="Lathi">Lathi</ion-option>
                 <ion-option value="Liliya">Liliya</ion-option>
                 <ion-option value="Savarkundla">Savarkundla</ion-option>
@@ -89,16 +89,15 @@
             </ion-item>
             <ion-item>
               <ion-label color="pink">District</ion-label>
-              <ion-select name="district" required [(ngModel)]="details.district">
+              <ion-select name="district" [(ngModel)]="details.district">
                 <ion-option value="Bhavnagar">Bhavnagar</ion-option>
                 <ion-option value="Amreli">Amreli</ion-option>
                 <ion-option value="Botad">Botad</ion-option>
               </ion-select>
             </ion-item>
           </ion-list>
-
         <div text-center>
-          <button ion-button class="btn btn-primary" color="pink" [disabled]="formCtrl.invalid">Save</button><!-- (click)="gotohome()" -->
+          <button ion-button class="btn btn-primary" color="pink" [disabled]="formCtrl.invalid">Save</button>
         </div>
     </ion-grid>
   </form>

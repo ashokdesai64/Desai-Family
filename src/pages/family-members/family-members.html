@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Family Details</ion-title>
-    <ion-buttons end *ngIf="details">
+    <ion-buttons end *ngIf="details && (details.id == current_user || is_admin == 1)">
       <button ion-button (click)="gotprofileedit(details)">
         <span ion-text color="white" >Edit</span>
       </button>
@@ -74,9 +74,9 @@
   </ion-card>
 
   <ion-list *ngIf="members">
-    <ion-card *ngFor="let member of members" class="list-box" (click)="gotoviewmember(member)">
+    <ion-card *ngFor="let member of members" class="list-box">
       <ion-item-sliding>
-        <button ion-item>
+        <button ion-item (click)="gotoviewmember(member)">
           <ion-thumbnail item-start>
             <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-thumbnail>
@@ -92,9 +92,7 @@
           </div>
         </button>
         <ion-item-options>
-          <button ion-button color="danger">
-            <ion-icon name="trash"></ion-icon>
-          </button>
+          <button ion-button color="danger" (click)="deletemember(member)">DELETE</button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-card>
