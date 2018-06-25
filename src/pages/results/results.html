@@ -7,22 +7,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list>
-    <ion-card class="list-box">
+  <ion-list *ngIf="results">
+    <ion-card class="list-box" *ngFor="let result of results">
       <ion-item-sliding>
         <button ion-item>
           <ion-thumbnail item-start>
-            <img src="../assets/imgs/logo.png" />
+            <img src="{{result.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
           </ion-thumbnail>
-          <h2 class="title">Devid Smith</h2>
-          <span class="pass-year">Passing Year: 2018</span>
+          <h2 class="title">{{result.name}}</h2>
+          <span class="pass-year">Passing Year: {{result.passing_year}}</span>
           <div class="">
-            <span class="std">STD: 12th</span>
-            <ion-note item-end class="percentage" color="pink">Per: 90%</ion-note>
+            <span class="std">STD: {{result.standard}}</span>
+            <ion-note item-end class="percentage" color="pink">Per: {{result.percentage}}%</ion-note>
           </div>
         </button>
         <ion-item-options>
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="deleteresult(result)">
             <ion-label>Delete</ion-label>
           </button>
         </ion-item-options>

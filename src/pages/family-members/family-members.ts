@@ -72,7 +72,6 @@ export class FamilyMembersPage {
     loading.present();
     if (this.details) {
       this.user.deletemember({ id: item.id}).subscribe((resp: any) => {
-        console.log(resp);
         if (resp.status) {
           this.members.splice(this.members.indexOf(item), 1);
         }

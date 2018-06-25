@@ -116,6 +116,25 @@ export class User {
     return this.api.get('members', { header: GLOBAL.API_HEADER, parent_id:id }).share();
   }
   
+  results(userid) {
+    return this.api.get('results', { header: GLOBAL.API_HEADER, userid: userid }).share();
+  }
+  
+  addresult(param) {
+    let body = new FormData();
+    body.append('userid', param.userid);
+    body.append('image', param.image);
+    body.append('name', param.name);
+    body.append('standard', param.standard);
+    body.append('total_marks', param.total_marks);
+    body.append('obtained_marks', param.obtained_marks);
+    body.append('passing_year', param.passing_year);
+    body.append('percentage', param.percentage);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('addresult', body).share();
+  }
+  
   addmember(param) {
     let body = new FormData();
     body.append('name', param.name);
@@ -160,6 +179,14 @@ export class User {
     body.append('header', GLOBAL.API_HEADER);
 
     return this.api.post('deletemember', body).share();
+  }
+  
+  deleteresult(param) {
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('deleteresult', body).share();
   }
   
   gallery(id) {

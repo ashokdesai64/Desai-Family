@@ -83,6 +83,8 @@ export class AddMemberPage {
             position: 'bottom'
           });
           toast.present(); 
+
+          this.member = { name: "", gender: "", blood_group: "", image: "", birthdate: "", mobile_no: "", email: "", address: "", business: "", education: "", relation: "", view_image: "", parent_id: "", }
         }
         resolve();
       }, (err) => {

@@ -22,10 +22,11 @@ export class ViewMemberPage {
     if (GLOBAL.IS_LOGGEDIN === false) {
       this.navCtrl.setRoot('LoginPage');
     }
-    this.view_member = this.navParams.get('view_member');
   }
   
   ionViewDidLoad() {
+    let view_member = this.navParams.get('view_member');
+    this.view_member = view_member;
   }
 
   dismiss() {

@@ -7,52 +7,62 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="upload-img" (click)="accessGallery()">
+  <form (submit)="addresult()" #formCtrl="ngForm">
+  <div class="upload-img">
     <button ion-button class="upload-arrow" color="white" >
+      <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
       <ion-icon name="arrow-up"></ion-icon> 
     </button>
     <span class="up-titile">Upload Your Result</span>
-    <img [src]="base64Image" *ngIf="base64Image" />
+    <img [src]="add_result.view_image" *ngIf="add_result.view_image"/>
+    <!-- <img [src]="base64Image" *ngIf="base64Image" /> -->
   </div>
   <ion-list>
     <ion-item>
       <ion-label stacked class="profile-label">Full Name</ion-label>
-      <ion-input type="text" name="name" required placeholder="Enter Your Address"></ion-input>
+      <ion-input type="text" name="name" required [(ngModel)]="add_result.name" placeholder="Enter Your Address"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="pink">Standard</ion-label>
-      <ion-select name="Blood Group" required>
-        <ion-option value="O Positive">LKG</ion-option>
-        <ion-option value="O Negative">HKG</ion-option>
-        <ion-option value="A Positive">1</ion-option>
-        <ion-option value="A Negative">2</ion-option>
-        <ion-option value="B Positive">3</ion-option>
-        <ion-option value="B Negative">4</ion-option>
-        <ion-option value="AB Positive">5</ion-option>
-        <ion-option value="AB Negative">6</ion-option>
+      <ion-select name="standard" required  [(ngModel)]="add_result.standard">
+        <ion-option value="LKG">LKG</ion-option>
+        <ion-option value="HKG">HKG</ion-option>
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+        <ion-option value="7">7</ion-option>
+        <ion-option value="8">8</ion-option>
+        <ion-option value="9">9</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="11">11</ion-option>
+        <ion-option value="12">12</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label stacked class="profile-label">Total Marks</ion-label>
-      <ion-input type="number" name="name" required placeholder="Enter Your Total Marks"></ion-input>
+      <ion-input type="number" name="total_mark" required placeholder="Enter Your Total Marks" [(ngModel)]="add_result.total_marks" (input)='calculateper()'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked class="profile-label">Obtained Marks</ion-label>
-      <ion-input type="number" name="name" required placeholder="Enter Your Obtained Marks"></ion-input>
+      <ion-input type="number" name="obtained_markes" required placeholder="Enter Your Obtained Marks" [(ngModel)]="add_result.obtained_markes" (input)='calculateper()'></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="pink">Passing Year</ion-label>
-      <ion-datetime required name="birthdate" displayFormat="YYYY" pickerFormat="YYYY"></ion-datetime>
+      <ion-datetime required name="passing_year" displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="add_result.passing_year"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="perc-label">Percentage :</ion-label>
-      <ion-input type="number" name="name"></ion-input>
+      <ion-input type="number" name="percentage" [(ngModel)]="add_result.percentage"></ion-input>
     </ion-item>
   </ion-list>
   <div text-center>
-    <button ion-button class="btn btn-primary" color="pink">Save</button>
+    <button ion-button class="btn btn-primary" color="pink" [disabled]="formCtrl.invalid">Save</button>
   </div>
+  </form>
 </ion-content>

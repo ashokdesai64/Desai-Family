@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Events} from 'ionic-angular';
 import { GLOBAL } from '../../app/global';
+import { User } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -8,8 +9,14 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'results.html',
 })
 export class ResultsPage {
+  results: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public user: User, 
+    public events: Events, 
+    public loadingCtrl: LoadingController,) {
   }
 
   ionViewCanEnter() {
@@ -19,7 +26,39 @@ export class ResultsPage {
   }
   
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResultsPage');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.user.results(GLOBAL.USER.id).subscribe((resp: any) => {
+        if (resp.status) {
+          this.results = resp.data;
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+
+    this.events.subscribe('user:addresult', (resp: any) => {
+      this.results.push(resp.data);
+    });
+  }
+
+  deleteresult(item) {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    if (this.results) {
+      this.user.deleteresult({ id: item.id }).subscribe((resp: any) => {
+        if (resp.status) {
+          this.results.splice(this.results.indexOf(item), 1);
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+    }
   }
 
   gotoresult() {

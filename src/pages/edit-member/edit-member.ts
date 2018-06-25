@@ -29,8 +29,7 @@ export class EditMemberPage {
       this.navCtrl.setRoot('LoginPage');
     }
     this.edit_member = this.navParams.get('edit_member');
-    this.edit_member.old_image = this.edit_member.image;
-    console.log(this.edit_member);
+    this.edit_member.view_image = this.edit_member.image;
   }
   
   ionViewDidLoad() {
@@ -70,7 +69,6 @@ export class EditMemberPage {
 
   dismiss() {
     this.viewCtrl.dismiss();
-
   }
 
   fileUpload(e) {
@@ -86,8 +84,7 @@ export class EditMemberPage {
       reader.readAsDataURL(e.target.files[0]);
     }
     else {
-      // this.edit_member.image = '';
-      // this.edit_member.view_image = '';
+      this.edit_member.view_image = this.edit_member.image;
     }
     console.log(this.edit_member.image);
   }
