@@ -197,6 +197,18 @@ export class User {
     return this.api.get('gallery', { header: GLOBAL.API_HEADER, category_id :id }).share();
   }
 
+  district() {
+    return this.api.get('district', { header: GLOBAL.API_HEADER}).share();
+  }
+
+  taluka(dist_name) {
+    return this.api.get('taluka', { header: GLOBAL.API_HEADER, dist_name: dist_name }).share();
+  }
+
+  village(taluka_name) {
+    return this.api.get('village', { header: GLOBAL.API_HEADER, taluka_name: taluka_name }).share();
+  }
+
   galleries() {
     return this.api.get('galleries', { header: GLOBAL.API_HEADER }).share();
   }

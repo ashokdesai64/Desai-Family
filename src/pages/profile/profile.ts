@@ -12,6 +12,9 @@ import { User } from '../../providers';
 })
 export class ProfilePage {
   details: any;
+  district: any = [];
+  taluka: any = [];
+  village: any = [];
   constructor(
     public navCtrl: NavController, 
     public loadingCtrl: LoadingController, 
@@ -36,11 +39,17 @@ export class ProfilePage {
     });
     loading.present();
     return new Promise((resolve) => {
+
+      
+
       this.user.profile(id).subscribe((resp: any) => {
         loading.dismiss();
         if (resp.status) {
           this.details = resp.data;
           this.details.view_image = this.details.image;
+          this.getdistrict();
+          this.gettaluka(this.details.district);
+          this.getvillage(this.details.taluka);
         }
         resolve();
       }, (err) => {
@@ -48,6 +57,34 @@ export class ProfilePage {
         resolve();
       });
     })
+  }
+
+  getdistrict(){
+    this.user.district().subscribe((resp: any) => {
+      if (resp.status) {
+        this.district = resp.data;
+      }
+    }, (err) => {
+    });
+  }
+
+  gettaluka(name){
+    this.taluka = this.village = [];
+    this.user.taluka(name).subscribe((resp: any) => {
+      if (resp.status) {
+        this.taluka = resp.data;
+      }
+    }, (err) => {
+    });
+  }
+  
+  getvillage(name){
+    this.user.village(name).subscribe((resp: any) => {
+      if (resp.status) {
+        this.village = resp.data;
+      }
+    }, (err) => {
+    });
   }
 
   gotohome() {

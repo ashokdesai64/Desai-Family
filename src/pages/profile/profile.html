@@ -76,29 +76,24 @@
             </ion-item>
 
             <ion-item>
-              <ion-label color="pink">Village</ion-label>
-              <ion-select name="village" [(ngModel)]="details.village">
-                <ion-option value="Jira">Jira</ion-option>
-                <ion-option value="Saldi">Saldi</ion-option>
-                <ion-option value="Nana Liliya">Nana Liliya</ion-option>
+              <ion-label color="pink">District</ion-label>
+              <ion-select name="district" [(ngModel)]="details.district" (ionChange)="gettaluka($event)">
+                <ion-option *ngFor="let dt of district" [value]="dt.dist_name">{{dt.dist_name}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
               <ion-label color="pink">Taluka</ion-label>
-              <ion-select name="taluka" [(ngModel)]="details.taluka">
-                <ion-option value="Lathi">Lathi</ion-option>
-                <ion-option value="Liliya">Liliya</ion-option>
-                <ion-option value="Savarkundla">Savarkundla</ion-option>
+              <ion-select name="taluka" [(ngModel)]="details.taluka" (ionChange)="getvillage($event)">
+                <ion-option *ngFor="let tl of taluka" [value]="tl.taluka_name">{{tl.taluka_name}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label color="pink">District</ion-label>
-              <ion-select name="district" [(ngModel)]="details.district">
-                <ion-option value="Bhavnagar">Bhavnagar</ion-option>
-                <ion-option value="Amreli">Amreli</ion-option>
-                <ion-option value="Botad">Botad</ion-option>
+              <ion-label color="pink">Village</ion-label>
+              <ion-select name="village" [(ngModel)]="details.village">
+                <ion-option *ngFor="let vl of village" [value]="vl.village_name">{{vl.village_name}}</ion-option>
               </ion-select>
             </ion-item>
+           
           </ion-list>
         <div text-center>
           <button ion-button class="btn btn-primary" color="pink" [disabled]="formCtrl.invalid">Save</button>
