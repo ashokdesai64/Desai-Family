@@ -63,8 +63,8 @@ export class HomePage {
   }
   
   gotonoprofileedit() {
-    this.showLoader();
-    this.navCtrl.push('ProfilePage', { id : GLOBAL.USER.id});
+    this.navCtrl.push('FamilyMembersPage', { id: GLOBAL.USER.id, is_edit: true });
+    // this.navCtrl.push('ProfilePage', { id : GLOBAL.USER.id});
   }
 
   showLoader() {

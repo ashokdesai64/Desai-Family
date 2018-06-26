@@ -3,9 +3,13 @@
 
   <ion-navbar>
     <ion-title>Profile</ion-title>
-    <ion-buttons end>
-      <button ion-button *ngIf="view_member" (click)="editmembermodal(view_member.id)">
-        <span ion-text color="white" >Edit</span>
+    <ion-buttons end *ngIf="view_member && is_edit">
+      <button ion-button (click)="editmembermodal(view_member.id)">
+        <ion-icon name="create"></ion-icon>
+        <!-- <span ion-text color="white" >Edit</span> -->
+      </button>
+      <button ion-button (click)="deletemember()">
+        <ion-icon name="trash"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

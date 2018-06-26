@@ -20,6 +20,7 @@ export class MyApp {
     { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
+    { title: 'My Profile', component: 'FamilyMembersPage', icon: 'contact'},
   ]
   _user: any;
   
@@ -40,10 +41,9 @@ export class MyApp {
       GLOBAL.USER = user;
       this._user = user; 
     });
-    this.splashScreen.show();
     platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      // this.splashScreen.hide();
+      this.statusBar.styleLightContent();
+      this.splashScreen.hide();
     });
     // this.initTranslate();
   }
@@ -75,7 +75,12 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.setRoot(page.component);
+    if (page.component == 'FamilyMembersPage'){
+      this.nav.push(page.component, { id: GLOBAL.USER.id, is_edit: true });
+    }
+    else{
+      this.nav.setRoot(page.component);
+    }
   }
 
   logout() {

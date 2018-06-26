@@ -1,9 +1,10 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Family Details</ion-title>
-    <ion-buttons end *ngIf="details && (details.id == current_user || is_admin == 1)">
+    <ion-buttons end *ngIf="is_edit">
       <button ion-button (click)="gotprofileedit(details.id)">
-        <span ion-text color="white" >Edit</span>
+        <ion-icon name="create"></ion-icon>
+        <!-- <span ion-text color="white">Edit</span> -->
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -97,7 +98,7 @@
       </ion-item-sliding>
     </ion-card>
   </ion-list>
-  <ion-list text-center>
+  <ion-list text-center *ngIf="is_edit">
     <button ion-button class="btn" color="pink" (click)="AddMemberModal()">Add Member</button>
   </ion-list>
 </ion-content>

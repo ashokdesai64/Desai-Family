@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Events} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { GLOBAL } from '../../app/global';
 import { User } from '../../providers';
 
@@ -15,7 +15,6 @@ export class ResultsPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public user: User, 
-    public events: Events, 
     public loadingCtrl: LoadingController,) {
   }
 
@@ -26,6 +25,10 @@ export class ResultsPage {
   }
   
   ionViewDidLoad() {
+
+  }
+
+  ionViewWillEnter() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -38,10 +41,6 @@ export class ResultsPage {
       }, (err) => {
         loading.dismiss();
       });
-
-    this.events.subscribe('user:addresult', (resp: any) => {
-      this.results.push(resp.data);
-    });
   }
 
   deleteresult(item) {

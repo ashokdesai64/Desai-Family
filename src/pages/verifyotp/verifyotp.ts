@@ -24,7 +24,7 @@ export class VerifyotpPage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     private statusBar: StatusBar) {
-    this.statusBar.styleDefault();
+    this.statusBar.styleLightContent();
 
   }
 
