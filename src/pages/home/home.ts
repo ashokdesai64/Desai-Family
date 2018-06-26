@@ -62,9 +62,9 @@ export class HomePage {
     this.navCtrl.push('NewsPage');
   }
   
-  gotonotifications() {
+  gotonoprofileedit() {
     this.showLoader();
-    this.navCtrl.push('ProfilePage', { details : GLOBAL.USER});
+    this.navCtrl.push('ProfilePage', { id : GLOBAL.USER.id});
   }
 
   showLoader() {
