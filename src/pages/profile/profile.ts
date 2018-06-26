@@ -31,8 +31,24 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    this.details = this.navParams.get('details');
-    console.log(this.details);
+    let id = this.navParams.get('id');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    return new Promise((resolve) => {
+      this.user.profile(id).subscribe((resp: any) => {
+        loading.dismiss();
+        if (resp.status) {
+          this.details = resp.data;
+          this.details.view_image = this.details.image;
+        }
+        resolve();
+      }, (err) => {
+        loading.dismiss();
+        resolve();
+      });
+    })
   }
 
   gotohome() {
@@ -69,4 +85,21 @@ export class ProfilePage {
     });
   }
 
+  fileUpload(e) {
+
+    if (e.target.files[0] && (e.target.files[0].type == 'image/png' || e.target.files[0].type == 'image/jpeg')) {
+      this.details.new_image = e.srcElement.files[0];
+      var reader = new FileReader();
+      let self = this;
+
+      reader.onload = function (e) {
+        self.details.view_image = reader.result;
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    else {
+      this.details.new_image = '';
+      this.details.view_image = 'assets/img/default-user-avatars.png';
+    }
+  }
 }

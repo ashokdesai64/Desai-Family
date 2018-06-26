@@ -39,6 +39,13 @@ export class FamiliesPage {
   }
   
   ionViewDidLoad() {
+
+  }
+
+  ionViewWillEnter() {
+    this.page = 1;
+    this.totalpage = 0;
+    
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });

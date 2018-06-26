@@ -16,7 +16,6 @@
   <div class="upload-img" for="browse-image"> <!-- (click)="accessGallery()" -->
     <button ion-button type="button" class="upload-arrow" color="white">
       <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
-      <!-- <ion-input type="file" id="browse-image" name="image" required [(ngModel)]="member.image" (change)="onImageLoad($event)"></ion-input> -->
       <ion-icon name="arrow-up"></ion-icon> 
     </button>
     <span class="up-titile">Upload Member Photos</span>

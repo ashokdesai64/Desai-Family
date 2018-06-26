@@ -12,8 +12,9 @@ import { User } from '../../providers';
 })
 export class EditMemberPage {
 
-  edit_member: any = {};
+  edit_member: any = { view_image:''};
   data: any;
+  new_image: string;
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController, 
@@ -28,11 +29,27 @@ export class EditMemberPage {
     if (GLOBAL.IS_LOGGEDIN === false) {
       this.navCtrl.setRoot('LoginPage');
     }
-    this.edit_member = this.navParams.get('edit_member');
-    this.edit_member.view_image = this.edit_member.image;
   }
   
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    return new Promise((resolve) => {
+      let member_id = this.navParams.get('member_id');;
+      this.user.profile(member_id).subscribe((resp: any) => {
+        loading.dismiss();
+        if (resp.status) {
+          this.edit_member = resp.data;
+          this.edit_member.view_image = this.edit_member.image;
+        }
+        resolve();
+      }, (err) => {
+        loading.dismiss();
+        resolve();
+      });
+    })
   }
 
   editmember() {
@@ -68,13 +85,13 @@ export class EditMemberPage {
   }
 
   dismiss() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(this.data);
   }
 
   fileUpload(e) {
 
     if (e.target.files[0] && (e.target.files[0].type == 'image/png' || e.target.files[0].type == 'image/jpeg')) {
-      this.edit_member.image = e.srcElement.files[0];
+      this.edit_member.new_image = e.srcElement.files[0];
       var reader = new FileReader();
       let self = this;
 
@@ -84,19 +101,8 @@ export class EditMemberPage {
       reader.readAsDataURL(e.target.files[0]);
     }
     else {
-      this.edit_member.view_image = this.edit_member.image;
+      this.edit_member.new_image = '';
+      this.edit_member.view_image = 'assets/img/default-user-avatars.png';
     }
-    console.log(this.edit_member.image);
   }
-  
-  // chooseImg(){
-  //   this.camera.getPicture({
-  //     sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-  //     destinationType: this.camera.DestinationType.DATA_URL
-  //   }).then((imageData) => {
-  //     this.base64Image = 'data:image/jpeg;base64,' + imageData;
-  //   }, (err) => {
-  //     console.log(err);
-  //   });
-  // }
 }

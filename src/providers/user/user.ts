@@ -157,6 +157,8 @@ export class User {
   editmember(param) {
     let body = new FormData();
     body.append('id', param.id);
+    body.append('image', param.image);
+    body.append('new_image', param.new_image);
     body.append('name', param.name);
     body.append('gender', param.gender);
     body.append('blood_group', param.blood_group);
@@ -195,6 +197,10 @@ export class User {
 
   galleries() {
     return this.api.get('galleries', { header: GLOBAL.API_HEADER }).share();
+  }
+  
+  profile(id) {
+    return this.api.get('profile', { header: GLOBAL.API_HEADER, id: id}).share();
   }
   
   deletefamilie(item) {

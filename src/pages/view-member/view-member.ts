@@ -37,13 +37,12 @@ export class ViewMemberPage {
     this.navCtrl.push('ViewMemberPage');
   }
 
-  editmembermodal(edit_member) {
-    let edit_member_modal = this.modalCtrl.create('EditMemberPage', { edit_member: edit_member});
+  editmembermodal(member_id) {
+    let edit_member_modal = this.modalCtrl.create('EditMemberPage', { member_id: member_id});
     edit_member_modal.present();
     edit_member_modal.onDidDismiss(data => {
       if (data != undefined) {
-        console.log('Data =>',data);
-        // this.view_member = data;
+        this.view_member = data;
       }
     });
   }

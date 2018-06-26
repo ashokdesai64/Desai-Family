@@ -9,7 +9,7 @@
 <ion-content padding>
   <form (submit)="addresult()" #formCtrl="ngForm">
   <div class="upload-img">
-    <button ion-button class="upload-arrow" color="white" >
+    <button ion-button type="button" class="upload-arrow" color="white" >
       <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
       <ion-icon name="arrow-up"></ion-icon> 
     </button>

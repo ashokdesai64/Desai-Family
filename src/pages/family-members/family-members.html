@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>Family Details</ion-title>
     <ion-buttons end *ngIf="details && (details.id == current_user || is_admin == 1)">
-      <button ion-button (click)="gotprofileedit(details)">
+      <button ion-button (click)="gotprofileedit(details.id)">
         <span ion-text color="white" >Edit</span>
       </button>
     </ion-buttons>
