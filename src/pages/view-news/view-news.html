@@ -7,17 +7,19 @@
   <ion-card *ngIf="single_news">
     <span class="img-overlay">
       <img src="{{single_news.image}}" onerror="this.src='assets/img/default_news.png'"/>
-    </span>
-    <ion-card-content>
       <div class="v-new-head">
         <div class="news-timing">
-          <span class="n-time"><ion-icon name="time" ios="ios-time-outline"></ion-icon> 9:45 AM</span>
+          <span class="n-time">
+            <ion-icon name="time" ios="ios-time-outline"></ion-icon> 9:45 AM</span>
           <span class="n-date">{{single_news.insert_date}}</span>
         </div>
         <ion-card-title>
-           {{single_news.title}}
+          {{single_news.title}}
         </ion-card-title>
       </div>
+    </span>
+    <ion-card-content>
+      
       <p class="news-contant">
        {{single_news.description}}
       </p>
