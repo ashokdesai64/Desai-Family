@@ -3,16 +3,16 @@ page-view-news {
         background: $page-bg;
     }
     .card-ios{
-        @include rounded(10px);
+        @include rounded(5px);
     }
     .card-md{
         @extend .card-ios;
     }
     .v-new-head {
-        margin-top: -80px;
-        padding-bottom: 30px;
-        position: relative;
+        position: absolute;
         z-index: 5;
+        bottom: 0;
+        padding: 0px 15px;
     }
     .news-timing{
         color: $white;

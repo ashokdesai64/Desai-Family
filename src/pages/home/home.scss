@@ -1,6 +1,6 @@
 page-home {
     .round-box {
-        @include rounded(10px);
+        @include rounded(5px);
     }
     .home-menu-icon {
         font-size: 4em;
@@ -19,7 +19,7 @@ page-home {
     }
     .swiper-slide {
         img{
-            @include rounded(10px);
+            @include rounded(5px);
             width: 100%;
             height: 160px;
         }
