@@ -12,6 +12,12 @@ page-view-member {
             border-bottom: none; 
         }
     }
+    .label-pink{
+        color: $pink;
+        font-weight: 500;
+        white-space: nowrap;
+        margin-bottom: 5px;
+    }
     .bg-pink{
         background-color: $pink;
         height: 90px;
