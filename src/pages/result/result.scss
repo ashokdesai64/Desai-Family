@@ -13,7 +13,7 @@ page-result {
         height: 155px;
         border: dashed 2px $primary-color;
         margin-bottom: 20px;
-        @include rounded(10px);
+        @include rounded(5px);
         @include flexbox();
         @include align-items(center);
         @include justify-content(center);
@@ -53,7 +53,7 @@ page-result {
         }
     }
     .upload-arrow {
-        @include rounded(10px);
+        @include rounded(5px);
         @include box-shadow(0px ,0px, 18px, rgba( 103, 94, 130 ,0.30 )) ;
         width: 40px;
         height: 40px;

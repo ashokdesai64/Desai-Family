@@ -23,7 +23,7 @@ page-family-members {
         margin-top: -90px;
     }
     .card-ios{
-        @include rounded(10px);
+        @include rounded(5px);
         background-position: right 15px bottom 20px;
     }
     .card-md{

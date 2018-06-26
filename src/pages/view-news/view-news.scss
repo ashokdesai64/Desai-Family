@@ -3,7 +3,7 @@ page-view-news {
         background: $page-bg;
     }
     .card-ios{
-        @include rounded(10px);
+        @include rounded(5px);
     }
     .card-md{
         @extend .card-ios;
