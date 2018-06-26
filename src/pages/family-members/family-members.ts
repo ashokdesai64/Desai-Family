@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
@@ -19,6 +19,7 @@ export class FamilyMembersPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public user: User,
+    public events: Events,
     public loadingCtrl: LoadingController, 
     public modalCtrl: ModalController,
     private statusBar: StatusBar) {
@@ -30,8 +31,8 @@ export class FamilyMembersPage {
       this.navCtrl.setRoot('LoginPage');
     }
 
-    this.details = this.navParams.get('family');
-    if (this.details == undefined) {
+    let id = this.navParams.get('id');
+    if (id == undefined) {
       this.navCtrl.setRoot('FamiliesPage');
     }
   }
@@ -41,16 +42,22 @@ export class FamilyMembersPage {
       content: 'Please wait...'
     });
     loading.present();
-    if (this.details) {
-      this.user.members(this.details.id).subscribe((resp: any) => {
-        if (resp.status) {
-          this.members = resp.data;
-        }
-        loading.dismiss();
-      }, (err) => {
-        loading.dismiss();
-      });
-    } 
+
+    let id = this.navParams.get('id');
+    this.user.profile(id).subscribe((resp: any) => {
+      if (resp.status) {
+        this.details = resp.data;
+        this.user.members(this.details.id).subscribe((resp: any) => {
+          if (resp.status) {
+            this.members = resp.data;
+          }
+        }, (err) => {
+        });
+      }
+      loading.dismiss();
+    }, (err) => {
+      loading.dismiss();
+    });
   }
   
   ionViewDidLoad() {

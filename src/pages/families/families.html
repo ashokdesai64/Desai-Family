@@ -13,7 +13,7 @@
 <ion-content>
   <ion-list *ngIf="families && families.length else empty">
     <ion-card *ngFor="let item of families" class="list-box">
-        <button ion-item (click)="gotofamilymembers(item)">
+        <button ion-item (click)="gotofamilymembers(item.id)">
           <ion-thumbnail item-start>
             <img src="{{item.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-thumbnail>

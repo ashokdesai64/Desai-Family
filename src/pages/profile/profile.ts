@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { GLOBAL } from '../../app/global';
@@ -12,7 +11,6 @@ import { User } from '../../providers';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  homePage = HomePage;
   details: any;
   constructor(
     public navCtrl: NavController, 
@@ -20,6 +18,7 @@ export class ProfilePage {
     public navParams: NavParams, 
     public toastCtrl: ToastController, 
     public user: User, 
+    public events: Events, 
     private statusBar: StatusBar ) {
     this.statusBar.styleLightContent();
   }
@@ -58,14 +57,19 @@ export class ProfilePage {
     });
   }
 
-  updateProfile(){
-    console.log(this.details);
+  updateprofile(){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
     this.user.updateprofile(this.details).subscribe((resp: any) => {
       if (resp.status) {
+        if (resp.id==GLOBAL.USER.id){
+          this.events.publish('user:loggedIn', resp.data);
+          localStorage.setItem('is_loggedin', JSON.stringify(resp));
+        }
+        this.events.publish('user:updateprofile', resp.data);
+
         let toast = this.toastCtrl.create({
           message: resp.message,
           duration: 3000,

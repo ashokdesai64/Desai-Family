@@ -33,6 +33,8 @@ export class User {
     let body = new FormData();
     body.append('id', details.id);
     body.append('name', details.name);
+    body.append('image', details.image);
+    body.append('new_image', details.new_image);
     body.append('email', details.email);
     body.append('gender', details.gender);
     body.append('relation', details.relation);
