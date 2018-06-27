@@ -61,6 +61,10 @@ export class ResultsPage {
     }
   }
 
+  gotoviewresults(id) {
+    this.navCtrl.push('ViewResultPage', { id: id });
+  }
+
   gotoresult() {
     this.showLoader();
     this.navCtrl.push('ResultPage');
@@ -73,5 +77,5 @@ export class ResultsPage {
     });
     loading.present();
   }
-
+  
 }
