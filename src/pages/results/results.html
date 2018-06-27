@@ -9,7 +9,7 @@
 <ion-content>
   <ion-list *ngIf="results">
     <ion-card class="list-box" *ngFor="let result of results">
-      <ion-item (click)="gotoviewresults(item)">
+      <ion-item (click)="gotoviewresults(result.id)">
         <ion-thumbnail item-start>
           <img src="{{result.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
         </ion-thumbnail>
@@ -19,11 +19,6 @@
           <span class="std">STD: {{result.standard}}</span>
           <ion-note item-end class="percentage" color="pink">Per: {{result.percentage}}%</ion-note>
         </div>
-        <!-- <ion-item-options>
-          <button ion-button color="danger" (click)="deleteresult(result)">
-            <ion-label>Delete</ion-label>
-          </button>
-        </ion-item-options> -->
       </ion-item>
     </ion-card>
   </ion-list>

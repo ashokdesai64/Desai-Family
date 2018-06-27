@@ -43,22 +43,7 @@ export class ResultsPage {
       });
   }
 
-  deleteresult(item) {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
-    if (this.results) {
-      this.user.deleteresult({ id: item.id }).subscribe((resp: any) => {
-        if (resp.status) {
-          this.results.splice(this.results.indexOf(item), 1);
-        }
-        loading.dismiss();
-      }, (err) => {
-        loading.dismiss();
-      });
-    }
-  }
+  
 
   gotoviewresults(id) {
     this.navCtrl.push('ViewResultPage', { id: id });

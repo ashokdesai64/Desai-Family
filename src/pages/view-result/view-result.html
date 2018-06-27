@@ -1,49 +1,55 @@
 <ion-header no-shadow>
-
   <ion-navbar>
-    <ion-title>view-result</ion-title>
+    <ion-title>View Result</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="editresult(view_result.id)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button (click)="deleteresult(view_result.id)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content>
+<ion-content *ngIf="view_result">
   <div class="bg-pink"></div>
   <ion-card class="card-top">
       <div class="result-img">
-        <img src="assets/img/not-found.png" />
+        <img src="{{view_result.image}}" onerror="this.src='assets/img/not-found.png'" />
       </div>
   </ion-card>
 
   <ion-card>
     <div class="mem-list ">
       <ion-label class="label-pink">Name:</ion-label>
-      <div class="datetime-text">Wiz Khalifa</div>
+      <div class="datetime-text">{{view_result.name}}</div>
     </div>
 
     <div class="mem-list">
       <ion-label class="label-pink">Standard:</ion-label>
-      <div class="datetime-text">12</div>
+      <div class="datetime-text">{{view_result.standard}}</div>
     </div>
 
     <div class="mem-list">
       <ion-label class="label-pink">Total Marks:</ion-label>
-      <div class="datetime-text">500</div>
+      <div class="datetime-text">{{view_result.total_marks}}</div>
     </div>
 
     <div class="mem-list">
       <ion-label class="label-pink">Obtained Marks:</ion-label>
-      <div class="datetime-text">400</div>
+      <div class="datetime-text">{{view_result.obtained_marks}}</div>
     </div>
 
     <div class="mem-list">
       <ion-label class="label-pink">Passing Year:</ion-label>
-      <div class="datetime-text">2012</div>
+      <div class="datetime-text">{{view_result.passing_year}}</div>
     </div>
 
     <div class="mem-list">
       <ion-label class="label-pink">Percentage:</ion-label>
-      <div class="datetime-text">80.56%</div>
+      <div class="datetime-text">{{view_result.percentage}}%</div>
     </div>
   </ion-card>
 </ion-content>

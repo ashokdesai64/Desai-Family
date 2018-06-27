@@ -1,14 +1,14 @@
 // import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core'
 import { Api } from '../api/api';
-import { HttpClient} from '@angular/common/http';
+// import { HttpClient} from '@angular/common/http';
 import { GLOBAL } from '../../app/global';
 import { Events } from 'ionic-angular';
 
 @Injectable()
 export class User {
   _user: any;
-  constructor(public api: Api, public http: HttpClient, public events: Events) { }
+  constructor(public api: Api, public events: Events) { }
 
   login(accountInfo: any) {
 
@@ -120,6 +120,9 @@ export class User {
   
   results(userid) {
     return this.api.get('results', { header: GLOBAL.API_HEADER, userid: userid }).share();
+  }
+  result(id) {
+    return this.api.get('result', { header: GLOBAL.API_HEADER, id: id }).share();
   }
   
   addresult(param) {
