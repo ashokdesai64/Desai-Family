@@ -23,7 +23,7 @@ export class AddMemberPage {
     business: "Test",
     education: "ABC",
     relation: "Father",
-    view_image: "",
+    view_image: "assets/img/default-user-avatars.png",
     parent_id: "",
   }
   data: any;
@@ -59,7 +59,7 @@ export class AddMemberPage {
     }
     else{
       this.member.image = '';
-      this.member.view_image = '';
+      this.member.view_image = 'assets/img/default-user-avatars.png';
     }
   }
 

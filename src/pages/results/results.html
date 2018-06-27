@@ -10,7 +10,7 @@
   <ion-list *ngIf="results">
     <ion-card class="list-box" *ngFor="let result of results">
       <ion-item-sliding>
-        <button ion-item>
+        <button ion-item (click)="gotoviewresults(item)">
           <ion-thumbnail item-start>
             <img src="{{result.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
           </ion-thumbnail>

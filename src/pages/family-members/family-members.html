@@ -18,34 +18,39 @@
   </ion-card>
 
   <ion-card *ngIf="details">
-    <ion-card-content>
       <div class="mem-list">
-        <ion-label class="label-pink">Birthdate</ion-label>
-        <div class="datetime-text" text-right>{{details.birthdate}}</div>
+        <ion-label class="label-pink">Birthdate:</ion-label>
+        <div class="datetime-text">{{details.birthdate}}</div>
       </div>
 
       <div class="mem-list">
-        <ion-label class="label-pink">Gender</ion-label>
+        <ion-label class="label-pink">Gender:</ion-label>
         <div class="datetime-text">{{details.gender | titlecase}}</div>
       </div>
       
       <div class="mem-list">
-        <ion-label class="label-pink">Blood Group</ion-label>
+        <ion-label class="label-pink">Blood Group:</ion-label>
         <div class="datetime-text">{{details.blood_group}}</div>
       </div>
 
       <div class="mem-list">
-        <ion-label class="label-pink">Mobile Number</ion-label>
+        <ion-label class="label-pink">Mobile Number:</ion-label>
         <div class="datetime-text">{{details.mobile_no}}</div>
       </div>
+      
       <div class="mem-list">
+        <ion-label class="label-pink">Education:</ion-label>
+        <div class="datetime-text">{{details.education}}</div>
+      </div>
+      
+      <div class="mem-list">
+        <ion-label class="label-pink">Family Member:</ion-label>
+        <div class="datetime-text">{{details.family_member}}</div>
+      </div>
+      
+      <div class="mem-list dir-column">
         <ion-label class="label-pink">Business</ion-label>
         <div class="datetime-text">{{details.business}}</div>
-      </div>
-
-      <div class="mem-list">
-        <ion-label class="label-pink">Education</ion-label>
-        <div class="datetime-text">{{details.education}}</div>
       </div>
 
       <div class="mem-list dir-column">
@@ -58,13 +63,8 @@
         <div class="datetime-text">{{details.email}}</div>
       </div>
 
-      <div class="mem-list">
-        <ion-label class="label-pink">Family Member</ion-label>
-        <div class="datetime-text">{{details.family_member}}</div>
-      </div>
-    </ion-card-content>
   </ion-card>
-  <ion-card padding class="list-title">
+  <ion-card class="list-title">
     <span>Family Members</span>
   </ion-card>
 

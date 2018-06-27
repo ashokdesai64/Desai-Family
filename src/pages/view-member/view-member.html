@@ -8,9 +8,9 @@
         <ion-icon name="create"></ion-icon>
         <!-- <span ion-text color="white" >Edit</span> -->
       </button>
-      <button ion-button (click)="deletemember()">
+      <!-- <button ion-button (click)="deletemember()">
         <ion-icon name="trash"></ion-icon>
-      </button>
+      </button> -->
     </ion-buttons>
   </ion-navbar>
 
@@ -31,45 +31,44 @@
   </ion-card>
   
   <ion-card *ngIf="view_member">
-    <ion-card-content>
       <div class="mem-list">
         <ion-label class="label-pink">Birthdate:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.birthdate}}</div>
+        <div class="datetime-text">{{view_member.birthdate}}</div>
       </div>
   
       <div class="mem-list">
         <ion-label class="label-pink">Gender:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.gender | titlecase}}</div>
+        <div class="datetime-text">{{view_member.gender | titlecase}}</div>
       </div>
   
       <div class="mem-list">
         <ion-label class="label-pink">Blood Group:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.blood_group}}</div>
+        <div class="datetime-text">{{view_member.blood_group}}</div>
       </div>
   
       <div class="mem-list">
         <ion-label class="label-pink">Mobile Number:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.mobile_no}}</div>
+        <div class="datetime-text">{{view_member.mobile_no}}</div>
       </div>
-      <div class="mem-list">
-        <ion-label class="label-pink">Business:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.business}}</div>
-      </div>
-  
+      
       <div class="mem-list">
         <ion-label class="label-pink">Education:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.education}}</div>
+        <div class="datetime-text">{{view_member.education}}</div>
       </div>
-  
+      
+      <div class="mem-list dir-column">
+        <ion-label class="label-pink">Business:</ion-label>
+        <div class="datetime-text">{{view_member.business}}</div>
+      </div>
+
       <div class="mem-list dir-column">
         <ion-label class="label-pink">Address:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.address}}</div>
+        <div class="datetime-text">{{view_member.address}}</div>
       </div>
   
       <div class="mem-list dir-column">
         <ion-label class="label-pink">Email Id:</ion-label>
-        <div class="datetime-text" text-right>{{view_member.email}}</div>
+        <div class="datetime-text">{{view_member.email}}</div>
       </div>
-    </ion-card-content>
   </ion-card>
 </ion-content>
