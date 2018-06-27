@@ -1,3 +1,73 @@
 page-view-result {
-
+    .scroll-content{
+        background: $page-bg;
+    }
+    .header-md {
+        &::after {
+            display: none;
+        }
+    }
+    .header-ios {
+        .toolbar-background-ios {
+            border-bottom: none; 
+        }
+    }
+    .bg-pink{
+        background-color: $pink;
+        height: 90px;
+    }
+    .card-top{
+        margin: -90px 40px 15px;
+        width: calc(100% - 80px);
+        height: 230px;
+    }
+    .card-ios{
+        @include rounded(5px);
+    }
+    .card-md{
+        @extend .card-ios;
+    }
+    .name {
+        font-size: 22px !important;
+        font-weight: 500 !important;
+    }
+    .label-pink{
+        color: $pink;
+        font-weight: 500;
+        white-space: nowrap;
+        margin: 8px 0px;
+    }
+    .mem-list{
+        @include flexbox();
+        @include align-items(flex-start);
+        @include justify-content(space-between);
+        @include flex-direction(row);
+        border-bottom: solid 1px $border-color;
+        padding: 5px 15px;  
+        .datetime-text {
+                margin: 8px 0px;
+                text-align: right;
+                font-weight: 500;
+                color: #5f677e;
+                font-size: 12px;
+                line-height: 16px;
+        }
+        &.dir-column{
+            @include flex-direction(column);
+            .datetime-text{
+                margin-bottom: 10px;
+                margin-left: 10px;
+                white-space: pre-wrap;
+                margin-top: 0px;
+                text-align: left;
+            }
+            .label-pink {
+                margin-bottom: 5px;
+            }
+        }
+        
+        &:last-child{
+            border-bottom: none;
+        }
+    }
 }

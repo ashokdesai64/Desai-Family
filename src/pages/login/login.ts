@@ -117,10 +117,9 @@ export class LoginPage {
           text: 'Send',
           handler: data => {
             if (true) {
-              // Forgot Password!
+              // Forgot Password!  
             } else {
               // invalid forgotpassword
-              return false;
             }
           }
         }
