@@ -5,7 +5,7 @@
     </ion-title>
   <ion-buttons start>
     <button ion-button (click)="dismiss()">
-        <span ion-text color="white" showWhen="ios,android">Cancel</span>
+        <span ion-text color="white">Cancel</span>
       </button>
   </ion-buttons>
   </ion-toolbar>
@@ -14,17 +14,6 @@
 <ion-content padding="">
   <div class="edit-profile" *ngIf="edit_member">
     <form (submit)="editmember()" #formCtrl="ngForm">
-<<<<<<< HEAD
-    <div text-center>
-      <div class="edit-avter">
-        <img *ngIf="edit_member.view_image" [src]="edit_member.view_image" onerror="this.src='assets/img/default-user-avatars.png'"/>
-        <span lang="edit-pen">
-          <input type="file" (change)="fileUpload($event)" accept=".png, .jpg, .jpeg" id="file-input" name="new_image" style="opacity: 0" #fileInp>
-          <ion-icon name="create" for="file-input"></ion-icon>
-        </span>
-      </div>
-    </div>
-=======
       <ion-grid>
         <ion-row align-items-start>
           <ion-col col-4>
@@ -117,7 +106,6 @@
           </ion-select>
         </ion-item>
       </ion-list>
->>>>>>> fad14a03c76c979046a23e89c73072afaed6c39b
     
       <ion-list>
         <button ion-button full class="btn" color="pink" [disabled]="formCtrl.invalid">Save</button>
