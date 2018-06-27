@@ -83,6 +83,18 @@ export class LoginPage {
     this.navCtrl.setRoot('SignupPage')
   }
 
+  // ForgotPasswordModal() {
+  //   if (this.details) {
+  //     let modal = this.modalCtrl.create('ForgotPasswordPage', { parent_id: this.details.id });
+  //     modal.present();
+  //     modal.onDidDismiss(data => {
+  //       if (data != undefined) {
+  //         this.members.push(data);
+  //       }
+  //     });
+  //   }
+  // } 
+
   ForgotPasswordalert() {
     let alert = this.alertCtrl.create({
       title: 'Forgot Password',
@@ -98,31 +110,21 @@ export class LoginPage {
           text: 'Cancel',
           role: 'cancel',
           handler: data => {
+            console.log('Cancel clicked');
           }
         },
         {
           text: 'Send',
           handler: data => {
-            let validateObj = this.validateEmail(data);
-            if (!validateObj) {
-              console.log(validateObj);
-              return false;
+            if (true) {
+              // Forgot Password!  
             } else {
-              console.log(validateObj);
-              //make HTTP call
+              // invalid forgotpassword
             }
           }
         }
       ]
     });
     alert.present();
-  }
-
-  validateEmail(data) {
-    if (/(.+)@(.+){2,}\.(.+){2,}/.test(data)) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
