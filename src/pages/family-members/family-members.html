@@ -1,12 +1,6 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Family Details</ion-title>
-    <ion-buttons end *ngIf="is_edit">
-      <button ion-button (click)="gotprofileedit(details.id)">
-        <ion-icon name="create"></ion-icon>
-        <!-- <span ion-text color="white">Edit</span> -->
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -76,29 +70,20 @@
 
   <ion-list *ngIf="members">
     <ion-card *ngFor="let member of members" class="list-box">
-      <ion-item-sliding>
-        <button ion-item (click)="gotoviewmember(member)">
+      <ion-item (click)="gotoviewmember(member)">
           <ion-thumbnail item-start>
             <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-thumbnail>
           <h2 class="title">{{member.name}}</h2>
           <span class="address">{{member.address}}</span>
-          <div class="">
-            <span class="mobile-no">Mo. {{member.mobile}}</span>
+          <div>
+            <span class="mobile-no" *ngIf="member.mobile">Mo. {{member.mobile}}</span>
             <ion-note item-end class="blood-group" *ngIf="member.blood_group"><ion-icon name="water" color="pink"></ion-icon> {{member.blood_group}}</ion-note>
           </div>
-
           <div class="rela-label" *ngIf="member.relation">
               <span>{{member.relation}}</span>
           </div>
-        </button>
-        <ion-item-options>
-          <button ion-button color="danger" (click)="deletemember(member)">DELETE</button>
-        </ion-item-options>
-      </ion-item-sliding>
+      </ion-item>
     </ion-card>
-  </ion-list>
-  <ion-list text-center *ngIf="is_edit">
-    <button ion-button class="btn" color="pink" (click)="AddMemberModal()">Add Member</button>
   </ion-list>
 </ion-content>

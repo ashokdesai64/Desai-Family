@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Family Details</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="gotprofileedit(details.id)">
+        <ion-icon name="create"></ion-icon>
+        <!-- <span ion-text color="white">Edit</span> -->
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="bg-pink"></div>
+  <ion-card class="card-top" *ngIf="details">
+    <ion-card-content text-center>
+      <div class="edit-avter">
+        <img src="{{details.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
+      </div>
+
+      <h3 class="name">
+        {{details.name}}
+      </h3>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="details">
+    <ion-card-content>
+      <div class="mem-list">
+        <ion-label class="label-pink">Birthdate</ion-label>
+        <div class="datetime-text" text-right>{{details.birthdate}}</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Gender</ion-label>
+        <div class="datetime-text">{{details.gender | titlecase}}</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Blood Group</ion-label>
+        <div class="datetime-text">{{details.blood_group}}</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Mobile Number</ion-label>
+        <div class="datetime-text">{{details.mobile_no}}</div>
+      </div>
+      <div class="mem-list">
+        <ion-label class="label-pink">Business</ion-label>
+        <div class="datetime-text">{{details.business}}</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Education</ion-label>
+        <div class="datetime-text">{{details.education}}</div>
+      </div>
+
+      <div class="mem-list dir-column">
+        <ion-label class="label-pink">Address</ion-label>
+        <div class="datetime-text">{{details.address}}</div>
+      </div>
+
+      <div class="mem-list dir-column">
+        <ion-label class="label-pink">Email Id</ion-label>
+        <div class="datetime-text">{{details.email}}</div>
+      </div>
+
+      <div class="mem-list">
+        <ion-label class="label-pink">Family Member</ion-label>
+        <div class="datetime-text">{{details.family_member}}</div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card padding class="list-title">
+    <span>Family Members</span>
+  </ion-card>
+
+  <ion-list *ngIf="members">
+    <ion-card *ngFor="let member of members" class="list-box">
+      <ion-item (click)="gotoviewmember(member)">
+          <ion-thumbnail item-start>
+            <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
+          </ion-thumbnail>
+          <h2 class="title">{{member.name}}</h2>
+          <span class="address">{{member.address}}</span>
+          <div class="">
+            <span class="mobile-no">Mo. {{member.mobile}}</span>
+            <ion-note item-end class="blood-group" *ngIf="member.blood_group">
+              <ion-icon name="water" color="pink"></ion-icon> {{member.blood_group}}</ion-note>
+          </div>
+          <div class="rela-label" *ngIf="member.relation">
+            <span>{{member.relation}}</span>
+          </div>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+  <ion-list text-center>
+    <button ion-button class="btn" color="pink" (click)="AddMemberModal()">Add Member</button>
+  </ion-list>
+</ion-content>

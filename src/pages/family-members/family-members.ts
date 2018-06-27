@@ -11,7 +11,6 @@ import { GLOBAL } from '../../app/global';
   templateUrl: 'family-members.html',
 })
 export class FamilyMembersPage {
-  is_edit: boolean;
   details: any = [];
   members :any = [];
   
@@ -30,7 +29,6 @@ export class FamilyMembersPage {
       this.navCtrl.setRoot('LoginPage');
     }
     let id = this.navParams.get('id');
-    this.is_edit = this.navParams.get('is_edit');
     if (id == undefined) {
       this.navCtrl.setRoot('FamiliesPage');
     }
@@ -59,43 +57,9 @@ export class FamilyMembersPage {
     });
   }
   
-  AddMemberModal() {
-    if (this.details) {
-      let modal = this.modalCtrl.create('AddMemberPage', { parent_id: this.details.id});
-      modal.present();
-      modal.onDidDismiss(data => { 
-        if (data != undefined){
-          this.members.push(data);
-        }
-      });
-    }
-  } 
-
-  deletemember(item){
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
-    if (this.details) {
-      this.user.deletemember({ id: item.id}).subscribe((resp: any) => {
-        if (resp.status) {
-          this.members.splice(this.members.indexOf(item), 1);
-        }
-        loading.dismiss();
-      }, (err) => {
-        loading.dismiss();
-      });
-    } 
-  }
-
   gotoviewmember(view_member) {
     this.showLoader();
-    this.navCtrl.push('ViewMemberPage', { view_member: view_member, is_edit: this.is_edit});
-  }
-
-  gotprofileedit(id) {
-    this.showLoader();
-    this.navCtrl.push('ProfilePage', { id:id});
+    this.navCtrl.push('ViewMemberPage', { view_member: view_member, is_edit:false});
   }
 
   showLoader() {

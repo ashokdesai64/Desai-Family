@@ -18,7 +18,7 @@
       <div class="edit-avter">
         <img *ngIf="edit_member.view_image" [src]="edit_member.view_image" onerror="this.src='assets/img/default-user-avatars.png'"/>
         <span lang="edit-pen">
-          <input type="file" (change)="fileUpload($event)" id="file-input" name="new_image" style="opacity: 0" #fileInp>
+          <input type="file" (change)="fileUpload($event)" accept=".png, .jpg, .jpeg" id="file-input" name="new_image" style="opacity: 0" #fileInp>
           <ion-icon name="create" for="file-input"></ion-icon>
         </span>
       </div>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform, MenuController, Events } from 'ionic-angular';
@@ -20,7 +20,7 @@ export class MyApp {
     { title: 'About Family', component: 'AboutFamilyPage', icon: 'information-circle' },
     { title: 'Gallery', component: 'GalleryPage', icon: 'images'},
     { title: 'News', component: 'NewsPage', icon: 'paper'},
-    { title: 'My Profile', component: 'FamilyMembersPage', icon: 'contact'},
+    { title: 'My Profile', component: 'MyProfilePage', icon: 'contact'},
   ]
   _user: any;
   
@@ -30,7 +30,8 @@ export class MyApp {
     private events: Events, 
     private statusBar: StatusBar, 
     private menuCtrl: MenuController, 
-    private splashScreen: SplashScreen) {
+    // private splashScreen: SplashScreen
+  ) {
     
     if (GLOBAL.IS_LOGGEDIN){
       this.rootPage = HomePage;  
@@ -43,7 +44,7 @@ export class MyApp {
     });
     platform.ready().then(() => {
       this.statusBar.styleLightContent();
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
     });
     // this.initTranslate();
   }
@@ -75,12 +76,7 @@ export class MyApp {
   }
 
   openPage(page) {
-    if (page.component == 'FamilyMembersPage'){
-      this.nav.push(page.component, { id: GLOBAL.USER.id, is_edit: true });
-    }
-    else{
-      this.nav.setRoot(page.component);
-    }
+    this.nav.push(page.component);
   }
 
   logout() {

@@ -15,7 +15,7 @@
   <form (submit)="addmember()" #formCtrl="ngForm">
   <div class="upload-img" for="browse-image"> <!-- (click)="accessGallery()" -->
     <button ion-button type="button" class="upload-arrow" color="white">
-      <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
+      <input type="file" (change)="fileUpload($event)" accept=".png, .jpg, .jpeg" id="file-input" name="image" style="opacity: 0" #fileInp>
       <ion-icon name="arrow-up"></ion-icon> 
     </button>
     <span class="up-titile">Upload Member Photos</span>
