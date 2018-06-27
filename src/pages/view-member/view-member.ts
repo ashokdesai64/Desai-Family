@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, LoadingController } from 'ionic-angular';
 import { GLOBAL } from '../../app/global';
+import { User } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -9,10 +10,12 @@ import { GLOBAL } from '../../app/global';
 })
 export class ViewMemberPage {
   view_member: any;
+  is_edit: boolean;
 
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController, 
+    public user: User, 
     public loadingCtrl: LoadingController, 
     public modalCtrl: ModalController,
     public navParams: NavParams) {
@@ -25,8 +28,8 @@ export class ViewMemberPage {
   }
   
   ionViewDidLoad() {
-    let view_member = this.navParams.get('view_member');
-    this.view_member = view_member;
+    this.view_member = this.navParams.get('view_member');
+    this.is_edit = this.navParams.get('is_edit');
   }
 
   dismiss() {
@@ -35,6 +38,23 @@ export class ViewMemberPage {
 
   gotoviewmember() {
     this.navCtrl.push('ViewMemberPage');
+  }
+
+  deletemember() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    if (this.view_member) {
+      this.user.deletemember({ id: this.view_member.id }).subscribe((resp: any) => {
+        if (resp.status) {
+          this.navCtrl.pop();   
+        }
+        loading.dismiss();
+      }, (err) => {
+        loading.dismiss();
+      });
+    }
   }
 
   editmembermodal(member_id) {

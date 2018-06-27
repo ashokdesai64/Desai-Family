@@ -24,7 +24,7 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public translateService: TranslateService) {
-    this.statusBar.styleDefault();
+    this.statusBar.styleLightContent();
 
     this.menuCtrl.swipeEnable(false);
   }

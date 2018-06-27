@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 // import { Camera } from '@ionic-native/camera';
 import { GLOBAL } from '../../app/global';
 import { User } from '../../providers';
@@ -27,7 +27,6 @@ export class ResultPage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public user: User,
-    public events: Events,
     // public camera: Camera,
   ) {
   }
@@ -51,15 +50,13 @@ export class ResultPage {
       this.user.addresult(this.add_result).subscribe((resp: any) => {
         loading.dismiss();
         if (resp.status) {
-          this.events.publish('user:addresult', resp);
           let toast = this.toastCtrl.create({
             message: resp.message,
             duration: 3000,
             position: 'bottom'
           });
           toast.present();
-
-          this.add_result =  { userid: GLOBAL.USER.id, view_image: "", image: "", name: "", standard: "", total_marks: "", obtained_markes: "", passing_year: "", percentage: "", };
+          this.navCtrl.setRoot('ResultsPage');
         }
         resolve();
       }, (err) => {
@@ -95,15 +92,4 @@ export class ResultPage {
       this.add_result.view_image = "";
     }
   }
-
-  // accessGallery() {
-  //   this.camera.getPicture({
-  //     sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-  //     destinationType: this.camera.DestinationType.DATA_URL
-  //   }).then((imageData) => {
-  //     this.base64Image = 'data:image/jpeg;base64,' + imageData;
-  //   }, (err) => {
-  //     console.log(err);
-  //   });
-  // }
 }

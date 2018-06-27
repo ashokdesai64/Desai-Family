@@ -28,7 +28,7 @@ export class SignupPage {
     private statusBar: StatusBar
     ) {
 
-      this.statusBar.styleDefault();
+      this.statusBar.styleLightContent();
       this.menuCtrl.swipeEnable(false);
   }
 

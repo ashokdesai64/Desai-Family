@@ -110,7 +110,7 @@ export class FamiliesPage {
   }
 
   gotofamilymembers(id) {
-    this.navCtrl.push('FamilyMembersPage', { id: id});
+    this.navCtrl.push('FamilyMembersPage', { id: id, is_edit: false});
   }
 
   sortby() {
