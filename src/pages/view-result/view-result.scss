@@ -31,6 +31,16 @@ page-view-result {
         font-size: 22px !important;
         font-weight: 500 !important;
     }
+    .result-img{
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }        
+    }
     .label-pink{
         color: $pink;
         font-weight: 500;
