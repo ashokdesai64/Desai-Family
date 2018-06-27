@@ -11,96 +11,116 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding="">
   <form (submit)="addmember()" #formCtrl="ngForm">
-  <div class="upload-img" for="browse-image"> <!-- (click)="accessGallery()" -->
-    <button ion-button type="button" class="upload-arrow" color="white">
-      <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
-      <ion-icon name="arrow-up"></ion-icon> 
-    </button>
-    <span class="up-titile">Upload Member Photos</span>
-    <img [src]="member.view_image" *ngIf="member.view_image" />
-  </div>
+    <ion-grid>
+      <ion-row align-items-start>
+        <ion-col col-4>
+          <!-- <div text-left class="edit-avter">
+            <div class="upload-img" for="browse-image" >
 
-  <ion-list>
-    <ion-item>
-      <ion-label stacked class="profile-label">Name</ion-label>
-      <ion-input type="text" name="name" required [(ngModel)]="member.name" placeholder="Enter Your Name"></ion-input>
-    </ion-item>
-  </ion-list>
+            <img class="" [src]="member.view_image" *ngIf="member.view_image" onerror="this.src='assets/img/default-user-avatars.png'"
+            />
+            <span lang="edit-pen">
+              <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
+              <ion-icon name="create" for="file-input"></ion-icon>
+            </span>
+            </div>
+          </div> -->
+          <div text-left class="edit-avter">
+            <img *ngIf="member.view_image" [src]="member.view_image" onerror="this.src='assets/img/default-user-avatars.png'" />
+            <span lang="edit-pen">
+              <input type="file" (change)="fileUpload($event)" id="file-input" name="new_image" style="opacity: 0" #fileInp>
+              <ion-icon name="create" for="file-input"></ion-icon>
+            </span>
+          </div>
+        </ion-col>
 
-  <ion-item>
-    <ion-label color="pink">Gender</ion-label>
-    <ion-select name="gender" required [(ngModel)]="member.gender">
-      <ion-option value="Male">Male</ion-option>
-      <ion-option value="Female">Female</ion-option>
-    </ion-select>
-  </ion-item>
+        <ion-col col-8>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked class="profile-label">Name</ion-label>
+              <ion-input type="text" name="name" required [(ngModel)]="member.name" placeholder="Enter Your Name"></ion-input>
+            </ion-item>
 
-  <ion-list>
-    <ion-item>
-      <ion-label color="pink">Birth Date</ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" name="birthdate" required [(ngModel)]="member.birthdate"></ion-datetime>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label stacked class="profile-label">Mobile Number</ion-label>
-      <ion-input type="tel" placeholder="Enter Your Mobile Number" name="mobile_no" required [(ngModel)]="member.mobile_no"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Address</ion-label>
-      <ion-input type="text" name="address" required placeholder="Enter Your Address" [(ngModel)]="member.address"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Email Id</ion-label>
-      <ion-input type="email" name="email" required placeholder="Enter Your Email" [(ngModel)]="member.email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked class="profile-label">Business</ion-label>
-      <ion-input type="text" name="business" required placeholder="Enter Your Business" [(ngModel)]="member.business"></ion-input>
-    </ion-item>
+            <ion-item>
+              <ion-label color="pink">Blood Group</ion-label>
+              <ion-select name="blood_group" required [(ngModel)]="member.blood_group">
+                <ion-option value="O+">O +</ion-option>
+                <ion-option value="O-">O -</ion-option>
+                <ion-option value="A+">A +</ion-option>
+                <ion-option value="A-">A -</ion-option>
+                <ion-option value="B+">B +</ion-option>
+                <ion-option value="B-">B -</ion-option>
+                <ion-option value="AB+">AB +</ion-option>
+                <ion-option value="AB-">AB -</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
     <ion-item>
-      <ion-label stacked class="profile-label">Education</ion-label>
-      <ion-input type="text" name="education" required placeholder="Enter Your Education" [(ngModel)]="member.education"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="pink">Relation</ion-label>
-      <ion-select name="relation" required [(ngModel)]="member.relation">
-        <ion-option value="Father">Father</ion-option>
-        <ion-option value="Mother">Mother</ion-option>
-        <ion-option value="Wife">Wife</ion-option>
-        <ion-option value="Son">Son</ion-option>
-        <ion-option value="Daughter">Daughter</ion-option>
-        <ion-option value="Brother">Brother</ion-option>
-        <ion-option value="Sister in law">Sister-in-law</ion-option>
-        <ion-option value="Sister">Sister</ion-option>
-        <ion-option value="Grand Father">Grand Father</ion-option>
-        <ion-option value="Grand Mother">Grand Mother</ion-option>
+      <ion-label color="pink">Gender</ion-label>
+      <ion-select name="gender" required [(ngModel)]="member.gender">
+        <ion-option value="Male">Male</ion-option>
+        <ion-option value="Female">Female</ion-option>
       </ion-select>
     </ion-item>
 
-    <ion-item>
-      <ion-label color="pink">Blood Group</ion-label>
-      <ion-select name="blood_group" required [(ngModel)]="member.blood_group">
-        <ion-option value="O+">O +</ion-option>
-        <ion-option value="O-">O -</ion-option>
-        <ion-option value="A+">A +</ion-option>
-        <ion-option value="A-">A -</ion-option>
-        <ion-option value="B+">B +</ion-option>
-        <ion-option value="B-">B -</ion-option>
-        <ion-option value="AB+">AB +</ion-option>
-        <ion-option value="AB-">AB -</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label color="pink">Birth Date</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" name="birthdate" required [(ngModel)]="member.birthdate"></ion-datetime>
+      </ion-item>
 
-  <ion-list>
-    <button ion-button full class="btn" color="pink" [disabled]="formCtrl.invalid">Save</button>
-  </ion-list>
+      <ion-item>
+        <ion-label stacked class="profile-label">Mobile Number</ion-label>
+        <ion-input type="tel" placeholder="Enter Your Mobile Number" name="mobile_no" required [(ngModel)]="member.mobile_no"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked class="profile-label">Address</ion-label>
+        <ion-input type="text" name="address" required placeholder="Enter Your Address" [(ngModel)]="member.address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked class="profile-label">Email Id</ion-label>
+        <ion-input type="email" name="email" required placeholder="Enter Your Email" [(ngModel)]="member.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked class="profile-label">Business</ion-label>
+        <ion-input type="text" name="business" required placeholder="Enter Your Business" [(ngModel)]="member.business"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked class="profile-label">Education</ion-label>
+        <ion-input type="text" name="education" required placeholder="Enter Your Education" [(ngModel)]="member.education"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="pink">Relation</ion-label>
+        <ion-select name="relation" required [(ngModel)]="member.relation">
+          <ion-option value="Father">Father</ion-option>
+          <ion-option value="Mother">Mother</ion-option>
+          <ion-option value="Wife">Wife</ion-option>
+          <ion-option value="Son">Son</ion-option>
+          <ion-option value="Daughter">Daughter</ion-option>
+          <ion-option value="Brother">Brother</ion-option>
+          <ion-option value="Sister in law">Sister-in-law</ion-option>
+          <ion-option value="Sister">Sister</ion-option>
+          <ion-option value="Grand Father">Grand Father</ion-option>
+          <ion-option value="Grand Mother">Grand Mother</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list>
+      <button ion-button full class="btn" color="pink" [disabled]="formCtrl.invalid">Save</button>
+    </ion-list>
   </form>
 </ion-content>

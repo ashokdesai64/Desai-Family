@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, AlertController , ModalController, LoadingController, MenuController,  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { User } from '../../providers';
@@ -17,12 +17,19 @@ export class LoginPage {
     email: 'jaydip@gmail.com',
     password: '12345678'
   };
+  
+  details: any = [];
+  members: any = [];
 
-  constructor(public navCtrl: NavController, private statusBar: StatusBar,
+  constructor(
+    public navCtrl: NavController, 
+    private statusBar: StatusBar,
     public user: User,
+    public modalCtrl: ModalController,
     public menuCtrl: MenuController, 
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
     public translateService: TranslateService) {
     this.statusBar.styleLightContent();
 
@@ -74,5 +81,51 @@ export class LoginPage {
     });
     loading.present();
     this.navCtrl.setRoot('SignupPage')
+  }
+
+  // ForgotPasswordModal() {
+  //   if (this.details) {
+  //     let modal = this.modalCtrl.create('ForgotPasswordPage', { parent_id: this.details.id });
+  //     modal.present();
+  //     modal.onDidDismiss(data => {
+  //       if (data != undefined) {
+  //         this.members.push(data);
+  //       }
+  //     });
+  //   }
+  // } 
+
+  ForgotPasswordalert() {
+    let alert = this.alertCtrl.create({
+      title: 'Forgot Password',
+      inputs: [
+        {
+          name: 'email',
+          type: 'email',
+          placeholder: 'Enter Valid Email'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Send',
+          handler: data => {
+            if (true) {
+              // Forgot Password!
+            } else {
+              // invalid forgotpassword
+              return false;
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
