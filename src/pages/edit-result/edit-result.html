@@ -3,11 +3,11 @@
     <button ion-button menuToggle start>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Add Result</ion-title>
+    <ion-title>Edit Result</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form (submit)="addresult()" #formCtrl="ngForm">
+  <form (submit)="editresult()" #formCtrl="ngForm">
   <div class="upload-img">
     <button ion-button type="button" class="upload-arrow" color="white" >
       <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>

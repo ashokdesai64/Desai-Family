@@ -1,34 +1,23 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-// import { Camera } from '@ionic-native/camera';
 import { GLOBAL } from '../../app/global';
 import { User } from '../../providers';
 
 @IonicPage()
 @Component({
-  selector: 'page-result',
-  templateUrl: 'result.html',
+  selector: 'page-edit-result',
+  templateUrl: 'edit-result.html',
 })
-export class ResultPage {
-  add_result: any = { 
-    userid:GLOBAL.USER.id,
-    view_image:"",
-    image:"",
-    name:"",
-    standard:"",
-    total_marks:"",
-    obtained_marks:"",
-    passing_year:"",
-    percentage:"",
-  };
-
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController,
-    public user: User,
-    // public camera: Camera,
-  ) {
+export class EditResultPage {
+  add_result: any = { view_image: '' };
+  data: any;
+  new_image: string;
+  constructor(
+    public navCtrl: NavController, 
+    public loadingCtrl: LoadingController, 
+    public toastCtrl: ToastController, 
+    public user: User, 
+    public navParams: NavParams) {
   }
 
   ionViewCanEnter() {
@@ -36,18 +25,32 @@ export class ResultPage {
       this.navCtrl.setRoot('LoginPage');
     }
   }
-  
-  ionViewDidLoad() {
+
+  ionViewWillEnter() {
+    let id = this.navParams.get('id');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.user.result(id).subscribe((resp: any) => {
+      if (resp.status) {
+        this.add_result = resp.data;
+        this.add_result.view_image = this.add_result.image;
+      }
+      loading.dismiss();
+    }, (err) => {
+      loading.dismiss();
+    });
   }
 
-  addresult(){
+  editresult() {
     console.log(this.add_result);
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
     return new Promise((resolve) => {
-      this.user.addresult(this.add_result).subscribe((resp: any) => {
+      this.user.updateresult(this.add_result).subscribe((resp: any) => {
         loading.dismiss();
         if (resp.status) {
           let toast = this.toastCtrl.create({
@@ -56,7 +59,7 @@ export class ResultPage {
             position: 'bottom'
           });
           toast.present();
-          this.navCtrl.setRoot('ResultsPage');
+          this.navCtrl.pop();
         }
         resolve();
       }, (err) => {
@@ -72,7 +75,7 @@ export class ResultPage {
     })
   }
 
-  calculateper(){
+  calculateper() {
     let percentage = (parseInt(this.add_result.obtained_marks) * 100) / parseInt(this.add_result.total_marks);
     this.add_result.percentage = isNaN(percentage) ? '' : percentage.toFixed(2);
   }

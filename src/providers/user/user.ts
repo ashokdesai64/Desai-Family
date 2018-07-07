@@ -140,6 +140,22 @@ export class User {
     return this.api.post('addresult', body).share();
   }
   
+  updateresult(param) {
+    let body = new FormData();
+    body.append('id', param.id);
+    body.append('userid', param.userid);
+    body.append('image', param.image);
+    body.append('name', param.name);
+    body.append('standard', param.standard);
+    body.append('total_marks', param.total_marks);
+    body.append('obtained_marks', param.obtained_marks);
+    body.append('passing_year', param.passing_year);
+    body.append('percentage', param.percentage);
+    body.append('header', GLOBAL.API_HEADER);
+
+    return this.api.post('updateresult', body).share();
+  }
+  
   addmember(param) {
     let body = new FormData();
     body.append('name', param.name);

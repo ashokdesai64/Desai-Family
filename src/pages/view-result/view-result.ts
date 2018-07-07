@@ -20,7 +20,6 @@ export class ViewResultPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewResultPage');
   }
 
   ionViewCanEnter() {
@@ -43,6 +42,10 @@ export class ViewResultPage {
     }, (err) => {
       loading.dismiss();
     });
+  }
+
+  editresult(id){
+    this.navCtrl.push('EditResultPage',{id:id});
   }
   
   deleteresult(id) {
