@@ -67,7 +67,7 @@ export class ViewResultPage {
             loading.present();
             this.user.deleteresult({ id: id }).subscribe((resp: any) => {
               if (resp.status) {
-                this.navCtrl.setRoot('ResultsPage');
+                this.navCtrl.pop();
               }
               loading.dismiss();
             }, (err) => {
