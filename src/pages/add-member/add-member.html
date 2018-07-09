@@ -14,22 +14,11 @@
 
 <ion-content padding="">
   <form (submit)="addmember()" #formCtrl="ngForm">
-<<<<<<< HEAD
-  <div class="upload-img" for="browse-image"> <!-- (click)="accessGallery()" -->
-    <button ion-button type="button" class="upload-arrow" color="white">
-      <input type="file" (change)="fileUpload($event)" accept=".png, .jpg, .jpeg" id="file-input" name="image" style="opacity: 0" #fileInp>
-      <ion-icon name="arrow-up"></ion-icon> 
-    </button>
-    <span class="up-titile">Upload Member Photos</span>
-    <img [src]="member.view_image" *ngIf="member.view_image" />
-  </div>
-=======
     <ion-grid>
       <ion-row align-items-start>
         <ion-col col-4>
           <!-- <div text-left class="edit-avter">
             <div class="upload-img" for="browse-image" >
->>>>>>> fad14a03c76c979046a23e89c73072afaed6c39b
 
             <img class="" [src]="member.view_image" *ngIf="member.view_image" onerror="this.src='assets/img/default-user-avatars.png'"
             />
