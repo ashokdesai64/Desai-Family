@@ -19,6 +19,7 @@ export class FamiliesPage {
   order:string = 'id';
   totalpage: number = 0;
   search: string = '';
+  filter = { district: '', taluka: '',village:''} ;
   
   constructor(
     public navCtrl: NavController,
@@ -50,7 +51,7 @@ export class FamiliesPage {
       content: 'Please wait...'
     });
     loading.present();
-    let param = { page: this.page, sort: this.sort, order: this.order, s: this.search};
+    let param = { page: this.page, sort: this.sort, order: this.order, s: this.search, district: this.filter.district, taluka: this.filter.taluka,village: this.filter.village};
     this.user.families(param).subscribe((resp: any) => {
       if (resp.status){
         this.families = resp.data;
@@ -60,6 +61,7 @@ export class FamiliesPage {
       }
       loading.dismiss();
     },(err) => {
+      this.families = [];
       loading.dismiss();
     });
   }
@@ -67,7 +69,7 @@ export class FamiliesPage {
   doInfinite(): Promise<any> {
     // console.log('totalpage::' + this.totalpage,'page::'+this.page)
       return new Promise((resolve) => {
-        let param = { page: this.page, sort: this.sort, order: this.order, s: this.search };
+        let param = { page: this.page, sort: this.sort, order: this.order, s: this.search, district: this.filter.district, taluka: this.filter.taluka,village: this.filter.village };
         this.user.families(param).subscribe((resp: any) => {
           if (resp.status) {
             for (var i = 0; i < resp.data.length; i++) {
@@ -92,7 +94,7 @@ export class FamiliesPage {
 
       this.page       = 1;
       this.totalpage  = 0;
-      let param = { page: this.page, sort: this.sort, order: this.order, s: this.search };
+      let param = { page: this.page, sort: this.sort, order: this.order, s: this.search, district: this.filter.district, taluka: this.filter.taluka, village: this.filter.village };
       this.user.families(param).subscribe((resp: any) => {
         if (resp.status) {
           this.families   = resp.data;
@@ -128,28 +130,38 @@ export class FamiliesPage {
       handler: data => {
         let sort = data.split('-');
         
-        this.page = 1;
-        this.totalpage  = 0;
+        // this.page = 1;
+        // this.totalpage  = 0;
 
         this.order = sort[0]
         this.sort = sort[1];
-        this.ionViewDidLoad();
+        this.ionViewWillEnter();
       }
     });
     alert.present();
   }
 
   filterby() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Filter By');
-    alert.addInput({ type: 'checkbox', label: 'Name ASC', value: 'name', checked: false });
-    alert.addInput({ type: 'checkbox', label: 'DOB ASC', value: 'dob', checked: false });
+    let alert = this.alertCtrl.create(
+      { 
+        title: 'Filter By',
+        inputs: [ 
+          { placeholder: 'District', value: this.filter.district, name: 'district' }, 
+          { placeholder: 'Taluka', value: this.filter.taluka, name: 'taluka' },
+          { placeholder: 'Village', value: this.filter.village, name: 'village'},
+        ]
+      }
+    );
 
     alert.addButton('Cancel');
     alert.addButton({
       text: 'OK',
       handler: data => {
-        console.log(data);
+        this.filter = data;
+        // this.page = 1;
+        // this.totalpage = 0;
+
+        this.ionViewWillEnter();
       }
     });
     alert.present();
