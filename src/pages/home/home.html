@@ -16,7 +16,7 @@
   <ion-card class="round-box">
     <ion-slides pager="true" autoplay="1000" loop="true" speed="3000" *ngIf="slides && slides.length" centeredSlides="true">
       <ion-slide *ngFor="let slide of slides">
-        <img [src]="slide.image" class="slide-image"/>
+        <img [src]="slide.image" onerror="this.src='assets/img/default-slider.jpg'" class="slide-image"/>
       </ion-slide>
     </ion-slides>
   </ion-card>
