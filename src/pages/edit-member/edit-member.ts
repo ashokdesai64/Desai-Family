@@ -43,6 +43,7 @@ export class EditMemberPage {
         if (resp.status) {
           this.edit_member = resp.data;
           this.edit_member.view_image = this.edit_member.image;
+          console.log(this.edit_member);
         }
         resolve();
       }, (err) => {

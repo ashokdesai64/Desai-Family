@@ -82,7 +82,7 @@
           <h2 class="title">{{member.name}}</h2>
           <span class="address">{{member.address}}</span>
           <div class="">
-            <span class="mobile-no">Mo. {{member.mobile}}</span>
+            <span class="mobile-no" *ngIf="member.mobile_no">Mo. {{member.mobile_no}}</span>
             <ion-note item-end class="blood-group" *ngIf="member.blood_group">
               <ion-icon name="water" color="pink"></ion-icon> {{member.blood_group}}</ion-note>
           </div>

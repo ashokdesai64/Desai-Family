@@ -102,7 +102,6 @@ export class User {
   }
 
   families(param) {
-    console.log(param)
     param.header = GLOBAL.API_HEADER;
     return this.api.get('families', param).share();
   }

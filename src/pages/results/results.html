@@ -11,7 +11,7 @@
     <ion-card class="list-box" *ngFor="let result of results">
       <ion-item (click)="gotoviewresults(result.id)">
         <ion-thumbnail item-start>
-          <img src="{{result.image}}" onerror="this.src='assets/img/default-user-avatars.png'" />
+          <img src="{{result.image}}" onerror="this.src='assets/img/default-result.png'" />
         </ion-thumbnail>
         <h2 class="title">{{result.name}}</h2>
         <span class="pass-year">Passing Year: {{result.passing_year}}</span>

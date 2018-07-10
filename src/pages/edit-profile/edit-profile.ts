@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'edit-profile.html',
 })
 export class EditProfilePage {
-  details: any;
+  details: any = { view_image: '' };
   district: any = [];
   taluka: any = [];
   village: any = [];

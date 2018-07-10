@@ -12,9 +12,9 @@
       <ion-row align-items-start>
         <ion-col col-4>
           <div text-left class="edit-avter">
-            <img *ngIf="details.view_image" [src]="details.view_image" onerror="this.src='assets/img/default-user-avatars.png'" />
+            <img [src]="details.view_image" onerror="this.src='assets/img/default-user-avatars.png'" />
             <span lang="edit-pen">
-              <input type="file" accept="image/x-png,image/jpeg" (change)="fileUpload($event)" id="file-input" name="new_image" style="opacity: 0" #fileInp>
+              <input type="file" (change)="fileUpload($event)" id="file-input" name="new_image" style="opacity: 0" #fileInp>
               <ion-icon name="create" for="file-input"></ion-icon>
             </span>
           </div>

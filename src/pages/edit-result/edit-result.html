@@ -7,14 +7,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form (submit)="editresult()" #formCtrl="ngForm">
+  <form (submit)="editresult()" #formCtrl="ngForm" *ngIf="add_result">
   <div class="upload-img">
     <button ion-button type="button" class="upload-arrow" color="white" >
       <input type="file" (change)="fileUpload($event)" id="file-input" name="image" style="opacity: 0" #fileInp>
       <ion-icon name="arrow-up"></ion-icon> 
     </button>
     <span class="up-titile">Upload Your Result</span>
-    <img [src]="add_result.view_image" *ngIf="add_result.view_image"/>
+    <img [src]="add_result.view_image" onerror="this.src='assets/img/default-result.png'"/>
   </div>
   <ion-list>
     <ion-item>
