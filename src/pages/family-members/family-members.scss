@@ -12,6 +12,11 @@ page-family-members {
             border-bottom: none; 
         }
     }
+    .title{
+        margin: 0px;
+        font-weight: 500;
+        font-size: 16px;
+    }
     .bg-pink{
         background-color: $pink;
         height: 90px;
@@ -26,6 +31,10 @@ page-family-members {
     }
     .card-md{
         @extend .card-ios;
+
+        h2 {
+            @extend .title;
+        }
     }
     .edit-avter{
         padding-bottom: 15px;
@@ -84,6 +93,7 @@ page-family-members {
     .profile-avatar{
         border-radius: 50px;
     }
+    
     // .list-title{
     //     font-size:15px;
     //     color: $primary-color;
@@ -117,11 +127,6 @@ page-family-members {
     }
     .button-full-md{
         @extend .button-full-ios;
-    }
-    .title{
-        margin: 0px;
-        font-weight: 500;
-        font-size: 16px;
     }
     .address{
         font-size: 12px;

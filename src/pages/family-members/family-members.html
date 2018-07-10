@@ -70,7 +70,7 @@
 
   <ion-list *ngIf="members">
     <ion-card *ngFor="let member of members" class="list-box">
-      <ion-item (click)="gotoviewmember(member)">
+      <button ion-item (click)="gotoviewmember(member)">
           <ion-thumbnail item-start>
             <img src="{{member.image}}" onerror="this.src='assets/img/default-user-avatars.png'"/>
           </ion-thumbnail>
@@ -83,7 +83,7 @@
           <div class="rela-label" *ngIf="member.relation">
               <span>{{member.relation}}</span>
           </div>
-      </ion-item>
+      </button>
     </ion-card>
   </ion-list>
 </ion-content>

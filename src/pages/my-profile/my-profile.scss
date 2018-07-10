@@ -12,6 +12,11 @@ page-my-profile {
             border-bottom: none; 
         }
     }
+    .title{
+        margin: 0px;
+        font-weight: 500;
+        font-size: 16px;
+    }
     .bg-pink{
         background-color: $pink;
         height: 90px;
@@ -26,6 +31,9 @@ page-my-profile {
     }
     .card-md{
         @extend .card-ios;
+        h2 {
+            @extend .title;
+        }
     }
     .edit-avter{
         padding-bottom: 15px;
@@ -108,11 +116,6 @@ page-my-profile {
     }
     .button-full-md{
         @extend .button-full-ios;
-    }
-    .title{
-        margin: 0px;
-        font-weight: 500;
-        font-size: 16px;
     }
     .address{
         font-size: 12px;
