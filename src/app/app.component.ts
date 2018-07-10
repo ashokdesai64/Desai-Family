@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { NetworkProvider } from '../providers/network/network'
 // import { TranslateService } from '@ngx-translate/core';
-import { Nav, Platform, MenuController, Events } from 'ionic-angular';//Config
+import { Nav, Platform, MenuController, Events, ToastController } from 'ionic-angular';//Config
 import { FirstRunPage, HomePage } from '../pages';
 
 import { GLOBAL } from '../app/global';
@@ -28,12 +29,13 @@ export class MyApp {
     // private translate: TranslateService, 
     platform: Platform, 
     // private config: Config, 
+    public toastCtrl: ToastController,
     private events: Events, 
     private statusBar: StatusBar, 
     private menuCtrl: MenuController, 
+    public networkProvider: NetworkProvider,
     private splashScreen: SplashScreen
   ) {
-    
     if (GLOBAL.IS_LOGGEDIN){
       this.rootPage = HomePage;  
     }
@@ -44,6 +46,31 @@ export class MyApp {
       this._user = user; 
     });
     platform.ready().then(() => {
+      
+      this.networkProvider.initializeNetworkEvents();
+
+      // Offline event
+      this.events.subscribe('network:offline', () => {
+        let toast = this.toastCtrl.create({
+          message: 'No internet connection',
+          duration: 2000,
+          cssClass:'toast-error',
+          position: 'bottom'
+        });
+        toast.present();  
+      });
+
+      // Online event
+      this.events.subscribe('network:online', () => {
+        let toast = this.toastCtrl.create({
+          message: 'Internet connection is on',
+          duration: 2000,
+          cssClass: 'toast-success',
+          position: 'bottom'
+        });
+        toast.present();  
+      });
+
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });

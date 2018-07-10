@@ -44,3 +44,14 @@
         color: $light-gray;
     }
 }
+
+.toast-success {
+  > div{
+       background-color:#4CAF50 !important;
+   }
+}
+.toast-error {
+  > div{
+       background-color:#F44336 !important;
+   }
+}

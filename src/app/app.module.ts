@@ -11,6 +11,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Items } from '../mocks/providers/items';
 import { User, Api } from '../providers';
 import { MyApp } from './app.component';
+import { NetworkProvider } from '../providers/network/network';
+import { Network } from '@ionic-native/network';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,6 +48,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    NetworkProvider,
+    Network,
   ]
 })
 export class AppModule { }

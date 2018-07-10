@@ -58,6 +58,7 @@ export class LoginPage {
         let toast = this.toastCtrl.create({
           message: resp.message,
           duration: 1000,
+          cssClass: 'toast-success',
           position: 'bottom'
         });
         toast.present();  
@@ -68,6 +69,7 @@ export class LoginPage {
       let toast = this.toastCtrl.create({
         message: err.error.message,
         duration: 3000,
+        cssClass: 'toast-error',
         position: 'bottom'
       });
       toast.present();
