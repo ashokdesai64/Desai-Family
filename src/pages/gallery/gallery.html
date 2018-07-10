@@ -11,7 +11,7 @@
       <ion-row>
         <ion-col col-6 col-md-4 col-xl-3 *ngFor="let item of galleries" (click)="gotoviewgallery(item)">
           <div class="gallery-fol">
-            <div class="image-container" [style.background-image]="'url(' + item.image + ')'"></div>
+            <div class="image-container" [ngStyle]="{'background': 'url(' + item.image + '),url(assets/img/no-image-found.jpg) no-repeat center center'}"></div>
             <div class="gal-fol-name">
               <span class="fold-name">{{item.title}}</span>
               <span class="img-count">{{item.total_image}}</span>
