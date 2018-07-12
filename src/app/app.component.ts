@@ -53,26 +53,26 @@ export class MyApp {
         this.networkProvider.initializeNetworkEvents();
 
         // Offline event
-        this.events.subscribe('network:offline', () => {
-          let toast = this.toastCtrl.create({
-            message: 'No internet connection',
-            duration: 2000,
-            cssClass: 'toast-error',
-            position: 'bottom'
-          });
-          toast.present();
-        });
+        // this.events.subscribe('network:offline', () => {
+        //   let toast = this.toastCtrl.create({
+        //     message: 'No internet connection',
+        //     duration: 2000,
+        //     cssClass: 'toast-error',
+        //     position: 'bottom'
+        //   });
+        //   toast.present();
+        // });
 
         // Online event
-        this.events.subscribe('network:online', () => {
-          let toast = this.toastCtrl.create({
-            message: 'Internet connection is on',
-            duration: 2000,
-            cssClass: 'toast-success',
-            position: 'bottom'
-          });
-          toast.present();
-        });
+        // this.events.subscribe('network:online', () => {
+        //   let toast = this.toastCtrl.create({
+        //     message: 'Internet connection is on',
+        //     duration: 2000,
+        //     cssClass: 'toast-success',
+        //     position: 'bottom'
+        //   });
+        //   toast.present();
+        // });
       } catch (error) {
         console.log(error);
       }

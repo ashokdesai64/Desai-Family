@@ -5,6 +5,6 @@ export var GLOBAL = {
     IS_LOGGEDIN: localStorage.getItem("is_loggedin")?true:false,
     USER: JSON.parse(localStorage.getItem("is_loggedin")),
     AVATAR: 'assets/img/default-user-avatars.png',
-    ONESIGNAL_APPID: '5dff1832-8d7c-459c-8dba-577abeb15e4f',
+    ONESIGNAL_APPID: 'c4c88875-5751-4a69-8f2f-c2e82276c83b',
     SENDER_ID: '825066172517',
 };

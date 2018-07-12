@@ -31,6 +31,10 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+
+  }
+  
+  ionViewWillEnter() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
