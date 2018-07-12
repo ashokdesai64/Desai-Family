@@ -7,6 +7,7 @@ import { Nav, Platform, MenuController, Events, ToastController } from 'ionic-an
 import { FirstRunPage, HomePage } from '../pages';
 
 import { GLOBAL } from '../app/global';
+import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,7 +35,8 @@ export class MyApp {
     private statusBar: StatusBar, 
     private menuCtrl: MenuController, 
     public networkProvider: NetworkProvider,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private oneSignal: OneSignal,
   ) {
     if (GLOBAL.IS_LOGGEDIN){
       this.rootPage = HomePage;  
@@ -46,62 +48,61 @@ export class MyApp {
       this._user = user; 
     });
     platform.ready().then(() => {
-      
-      this.networkProvider.initializeNetworkEvents();
+      try {
+        
+        this.networkProvider.initializeNetworkEvents();
 
-      // Offline event
-      this.events.subscribe('network:offline', () => {
-        let toast = this.toastCtrl.create({
-          message: 'No internet connection',
-          duration: 2000,
-          cssClass:'toast-error',
-          position: 'bottom'
+        // Offline event
+        this.events.subscribe('network:offline', () => {
+          let toast = this.toastCtrl.create({
+            message: 'No internet connection',
+            duration: 2000,
+            cssClass: 'toast-error',
+            position: 'bottom'
+          });
+          toast.present();
         });
-        toast.present();  
-      });
 
-      // Online event
-      this.events.subscribe('network:online', () => {
-        let toast = this.toastCtrl.create({
-          message: 'Internet connection is on',
-          duration: 2000,
-          cssClass: 'toast-success',
-          position: 'bottom'
+        // Online event
+        this.events.subscribe('network:online', () => {
+          let toast = this.toastCtrl.create({
+            message: 'Internet connection is on',
+            duration: 2000,
+            cssClass: 'toast-success',
+            position: 'bottom'
+          });
+          toast.present();
         });
-        toast.present();  
-      });
+      } catch (error) {
+        console.log(error);
+      }
 
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
+
+      // OneSignal Code start:
+      // Enable to debug issues:
+      // window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+      try{
+        this.oneSignal.startInit(GLOBAL.ONESIGNAL_APPID, GLOBAL.SENDER_ID);
+        this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+        this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
+        this.oneSignal.handleNotificationOpened().subscribe(data => this.onPushOpened(data.notification.payload));
+        this.oneSignal.endInit();
+      }
+      catch (error){
+        console.log('This is a native feature. Please use a device');
+      }
     });
-    // this.initTranslate();
   }
 
-  // initTranslate() {
-    // Set the default language for translation strings, and the current language.
-    // this.translate.setDefaultLang('en');
-    // const browserLang = this.translate.getBrowserLang();
+  private onPushReceived(payload: OSNotificationPayload) {
+    alert('Push recevied:' + payload.body);
+  }
 
-    // if (browserLang) {
-    //   if (browserLang === 'zh') {
-    //     const browserCultureLang = this.translate.getBrowserCultureLang();
-
-    //     if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
-    //       this.translate.use('zh-cmn-Hans');
-    //     } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
-    //       this.translate.use('zh-cmn-Hant');
-    //     }
-    //   } else {
-    //     this.translate.use(this.translate.getBrowserLang());
-    //   }
-    // } else {
-    //   this.translate.use('en'); // Set your language here
-    // }
-
-    // this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-    //   this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    // });
-  // }
+  private onPushOpened(payload: OSNotificationPayload) {
+    alert('Push opened: ' + payload.body);
+  }  
 
   openPage(page) {
     this.nav.push(page.component);

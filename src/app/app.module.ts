@@ -13,6 +13,7 @@ import { User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { NetworkProvider } from '../providers/network/network';
 import { Network } from '@ionic-native/network';
+import { OneSignal } from '@ionic-native/onesignal';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -50,6 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NetworkProvider,
     Network,
+    OneSignal,
   ]
 })
 export class AppModule { }
